@@ -56,8 +56,8 @@ const Sectionthree = () => {
     details.map((datum) => (
         <div key={datum.id} className='border shadow-2xl flex flex-col gap-4'>
             <Image src={datum.pic} alt='pic-img' className='rounded-xl'/>
-            <p className='text-orange px-5'>{datum.text}</p>
-            <p className='pb-5 px-5'>{datum.textwo}</p>
+            <p className='text-orange px-5 text-sm md:text-2xl lg:text-lg xl:text-xl font-medium'>{datum.text}</p>
+            <p className='pb-5 px-5 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.textwo}</p>
             </div>
     ))
 }
