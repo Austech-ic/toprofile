@@ -84,7 +84,7 @@ const Header = () => {
             <div className='flex flex-col gap-1' onClick={handlePraticeDropdownToggle}>
               <div className='flex items-center justify-center gap-1 hover:text-orange'>
                 <li className='pt-1  text-xs md:text-lg lg:text-sm xl:text-base'>ABOUT US</li>
-                <IoIosArrowDown className='text-orange' />
+                <IoIosArrowDown className='text-orange'/>
               </div>
               {isPraticeDropdownOpen && (
                 <div className=" text-sm ">
@@ -162,12 +162,12 @@ const Header = () => {
               <div className='flex flex-col gap-2' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handlePraticeDropdownToggle}>
                 <div className='flex items-center gap-1 hover:text-orange cursor-pointer'>
                   <li>ABOUT US</li>
-                  <IoIosArrowDown className='' />
+                  <IoIosArrowDown  className={`${styles.dropdownIcon} ${isSticky ? styles.orangeIcon : ''}`} />
                 </div>
                 <div>
                   {isPraticeDropdownOpen && (
-                    <div className="text-sm bg-fad  rounded-lg" style={{ position: 'absolute', top: '100%', left: 0 }}>
-                    <ul className='text-xs md:text-xl lg:text-sm xl:text-sm flex flex-col  gap-1 text-white pt-2 w-[100%] px-3 py-3 shadow-2xl' >
+                    <div className="text-sm bg-white rounded-lg text-orange" style={{ position: 'absolute', top: '100%', left: 0 }}>
+                    <ul className='text-xs md:text-xl lg:text-sm xl:text-sm flex flex-col  gap-1 pt-2 w-[100%] px-3 py-3 shadow-2xl' >
                       <Link href={`/teams`} className='hover:text-orange'>
                         <div className='flex items-center justify-between gap-1 hover:text-orange'>
                           <li>OUR TEAM</li>
@@ -184,11 +184,11 @@ const Header = () => {
               <div className='flex flex-col gap-1' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handleDropdownToggle}>
                 <div className='flex items-center gap-1 hover:text-orange cursor-pointer'>
                   <li>PAGES</li>
-                  <IoIosArrowDown className='' />
+                  <IoIosArrowDown  className={`${styles.dropdownIcon} ${isSticky ? styles.orangeIcon : ''}`} />
                 </div>
                 {isDropdownOpen && (
-                  <div className="text-sm bg-fad  rounded-lg " style={{ position: 'absolute', top: '100%', left: 0 }}>
-                    <ul className='text-xs md:text-xl lg:text-sm xl:text-sm flex flex-col gap-1 text-white w-[100%] px-3 py-3 shadow-2xl' >
+                  <div className="text-sm bg-white text-orange rounded-lg " style={{ position: 'absolute', top: '100%', left: 0 }}>
+                    <ul className='text-xs md:text-xl lg:text-sm xl:text-sm flex flex-col gap-1  w-[100%] px-3 py-3 shadow-2xl' >
                       <Link href={`/testimonialpage`} className='hover:text-orange'>
                         <div className='flex items-center justify-start gap-1 hover:text-orange'>
                           <li>BLOGS</li>

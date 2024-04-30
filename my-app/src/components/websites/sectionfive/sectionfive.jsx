@@ -110,7 +110,6 @@ const Sectionfive = () => {
                             <Image src={datum.pic} alt='pic-img' className='w-[50%] lg:w-[70%]' />
                             <p className='text-sm md:text-2xl lg:text-sm xl:text-base font-medium'>{datum.label}</p>
                             <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light text-orange'>{datum.position}</p>
-                            <p>hello</p>
                             <div className='flex flex-row gap-4 '>
                                 {datum?.social?.map((item) => (
                                   <div className='bg-white shadow-xl flex items-center justify-center rounded-full h-6 w-6 md:h-12 md:w-12 lg:h-8 lg:w-8 xl:h-10 xl:w-10'>

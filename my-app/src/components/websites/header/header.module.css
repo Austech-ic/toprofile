@@ -13,13 +13,38 @@
    padding-right: 80px;
     background-color: red;
 }
+.header {
+    transition: background-color 0.3s ease;
+  }
+  .icon{
+    color: #DD4C23;
+  }
+  .dropdownIcon {
+    transition: color 0.3s ease;
+  }
+  
+  .orangeIcon {
+    color: #DD4C23;
+  }
+  
+  
+  
+  /* Change text color to orange when sticky */
+  .sticky li,
+  .sticky li:hover,
+  .sticky .menuicon,
+  .sticky .menuicon:hover
+  .sticky .icon {
+    color: #DD4C23;
+  }
+  
 .sticky {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #F4C5A9; /* Adjust background color as needed */
+    background-color: white; /* Adjust background color as needed */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
   }
   .scrolling .text-white {
