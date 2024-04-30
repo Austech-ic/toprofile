@@ -1,9 +1,37 @@
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
-import React from 'react'
 import multi from '../../../../public/img/multi.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Sectionthree = () => {
+
+
+    const scrollTriggerRef = useRef(null);
+
+  useEffect(() => {
+      AOS.init();
+      const options = {
+          threshold: 0.2,
+      };
+      const observer = new IntersectionObserver(handleScroll, options);
+      observer.observe(scrollTriggerRef.current);
+
+      return () => {
+          observer.disconnect();
+      };
+  }, []);
+
+  const handleScroll = (entries) => {
+      entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+              AOS.refresh();
+          }
+      });
+  };
+
     const details = [
         {
             id:1,
@@ -40,7 +68,10 @@ const Sectionthree = () => {
 
 
   return (
-    <div className='bg-gray-100 '>
+    <div className='bg-gray-100 ' data-aos='flip-down'
+    data-aos-easing='ease-out-cubic'
+ data-aos-duration='2000'
+ ref={scrollTriggerRef}>
          <div className='flex justify-center items-center gap-2'>
       <div className='border border-orange border-b-4 md:border-b-8 w-[10%] md:w-[6%] rounded-3xl'> </div>
       <div className='border border-fad border-b-4 md:border-b-8 w-[6%] md:w-[3%] rounded-3xl'> </div>

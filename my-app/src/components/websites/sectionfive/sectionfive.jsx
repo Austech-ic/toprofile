@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
+
 import Image from 'next/image'
 import Male from '../../../../public/img/man.png'
 import { FaFacebookF, FaGooglePlusG, FaYoutube } from 'react-icons/fa'
@@ -10,11 +12,37 @@ import Link from 'next/link'
 import { IoMail } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const Sectionfive = () => {
+
+
+    const scrollTriggerRef = useRef(null);
+
+  useEffect(() => {
+      AOS.init();
+      const options = {
+          threshold: 0.2,
+      };
+      const observer = new IntersectionObserver(handleScroll, options);
+      observer.observe(scrollTriggerRef.current);
+
+      return () => {
+          observer.disconnect();
+      };
+  }, []);
+
+  const handleScroll = (entries) => {
+      entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+              AOS.refresh();
+          }
+      });
+  };
+
 
 
 
@@ -60,7 +88,10 @@ const Sectionfive = () => {
 
 
     return (
-        <div className='pt-16 md:pt-28 xl:pt-32'>
+        <div className='pt-3 md:pt-8 xl:pt-12'  data-aos='flip-right'
+        data-aos-easing='ease-out-cubic'
+     data-aos-duration='2000'
+     ref={scrollTriggerRef}>
             <div className='flex justify-center items-center gap-2'>
                 <div className='border border-orange border-b-4 md:border-b-8 w-[10%] md:w-[6%] rounded-3xl'> </div>
                 <div className='border border-fad border-b-4 md:border-b-8 w-[6%] md:w-[3%] rounded-3xl'> </div>

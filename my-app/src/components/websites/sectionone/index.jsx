@@ -11,9 +11,17 @@ import { MdOutlineMessage } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
-
+import Link from 'next/link';
 
 const Index = () => {
+
+  const [address] = useState("Suite 47, Vicbalkon Towers, Plot C44, Utako District.");
+
+  const handleAddressClick = () => {
+      const encodedAddress = encodeURIComponent(address);
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+      window.open(googleMapsUrl, '_blank');
+  };
 
   const [showWhatsApp, setShowWhatsApp] = useState(false);
   const [showCall, setShowCall] = useState(false);
@@ -75,24 +83,31 @@ const Index = () => {
         </div>
       </div>
       <div className={styles.submain}>
-        <div className={styles.subsub}>
+        <div className={styles.subsub}  onClick={handleAddressClick}>
           <IoLocationSharp className='text-orange h-5 w-5 md:h-10 md:w-10 lg:h-9 lg:w-9 xl:w-8 xl:h-8' />
-          <p className='text-xs md:text-2xl lg:text-base w-[80%] xl:w-[50%] '>Suite 47, Vicbalkon Towers, Plot C44, Utako District.</p>
+          <p className='text-xs md:text-2xl lg:text-base w-[80%] xl:w-[50%] '>{address}</p>
         </div>
         <div className={styles.subsubsub}>
           <div className='flex items-center  gap-4 md:gap-8 lg:gap-4 w-full'>
             <IoMail className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-7 xl:h-7 ' />
+            <Link href="mailto:topprofile@gmail.com">
             <div className='flex flex-col '>
               <p className='text-xs md:text-2xl lg:text-base  text-slate-500 font-200'>Contact</p>
               <p className='text-xs md:text-2xl lg:text-base text-black font-200'>suport123@mail.com</p>
             </div>
+            </Link>
+
           </div>
           <div className='flex lg:items-center  gap-4 md:gap-8 lg:gap-4 w-full'>
             <IoCallOutline className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-7 xl:h-7' />
+            <Link href="tel:+2348646346276">
             <div className='flex flex-col '>
               <p className='text-xs md:text-2xl lg:text-base  text-slate-500 font-200'>Contact</p>
+            
               <p className='text-xs md:text-2xl lg:text-base  text-black font-200'>0908646346276</p>
+             
             </div>
+            </Link>
           </div>
         </div>
       </div>

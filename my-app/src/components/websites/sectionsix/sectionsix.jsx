@@ -7,11 +7,22 @@ import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineMessage } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Link from 'next/link'
 
 
 
 
 const Sectionsix = () => {
+
+    const [address] = useState("Suite 47, Vicbalkon Towers, Plot C44, Utako District.");
+
+    const handleAddressClick = () => {
+        const encodedAddress = encodeURIComponent(address);
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+        window.open(googleMapsUrl, '_blank');
+    };
+
+
     return (
         <div className='pt-16 md:pt-28 xl:pt-32'>
             <div className='flex justify-center items-center gap-2'>
@@ -30,23 +41,30 @@ const Sectionsix = () => {
                     <div className='bg-lite text-white px-5 py-10 md:px-10 md:py-14 lg:p-10 flex flex-col gap-2 md:gap-8 lg:gap-6'>
                     <p className='text-sm md:text-2xl lg:text-lg xl:text-xl font-light'>LET'S TALK</p>
                     <p className='text-xl md:text-4xl lg:text-2xl xl:text-3xl font-semibold'>Speak With Our <br className='hidden lg:block' /> Expert.</p>
+                   
+                    <Link href="tel:+2347060679005">
                     <div className='flex items-center  gap-2  md:gap-4 lg:gap-2 w-full'>
                         <div className='bg-white h-8 w-8 md:h-14 md:w-14 lg:h-12 lg:w-12 xl:w-14 xl:h-14 flex items-center justify-center rounded-full'>
                             <IoCallOutline className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-8 xl:h-8 ' />
                         </div>
                         <p className='text-xs md:text-2xl lg:text-base text-white w-[80%]'>+2347060679005</p>
                     </div>
+                    </Link>
+                    <Link href="mailto:Info@toprofile.com" >
                     <div className='flex items-center  gap-2  md:gap-4 lg:gap-2 w-full'>
                         <div className='bg-white  h-8 w-8 md:h-14 md:w-14 lg:h-12 lg:w-12 xl:w-14 xl:h-14 flex items-center justify-center rounded-full'>
                             <MdOutlineMessage className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-8 xl:h-8 ' />
                         </div>
                         <p className=' text-xs md:text-2xl lg:text-base text-white w-[80%]'>Info@toprofile.com</p>
                     </div>
-                    <div className='flex items-center gap-2  md:gap-4 lg:gap-2 w-full'>
+                    </Link>
+
+                    <div className='flex items-center gap-2  md:gap-4 lg:gap-2 w-full cursor-pointer' onClick={handleAddressClick}>
                         <div className='bg-white  h-8 w-8 md:h-14 md:w-14 lg:h-12 lg:w-12 xl:w-14 xl:h-14 flex items-center justify-center rounded-full'>
                             <IoLocationSharp className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6xl:w-8 xl:h-8 ' />
                         </div>
-                        <p className='text-xs md:text-2xl lg:text-base text-white w-[80%] lg:w-[80%] '>Suite 47, Vicbalkon Towers, Plot C44, Utako District.</p>
+
+                        <p className='text-xs md:text-2xl lg:text-base text-white w-[80%] lg:w-[80%] '>{address}</p>
                     </div>
                     </div>
                 </div>

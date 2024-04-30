@@ -65,7 +65,7 @@ const Sectionfour = () => {
         }
     ]
     return (
-        <div className='bg-gray-100 pt-16 md:pt-28 xl:pt-32'>
+        <div className='bg-gray-100 pt-10 md:pt-16 xl:pt-28'>
             <div className='flex justify-center items-center gap-2'>
                 <div className='border border-orange border-b-4 md:border-b-8 w-[10%] md:w-[6%] rounded-3xl'> </div>
                 <div className='border border-fad border-b-4 md:border-b-8 w-[6%] md:w-[3%] rounded-3xl'> </div>

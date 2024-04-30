@@ -1,3 +1,5 @@
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './footer.module.css'
 import Image from 'next/image'
 import logo from '../../../../public/img/jj.png'
@@ -14,6 +16,16 @@ import { FaFacebook } from "react-icons/fa";
 
 
 const Footer = () => {
+
+    const [address] = useState("Suite 47, Vicbalkon Towers, Plot C44, Utako District.");
+
+    const handleAddressClick = () => {
+        const encodedAddress = encodeURIComponent(address);
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+        window.open(googleMapsUrl, '_blank');
+    };
+
+
     const details = [
         {
             id: 1,
@@ -141,29 +153,35 @@ const Footer = () => {
                             <p className='text-white text-sm md:text-2xl lg:text-base font-normal' >CONTACT</p>
                             <div className='flex flex-col gap-2 md:gap-4 lg:gap-2 pt-3' >
 
-                                <Link href="#aboutus" >
+                                <Link href="mailto:topprofile@gmail.com" >
                                     <div>
                                         <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>topprofile@gmail.com</p>
                                     </div>
                                 </Link>
 
-                                <Link href="#features" >
+                                <Link href="tel:+2348123831687" >
                                     <div >
                                         <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>+2348123831687</p>
                                     </div>
                                 </Link>
 
-                                <Link href={`/services`} >
-                                    <div>
-                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>Suite 47, Vicbalkon Towers, Plot C44, Utako District.</p>
+                            
+                                    <div className='cursor-pointer' onClick={handleAddressClick}>
+                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>{address}</p>
                                     </div>
-                                </Link>
+                               
 
                             </div>
                         </div>
                         
                     </div>
                 </div>
+            </div>
+            <div className='text-bll'>
+                <hr  />
+            </div>
+            <div  className='py-5 flex justify-center items-center'>
+                <p className='text-white text-xs md:text-2xl lg:text-sm xl:text-base'>Copyright © 2024 Topprofit</p>
             </div>
         </div>
     )
