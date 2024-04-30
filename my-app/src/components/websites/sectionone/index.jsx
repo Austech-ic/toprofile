@@ -11,6 +11,7 @@ import { MdOutlineMessage } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
+import { MdCall } from "react-icons/md";
 import Link from 'next/link';
 
 const Index = () => {
@@ -66,21 +67,30 @@ const Index = () => {
             </div>
           </button>
         </div>
+        
+          
+        <div className={`${styles.fixedMessageContainer}`}>
         <div className='flex flex-col justify-items-end items-end  w-full pt-[80px] md:pt-[100px] gap-2 md:gap-4'>
-          {showCall &&
-            <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20'>
-              <IoCallOutline className='text-white h-6 w-6 md:w-10 md:h-10' />
+        {showCall &&
+        <Link href="tel:+2348025706191">
+            <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20 lg:h-14 lg:w-14 xl:h-16 xl:w-16'>
+              <MdCall className='text-white h-6 w-6 md:w-10 md:h-10 lg:w-8 lg:h-8 xl:h-10 xl:w-10' />
             </div>
+            </Link>
           }
           {showWhatsApp &&
-            <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20'>
-              <IoLogoWhatsapp className='text-white h-6 w-6 md:w-10 md:h-10' />
+          <Link href="https://wa.me/message/R3XZ3HBLHXWMG1">
+            <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20 lg:h-14 lg:w-14 xl:h-16 xl:w-16'>
+              <IoLogoWhatsapp className='text-white h-6 w-6 md:w-10 md:h-10 lg:w-8 lg:h-8 xl:h-10 xl:w-10' />
             </div>
+            </Link>
           }
-          <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20' onClick={toggleMessage}>
-            <MdOutlineMessage className='text-white h-6 w-6 md:w-10 md:h-10' />
-          </div>
+        <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20 lg:h-14 lg:w-14 xl:h-16 xl:w-16' onClick={toggleMessage}>
+          <MdOutlineMessage className='text-white h-6 w-6 md:w-10 md:h-10 lg:w-8 lg:h-8 xl:h-10 xl:w-10 ' />
         </div>
+        </div>
+      </div>
+       
       </div>
       <div className={styles.submain}>
         <div className={styles.subsub}  onClick={handleAddressClick}>
