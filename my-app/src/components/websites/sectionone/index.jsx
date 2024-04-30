@@ -10,6 +10,7 @@ import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineMessage } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
+import { IoMail } from "react-icons/io5";
 
 
 const Index = () => {
@@ -44,9 +45,9 @@ const Index = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <div className='flex flex-col px-10 md:px-16 pt-12 pb-10 md:pt-20 md:pb-16 lg:px-24 xl:px-36 lg:pt-28 lg:pb-20 xl:pt-40 xl:pb-32 text-white'>
+      <div className='flex flex-col px-8 md:px-16 pt-12 pb-10 md:pt-20 md:pb-16 lg:px-20 xl:px-30 lg:pt-28 lg:pb-20 xl:pt-40 xl:pb-32 text-white'>
         <div className='w-[90%] md:w-[80%] lg:w-[60%] xl:w-[70%] '>
-          <p className='font-semibold leading-10 text-2xl md:text-5xl xl:text-6xl md:leading-relaxed xl:leading-relaxed '>Welcome to Toprofile Real estate</p>
+          <p className='font-semibold leading-10 text-2xl md:text-5xl xl:text-6xl md:leading-relaxed xl:leading-relaxed '>Welcome to Toprofile <br className='hidden lg:block' /> Real estate</p>
           <p className='mt-2 text-xs md:text-2xl lg:text-xl xl:text-xl md:mt-6 font-light leading-relaxed md:leading-10 lg:leading-relaxed xl:leading-loose lg:mt-2 '>Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero <br className='lg:hidden' /> et velit  interdum, ac aliquet odio mattis.</p>
           <div className="mt-4 ">
           </div>
@@ -57,7 +58,7 @@ const Index = () => {
             </div>
           </button>
         </div>
-        <div className='flex flex-col justify-items-end items-end  w-full pt-[80px] md:pt-[100px]'>
+        <div className='flex flex-col justify-items-end items-end  w-full pt-[80px] md:pt-[100px] gap-2 md:gap-4'>
           {showCall &&
             <div className='bg-lite flex justify-center items-center rounded-full h-10 w-10 md:h-20 md:w-20'>
               <IoCallOutline className='text-white h-6 w-6 md:w-10 md:h-10' />
@@ -75,22 +76,22 @@ const Index = () => {
       </div>
       <div className={styles.submain}>
         <div className={styles.subsub}>
-          <IoLocationSharp className='text-orange h-8 w-8 md:h-16 md:w-16 lg:h-9 lg:w-9 xl:w-10 xl:h-10' />
-          <p className='text-xs md:text-2xl lg:text-base xl:text-xl'>Suite 47, Vicbalkon Towers, Plot C44, Utako District.</p>
+          <IoLocationSharp className='text-orange h-5 w-5 md:h-10 md:w-10 lg:h-9 lg:w-9 xl:w-8 xl:h-8' />
+          <p className='text-xs md:text-2xl lg:text-base w-[80%] xl:w-[50%] '>Suite 47, Vicbalkon Towers, Plot C44, Utako District.</p>
         </div>
         <div className={styles.subsubsub}>
-          <div className='flex items-center  gap-4 w-full'>
-            <AiOutlineMail className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-7 xl:h-7 ' />
+          <div className='flex items-center  gap-4 md:gap-8 lg:gap-4 w-full'>
+            <IoMail className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-7 xl:h-7 ' />
             <div className='flex flex-col '>
-              <p className='text-xs md:text-2xl lg:text-base xl:text-xl text-gray-500'>Contact</p>
-              <p className='text-xs md:text-2xl lg:text-base xl:text-xl text-black'>suport123@mail.com</p>
+              <p className='text-xs md:text-2xl lg:text-base  text-slate-500 font-200'>Contact</p>
+              <p className='text-xs md:text-2xl lg:text-base text-black font-200'>suport123@mail.com</p>
             </div>
           </div>
-          <div className='flex lg:items-center  gap-4 w-full'>
+          <div className='flex lg:items-center  gap-4 md:gap-8 lg:gap-4 w-full'>
             <IoCallOutline className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:w-7 xl:h-7' />
             <div className='flex flex-col '>
-              <p className='text-xs md:text-2xl lg:text-base xl:text-xl text-gray-500'>Contact</p>
-              <p className='text-xs md:text-2xl lg:text-base xl:text-xl text-black'>0908646346276</p>
+              <p className='text-xs md:text-2xl lg:text-base  text-slate-500 font-200'>Contact</p>
+              <p className='text-xs md:text-2xl lg:text-base  text-black font-200'>0908646346276</p>
             </div>
           </div>
         </div>

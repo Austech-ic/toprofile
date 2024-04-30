@@ -5,6 +5,8 @@ import Image from "next/image";
 import Sectionone from '../components/websites/sectionone/index'
 import Sectionfour from "@/components/websites/sectionfour/sectionfour";
 import Sectionfive from "@/components/websites/sectionfive/sectionfive";
+import Sectionsix from "@/components/websites/sectionsix/sectionsix";
+import Footer from "@/components/websites/Footer/footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
        <Sectionthree />
        <Sectionfour />
        <Sectionfive />
+       <Sectionsix />
+       <Footer />
    
     </main>
   );

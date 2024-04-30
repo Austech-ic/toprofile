@@ -20,17 +20,17 @@
 }
 .submain{
     display: flex;
-    align-items: center;
-    height: 20vh;
+    flex-direction: column-reverse;
+  
+    /* height: 20vh; */
     
   
 }
 .subsub{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 10px;
-    padding: 0 10px;
+    padding:30px 20px;
     flex:1;
     background-color: #222222;
     height: 100%;
@@ -45,20 +45,22 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 0 10px;
+    padding:20px;
    
 }
 
 @media (min-width:768px) {
-    .main {
+    .subsub {
         /* height: 70vh; */
+        padding:40px 30px;
+        gap: 23px;
     }
-    .submain{
-        display: flex;
-        align-items: center;
-        height: 30vh;
-      
+    .subsubsub {
+        /* height: 70vh; */
+        padding:30px;
+        gap: 15px;
     }
+   
 }
 
 @media (min-width:1024px) {
@@ -67,6 +69,7 @@
     }
     .submain{
         display: flex;
+        flex-direction: row;
         align-items: center;
         height: 20vh;
       
@@ -77,6 +80,34 @@
         justify-content: flex-start;
         padding: 0 70px;
         gap: 10px;
+        flex:1;
+        background-color: #222222;
+        height: 100%;
+     
+    }
+    .subsubsub{
+        flex:1;
+        padding: 0 30px;
+        background-color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+       
+    }
+}
+
+
+@media (min-width:1280px) {
+  
+    .subsub{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 70px;
+        gap: 20px;
         flex:1;
         background-color: #222222;
         height: 100%;

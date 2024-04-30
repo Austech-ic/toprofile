@@ -80,11 +80,11 @@ const Sectionfour = () => {
             </div>
 
 
-            <div className='bg-gray-200  px-10 py-10 md:py-16 lg:px-24 xl:px-28'>
+            <div className='bg-gray-200  px-10 py-10 md:py-16 lg:px-20 xl:px-30'>
                 <div className=' grid md:grid-cols-2 xl:grid-cols-3 gap-10'>
                     {
                         details.map((datum) => (
-                            <div key={datum.id} className='border shadow-2xl flex flex-col gap-2 md:gap-4'>
+                            <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4'>
                                 <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
                                 <p className=' px-5 md:px-2 lg:px-5 text-xs md:text-xl lg:text-sm xl:text-base font-medium '>{datum.text}</p>
 

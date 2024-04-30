@@ -36,6 +36,9 @@ const Sectionthree = () => {
             textwo:"We are involved in land acquisition, planning, design, construction, and marketing. We maximize the value and utility of large pieces of land by creating functional and attractive improvements that meet the needs of the community or target market.",
         }
     ]
+
+
+
   return (
     <div className='bg-gray-100 '>
          <div className='flex justify-center items-center gap-2'>
@@ -51,10 +54,10 @@ const Sectionthree = () => {
    <p className='text-center w-[85%] md:w-[90%] lg:w-[60%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
    </div>
 
-<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 py-5 lg:px-24 xl:px-28'>
+<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 py-5 lg:px-20 xl:px-30'>
 {
     details.map((datum) => (
-        <div key={datum.id} className='border shadow-2xl flex flex-col gap-4'>
+        <div key={datum.id} className=' shadow-2xl flex flex-col gap-4'>
             <Image src={datum.pic} alt='pic-img' className='rounded-xl'/>
             <p className='text-orange px-5 text-sm md:text-2xl lg:text-lg xl:text-xl font-medium'>{datum.text}</p>
             <p className='pb-5 px-5 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.textwo}</p>

@@ -17,6 +17,17 @@ module.exports = {
         lite:'#EB6C1F',
         gra:'#222222',
         fad:'#F4C5A9',
+        gray:'#F3F3F3',
+        blc:"#5A5A5A",
+      },
+      flex: {
+        '1': '1 1 0%',
+        auto: '1 1 auto',
+        initial: '0 1 auto',
+        inherit: 'inherit',
+        none: 'none',
+        '2': '2 1 0%',
+        '3': '3 1', // Adjusted flex value for flex-3
       },
     },
   },
