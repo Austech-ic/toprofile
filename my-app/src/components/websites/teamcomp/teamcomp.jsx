@@ -135,7 +135,7 @@ const Teamcomp = () => {
             <div className='grid lg:grid-cols-3 gap-10 md:gap-16  px-10 py-8 md:py-10 lg:py-3 xl:py-10 lg:px-20 xl:px-30'>
                 {
                     details.map((datum) => (
-                        <div className='flex flex-col gap-4 md:gap-8  '>
+                        <div key={datum.id} className='flex flex-col gap-4 md:gap-8  '>
                             <div className='flex flex-col gap-1 md:gap-2 shadow-2xl pb-5 md:pb-16 lg:pb-10 rounded-2xl'>
                             <Image src={datum.pic} alt='pic-img' className='w-[100%]' />
                             <p className='text-sm md:text-2xl lg:text-sm xl:text-base font-medium px-5 pt-2 md:pt-4 lg:pt-2 '>{datum.label}</p>
@@ -144,7 +144,7 @@ const Teamcomp = () => {
                             
                             <div className='flex flex-row justify-center items-center gap-4 '>
                                 {datum?.social?.map((item) => (
-                                  <div className='bg-white shadow-xl flex items-center justify-center rounded-full h-6 w-6 md:h-12 md:w-12 lg:h-8 lg:w-8 xl:h-10 xl:w-10'>
+                                  <div key={item.id} className='bg-white shadow-xl flex items-center justify-center rounded-full h-6 w-6 md:h-12 md:w-12 lg:h-8 lg:w-8 xl:h-10 xl:w-10'>
                                       <p key={item.id} className='flex flex-row'>{item.icon}</p>
                                   </div>
                                 ))}

@@ -39,7 +39,7 @@ const Sectionsix = () => {
                 <div className=' flex-1 '>
                    
                     <div className='bg-lite text-white px-5 py-10 md:px-10 md:py-14 lg:p-10 flex flex-col gap-2 md:gap-8 lg:gap-6'>
-                    <p className='text-sm md:text-2xl lg:text-lg xl:text-xl font-light'>LET'S TALK</p>
+                    <p className='text-sm md:text-2xl lg:text-lg xl:text-xl font-light'>LETS TALK</p>
                     <p className='text-xl md:text-4xl lg:text-2xl xl:text-3xl font-semibold'>Speak With Our <br className='hidden lg:block' /> Expert.</p>
                    
                     <Link href="tel:+2347060679005">
