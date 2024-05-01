@@ -6,6 +6,7 @@ import { LuBedDouble, LuBath } from "react-icons/lu";
 import { FaLandmark } from 'react-icons/fa';
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
+import { BsHouse } from "react-icons/bs";
 
 const Projectcomp = () => {
 
@@ -96,7 +97,7 @@ const Projectcomp = () => {
     return (
         <div className='bg-gray'>
            <div className='flex items-center justify-center relative'>
-           <div className='bg-white w-[80%] rounded-2xl p-10 md:p-20 lg:p-10 xl:p-20 flex flex-col gap-4 absolute top-[-4rem] md:top-[-13rem] lg:top-[-5rem] xl:top-[-8rem]'>
+           <div className='bg-white w-[80%] rounded-2xl p-10 md:p-20 lg:p-10 xl:p-16 flex flex-col gap-4 absolute top-[-4rem] md:top-[-13rem] lg:top-[-5rem] xl:top-[-8rem]'>
 
            <div className=' flex flex-col lg:flex-row gap-4 md:gap-8 '>
                <div className='flex-1 flex flex-col gap-2 ' >
@@ -109,8 +110,8 @@ const Projectcomp = () => {
                <div className='flex-1 flex flex-col gap-2' >
                 <p className='text-sm md:text-2xl lg:text-base xl:text-lg'>Select Categories:</p>
                <div className='bg-gray flex items-center px-3 py-3 md:py-5 md:px-5 lg:px-3 lg:py-3  gap-2'>
-                <AiOutlineSearch className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6' />
-               <input type="text" placeholder='Search For Property' className='text-xs md:text-xl lg:text-sm xl:text-base bg-transparent outline-none'  />
+                <BsHouse className='text-orange h-4 w-4 md:h-8 md:w-8 lg:h-6 lg:w-6' />
+               <input type="text" placeholder='House' className='text-xs md:text-xl lg:text-sm xl:text-base bg-transparent outline-none'  />
                </div>
                </div>
                <div className='flex-1 flex flex-col gap-2' >
@@ -123,7 +124,7 @@ const Projectcomp = () => {
             </div>
 
             <div className=''>
-                <button className='bg-orange text-white text-xs md:text-2xl lg:text-base xl:text-lg px-6 md:px-8 py-2 md:py-3 lg:py-2 '>Search</button>
+                <button className='bg-orange text-white text-xs md:text-2xl lg:text-base xl:text-lg px-6 md:px-8 xl:px-10 py-2 md:py-3 lg:py-2 '>Search</button>
             </div>
            </div>
             
