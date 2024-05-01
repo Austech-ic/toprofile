@@ -2,11 +2,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
 import multi from '../../../../public/img/multi.png'
+import white from '../../../../public/img/white.png'
+import one from '../../../../public/img/one.png'
+import four from '../../../../public/img/four.png'
+import seven from '../../../../public/img/seven.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
 const Sectionthree = () => {
+
+    const [expanded, setExpanded] = useState(false);
+
+
+    const shortenText = (text) => {
+        const maxLength = 170;
+        if (text.length > maxLength && !expanded) {
+            return text.substring(0, maxLength) + "...";
+        }
+        return text;
+    };
+
+    const toggleExpand = () => {
+        setExpanded(!expanded);
+    };
+
 
 
     const scrollTriggerRef = useRef(null);
@@ -41,27 +61,27 @@ const Sectionthree = () => {
         },
         {
             id:2,
-            pic:multi,
-            text:"Estate Development",
-            textwo:"We are involved in land acquisition, planning, design, construction, and marketing. We maximize the value and utility of large pieces of land by creating functional and attractive improvements that meet the needs of the community or target market.",
+            pic:white,
+            text:"Estate Management",
+            textwo:"Estate Management: We oversee and handle various aspects of our clients' assets, properties, and investments, during their lifetime and even thereafter. We ensure the smooth transfer of assets to beneficiaries or heirs according to the Read more",
         },
         {
             id:3,
-            pic:multi,
-            text:"Estate Development",
-            textwo:"We are involved in land acquisition, planning, design, construction, and marketing. We maximize the value and utility of large pieces of land by creating functional and attractive improvements that meet the needs of the community or target market.",
+            pic:one,
+            text:"Sale and Marketing",
+            textwo:"Let's walk you through the legal transfer of ownership of a piece of real estate (land, buildings, or others structures). Whether you are buying or selling, we will provide the solution you need",
         },
         {
             id:4,
-            pic:multi,
-            text:"Estate Development",
-            textwo:"We are involved in land acquisition, planning, design, construction, and marketing. We maximize the value and utility of large pieces of land by creating functional and attractive improvements that meet the needs of the community or target market.",
+            pic:four,
+            text:"Architecture",
+            textwo:"We help investors and land users with aesthetically pleasing designs and the construction of their living spaces or other physical structures, in line with recommended prototypes and based on their needs.",
         },
         {
             id:5,
-            pic:multi,
-            text:"Estate Development",
-            textwo:"We are involved in land acquisition, planning, design, construction, and marketing. We maximize the value and utility of large pieces of land by creating functional and attractive improvements that meet the needs of the community or target market.",
+            pic:seven,
+            text:"Project Management",
+            textwo:"With strong leadership and problem-solving skills, we plan, coordinate, oversee, and execute projects from conception to completion, on time and within scope.",
         }
     ]
 
@@ -90,8 +110,16 @@ const Sectionthree = () => {
     details.map((datum) => (
         <div key={datum.id} className=' shadow-2xl flex flex-col gap-4'>
             <Image src={datum.pic} alt='pic-img' className='rounded-xl'/>
-            <p className='text-orange px-5 text-sm md:text-2xl lg:text-lg xl:text-xl font-medium'>{datum.text}</p>
-            <p className='pb-5 px-5 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.textwo}</p>
+            <p className='text-orange px-5 text-sm md:text-2xl lg:text-lg xl:text-xl font-medium '>{datum.text}</p>
+            <p className='pb-5 px-5 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>
+            {shortenText(datum.textwo)}
+                                {datum.textwo.length > 150 && (
+                                    <span className="text-orange text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light cursor-pointer" onClick={toggleExpand}>
+                                        {expanded ? " Read Less" : " Read More"}
+                                    </span>
+                                )}
+              
+                </p>
             </div>
     ))
 }

@@ -62,8 +62,11 @@ const Sectionfour = () => {
             sqr: "8000sq+",
             baths: "4 Baths",
             bed: "4 Beds",
-        }
+        },
+       
     ]
+    
+
     return (
         <div className='bg-gray-100 pt-10 md:pt-16 xl:pt-28'>
             <div className='flex justify-center items-center gap-2'>
@@ -80,15 +83,21 @@ const Sectionfour = () => {
             </div>
 
 
-            <div className='bg-gray-200  px-10 py-10 md:py-16 lg:px-20 xl:px-30'>
+             <div className='bg-gray-200  px-10 py-10 md:py-16 lg:px-20 xl:px-30'>
                 <div className=' grid md:grid-cols-2 xl:grid-cols-3 gap-10'>
                     {
                         details.map((datum) => (
                             <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4'>
                                 <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
-                                <p className=' px-5 md:px-2 lg:px-5 text-xs md:text-xl lg:text-sm xl:text-base font-medium '>{datum.text}</p>
+                                <div className=' px-5 md:px-2 lg:px-5'>
+                                <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium '>{datum.text}</p>
+                                <div className='border-gray border-b-2 mt-2 md:mt-5'></div>
+                                </div>
+                               
 
-                                <div className='px-5 pt-2 md:pt-3 md:px-2 lg:px-5  flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
+                               <div className='px-5 pt-2 md:pt-3 md:px-2 lg:px-5 '>
+
+                               <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
                                     <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
                                         <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
                                         <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.sqr}</p>
@@ -105,6 +114,9 @@ const Sectionfour = () => {
 
 
                                 </div>
+                                <div className='border-gray border-b-2 mt-2 md:mt-5'></div>
+
+                               </div>
 
 
                                 <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>

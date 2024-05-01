@@ -17,7 +17,6 @@ export default function Home() {
        <Sectionfour />
        <Sectionfive />
        <Sectionsix />
-       <Footer />
    
     </main>
   );

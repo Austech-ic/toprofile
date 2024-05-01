@@ -77,11 +77,11 @@ const Header = () => {
             <Link href={`/`} className='hover:text-orange'>
               <li className="text-center  text-xs md:text-xl lg:text-sm xl:text-base py-1">HOME</li>
             </Link>
-            {/* <Link href={`/attorneyprofile`} className='hover:text-black'>
-                <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">About Us</li>
-              </Link> */}
+            <Link href={`/about`} className='hover:text-orange'>
+              <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">ABOUT US</li>
+            </Link>
 
-            <div className='flex flex-col gap-1' onClick={handlePraticeDropdownToggle}>
+            {/* <div className='flex flex-col gap-1' onClick={handlePraticeDropdownToggle}>
               <div className='flex items-center justify-center gap-1 hover:text-orange'>
                 <li className='pt-1  text-xs md:text-lg lg:text-sm xl:text-base'>ABOUT US</li>
                 <IoIosArrowDown className='text-orange'/>
@@ -98,29 +98,29 @@ const Header = () => {
                   </ul>
                 </div>
               )}
-            </div>
-            <Link href={`/projects`} className='hover:text-orange'>
-              <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">PROJECTS</li>
+            </div> */}
+            <Link href={`/teams`} className='hover:text-orange'>
+              <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">OUR TEAMS</li>
             </Link>
             <div className='flex flex-col gap-1' onClick={handleDropdownToggle}>
                 <div className='flex items-center justify-center gap-1 hover:text-orange'>
                   <li className='py-1  text-xs md:text-xl lg:text-sm xl:text-base cursor-pointer'>PAGES</li>
-                  <IoIosArrowDown className='text-orange' />
+                  <IoIosArrowDown className='' />
                 </div>
                 {isDropdownOpen && (
                   <div className=" text-sm">
                     <ul className=' text-xs md:text-xl lg:text-sm xl:text-base flex flex-col py-[0.3px]  gap-1 text-slate-400 '>
-                      <Link href={`/testimonialpage`} className='hover:text-orange'>
+                      <Link href={`/blogs`} className='hover:text-orange'>
                         <div className='flex items-center justify-center gap-1 hover:text-orange'>
                           <li>BLOGS</li>
                         </div>
                       </Link>
-                      <Link href={`/successfulcase`} className='hover:text-orange'>
+                      <Link href={`/termofservice`} className='hover:text-orange'>
                         <div className='flex items-center justify-center gap-1 hover:text-orange'>
                         <li>TERMS OF SERVICES</li>
                         </div>
                       </Link>
-                      <Link href={`/successfulcase`} className='hover:text-orange'>
+                      <Link href={`/privacypolicy`} className='hover:text-orange'>
                         <div className='flex items-center justify-center gap-1 hover:text-orange'>
                         <li>PRIVACY POLICY</li>
                         </div>
@@ -131,14 +131,14 @@ const Header = () => {
                 )}
               </div>
 
-            <Link href={`/contact`} className='hover:text-orange'>
+            <Link href="#contact" className='hover:text-orange'>
               <div className='flex items-center justify-center gap-1'>
                 <li className='py-1  text-center  text-xs md:text-xl lg:text-sm xl:text-base'>CONTACT</li>
                 {/* <IoIosArrowDown className='text-orange' /> */}
               </div>
             </Link>
            
-            <Link href={`/contact`} className='hover:text-orange'>
+            <Link href={`/projects`} className='hover:text-orange'>
               <div className="flex justify-center items-center  lg:hidden pt-1 ">
                 <button className=' bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base px-4 py-2'>VIEW OUR PROJECT</button>
               </div>
@@ -147,6 +147,10 @@ const Header = () => {
           </ul>
         </div>
       )}
+
+
+
+
 
       {/* DESKTOP VIEW */}
       <div className=' flex items-center justify-between gap-8'>
@@ -158,8 +162,11 @@ const Header = () => {
               <Link href={`/`} className='hover:text-orange'>
                 <li className="">HOME</li>
               </Link>
+              <Link href={`/about`} className='hover:text-orange'>
+                <li className="">ABOUT US</li>
+              </Link>
              
-              <div className='flex flex-col gap-2' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handlePraticeDropdownToggle}>
+              {/* <div className='flex flex-col gap-2' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handlePraticeDropdownToggle}>
                 <div className='flex items-center gap-1 hover:text-orange cursor-pointer'>
                   <li>ABOUT US</li>
                   <IoIosArrowDown  className={`${styles.dropdownIcon} ${isSticky ? styles.orangeIcon : ''}`} />
@@ -177,9 +184,9 @@ const Header = () => {
                   </div>
                   )}
                 </div>
-              </div>
-              <Link href={`/projects`} className='hover:text-orange'>
-                <li>PROJECTS</li>
+              </div> */}
+              <Link href={`/teams`} className='hover:text-orange'>
+                <li>OUR TEAMS</li>
               </Link>
               <div className='flex flex-col gap-1' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handleDropdownToggle}>
                 <div className='flex items-center gap-1 hover:text-orange cursor-pointer'>
@@ -189,17 +196,17 @@ const Header = () => {
                 {isDropdownOpen && (
                   <div className="text-sm bg-white text-orange rounded-lg " style={{ position: 'absolute', top: '100%', left: 0 }}>
                     <ul className='text-xs md:text-xl lg:text-sm xl:text-sm flex flex-col gap-1  w-[100%] px-3 py-3 shadow-2xl' >
-                      <Link href={`/testimonialpage`} className='hover:text-orange'>
+                      <Link href={`/blogs`} className='hover:text-orange'>
                         <div className='flex items-center justify-start gap-1 hover:text-orange'>
                           <li>BLOGS</li>
                         </div>
                       </Link>
-                      <Link href={`/successfulcase`} className='hover:text-orange'>
+                      <Link href={`/termofservice`} className='hover:text-orange'>
                         <div className='flex items-center justify-start gap-1 hover:text-orange'>
                           <li>TERMS OF SERVICES</li>
                         </div>
                       </Link>
-                      <Link href={`/successfulcase`} className='hover:text-orange'>
+                      <Link href={`/privacypolicy`} className='hover:text-orange'>
                         <div className='flex items-center justify-start gap-1 hover:text-orange'>
                           <li>PRIVACY POLICY</li>
                         </div>
@@ -209,7 +216,7 @@ const Header = () => {
                 )}
               </div>
 
-              <Link href={`/contact`} className='hover:text-orange'>
+              <Link href="#contact" className='hover:text-orange'>
                 <div className='flex items-center gap-1'>
                   <li>CONTACT</li>
                 
@@ -222,9 +229,11 @@ const Header = () => {
           </div>
 
         </div>
+        <Link href={`/projects`}>
         <div className="hidden lg:block ">
           <button className='bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base p-2 lg:px-8 lg:py-4'>VIEW OUR PROJECT</button>
         </div>
+        </Link>
       </div>
 
     </div>
