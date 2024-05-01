@@ -60,12 +60,14 @@ const Index = () => {
           <p className='mt-2 text-xs md:text-2xl lg:text-xl xl:text-xl md:mt-6 font-light leading-relaxed md:leading-10 lg:leading-relaxed xl:leading-loose lg:mt-2 '>Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero <br className='lg:hidden' /> et velit  interdum, ac aliquet odio mattis.</p>
           <div className="mt-4 ">
           </div>
-          <button className='flex justify-between items-center gap-4 border border-orange text-white text-xs md:text-xl lg:text-base xl:text-lg p-2 md:p-4'>
+         <Link href={`/projects`}>
+         <button className='flex justify-between items-center gap-4 border border-orange text-white text-xs md:text-xl lg:text-base xl:text-lg p-2 md:p-4'>
             VIEW OUR PROJECT
             <div className='bg-white h-5 w-5 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:h-7 xl:w-7 flex items-center justify-center rounded-full'>
               <IoIosArrowForward className='text-orange h-4 w-4 md:h-6 md:w-6 lg:h-5 lg:w-5 xl:h-6 xl:w-6' />
             </div>
           </button>
+         </Link>
         </div>
         
           

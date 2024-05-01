@@ -105,7 +105,7 @@ const Header = () => {
             <div className='flex flex-col gap-1' onClick={handleDropdownToggle}>
                 <div className='flex items-center justify-center gap-1 hover:text-orange'>
                   <li className='py-1  text-xs md:text-xl lg:text-sm xl:text-base cursor-pointer'>PAGES</li>
-                  <IoIosArrowDown className='' />
+                  <IoIosArrowDown className={`${styles.dropdownIcon} ${isSticky ? styles.orangeIcon : ''}`} />
                 </div>
                 {isDropdownOpen && (
                   <div className=" text-sm">
