@@ -177,7 +177,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='text-bll'>
+            <div className='text-brw'>
                 <hr  />
             </div>
             <div  className='py-5 flex justify-center items-center'>

@@ -10,9 +10,84 @@ import { AiFillClockCircle, AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsClock } from "react-icons/bs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'; 
+
 
 const Blogsnews = () => {
+    const router = useRouter(); // No need to useState for router
 
+    const details = [
+        {
+            id: 1,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+          
+        },
+        {
+            id: 2,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 3,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 4,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 5,
+            pic: multi,
+             duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 6,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 7,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 8,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+        {
+            id: 9,
+            pic: multi,
+            duration:"4 mins read",
+            text: "Real Estate, The Next Level Power House",
+            textwo:"Read More...",
+        },
+    ]
+
+    
+    if (!details) {
+        return <div>Loading...</div>; // Add a loading state while fetching data
+      }
 
     const scrollTriggerRef = useRef(null);
 
@@ -37,72 +112,6 @@ const Blogsnews = () => {
       });
   };
 
-  const details = [
-    {
-        id: 1,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-      
-    },
-    {
-        id: 2,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 3,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 4,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 5,
-        pic: multi,
-         duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 6,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 7,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 8,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-    {
-        id: 9,
-        pic: multi,
-        duration:"4 mins read",
-        text: "Real Estate, The Next Level Power House",
-        textwo:"Read More...",
-    },
-]
 
 
   return (
@@ -127,10 +136,10 @@ const Blogsnews = () => {
                                     <p className=' text-xs md:text-xl lg:text-lg xl:text-xl text-slate-600 '>{datum.text}</p>
                                     <div className='border-b-2 border-gray mt-2 md:mt-5'></div>
                                 </div>
-                                <div className=' px-5 md:px-5 lg:px-5'>
-                                    <p className=' text-xs md:text-lg lg:text-sm xl:text-base  text-lite '>{datum.textwo}</p>
+                                <Link  href={`/singleblog/${datum.id}`} className=' px-5 md:px-5 lg:px-5' >
+                                    <p className=' text-xs md:text-lg lg:text-sm xl:text-base  text-lite '>Read More...</p>
                                     <div className='border-gray border-b-2 mt-2 md:mt-5'></div>
-                                </div>
+                                </Link>
 
 
                             </div>

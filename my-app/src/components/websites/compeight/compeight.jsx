@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { IoIosArrowBack, IoIosArrowDown, IoIosArrowDropright, IoIosArrowForward } from "react-icons/io";
 
-const Compsix = () => {
+const Compeight = () => {
   return (
     <div className='p-14 md:p-20 lg:px-28 lg:py-10 xl:px-40 '>
     <div className='text-white flex items-center justify-center h-[15vh] md:h-[30vh] lg:h-[30vh] xl:h-[40vh]'>
@@ -31,4 +31,4 @@ const Compsix = () => {
   )
 }
 
-export default Compsix
+export default Compeight

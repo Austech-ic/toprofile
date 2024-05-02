@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -7,8 +8,11 @@ import { FaLandmark } from 'react-icons/fa';
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { BsHouse } from "react-icons/bs";
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'; 
 
 const Projectcomp = () => {
+    const router = useRouter(); // No need to useState for router
 
     const details = [
         {
@@ -94,6 +98,8 @@ const Projectcomp = () => {
         },
     ]
 
+
+
     return (
         <div className='bg-gray'>
            <div className='flex items-center justify-center relative'>
@@ -137,6 +143,7 @@ const Projectcomp = () => {
                 <div className=' grid md:grid-cols-2 xl:grid-cols-3 gap-10'>
                     {
                         details.map((datum) => (
+                            <Link href={`/singleproperty/${datum.id}`}>
                             <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4 bg-white'>
                                 <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
                                 <div className=' px-5 md:px-2 lg:px-5'>
@@ -175,9 +182,13 @@ const Projectcomp = () => {
                                 </div>
 
                             </div>
+                            </Link>
                         ))
                     }
                 </div>
+
+
+
                 <div className='flex items-center justify-center gap-2 md:gap-4 pt-10 pb-5 md:pt-16 lg:pt-20 xl:pt-24'>
 
                     <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
