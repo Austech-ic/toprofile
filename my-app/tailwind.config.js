@@ -21,6 +21,7 @@ module.exports = {
         blc:"#5A5A5A",
         bbl:"#494949",
         brw:"#8C8C8C",
+        eee:"#EEEEEE",
       },
       flex: {
         '1': '1 1 0%',

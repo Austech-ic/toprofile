@@ -4,6 +4,7 @@ import Compnine from '@/components/websites/compnine/compnine'
 import Sectionone from '../../components/websites/sectionone/index'
 import styles from './about.module.css'
 import Header from '@/components/websites/header/header'
+import Compabout from '@/components/websites/compabout/compabout'
 
 const Page = () => {
   return (
@@ -12,7 +13,7 @@ const Page = () => {
       <Header />
       <Compnine/>
     </div>
-{/* <Blogsnews /> */}
+<Compabout />
 
   </div>
   )
