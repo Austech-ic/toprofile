@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import styles from './cat.module.css'
+
 import { useParams } from 'next/navigation';
 import five from '../../../../../public/img/five.png'
 import two from '../../../../../public/img/two.png'
