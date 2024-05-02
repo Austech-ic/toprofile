@@ -84,33 +84,31 @@ const Blogsnews = () => {
         },
     ]
 
-    
-    if (!details) {
-        return <div>Loading...</div>; // Add a loading state while fetching data
-      }
 
     const scrollTriggerRef = useRef(null);
 
-  useEffect(() => {
-      AOS.init();
-      const options = {
-          threshold: 0.2,
-      };
-      const observer = new IntersectionObserver(handleScroll, options);
-      observer.observe(scrollTriggerRef.current);
+    useEffect(() => {
+        AOS.init();
+        const options = {
+            threshold: 0.2,
+        };
+        const observer = new IntersectionObserver(handleScroll, options);
+        if (scrollTriggerRef.current) {
+            observer.observe(scrollTriggerRef.current);
+        }
 
-      return () => {
-          observer.disconnect();
-      };
-  }, []);
+        return () => {
+            observer.disconnect();
+        };
+    }, []); // Empty dependency array for componentDidMount behavior
 
-  const handleScroll = (entries) => {
-      entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-              AOS.refresh();
-          }
-      });
-  };
+    const handleScroll = (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                AOS.refresh();
+            }
+        });
+    };
 
 
 

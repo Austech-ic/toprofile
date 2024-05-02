@@ -62,7 +62,7 @@ const Page = ({ id }) => {
       <div className='px-10 py-10 lg:py-16  md:px-16 lg:px-20 xl:px-30 flex flex-col lg:flex-row gap-6 lg:gap-10 xl:gap-20'>
         <div className='flex-1 flex flex-col gap-4 md:gap-6'>
           <div>
-            <Image src={multi} pic='pic-img' className='' />
+            <Image src={multi} alt='pic-img' className='' />
           </div>
           <div className=' px-0 md:px-2 lg:px-0'>
             <p className='text-sm md:text-2xl lg:text-lg xl:text-xl font-medium '>Real estate, the next level power house</p>

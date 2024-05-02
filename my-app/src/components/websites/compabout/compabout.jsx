@@ -80,7 +80,7 @@ const Compabout = () => {
             <div className=' py-10 md:py-20 gap-8 md:gap-12 flex flex-col lg:flex-row justify-between '>
                 {
                     details.map((datum)=> (
-                        <div className='flex-1 flex flex-col gap-1 md:gap-4 lg:gap-4 xl:gap-6'>
+                        <div key={datum.id} className='flex-1 flex flex-col gap-1 md:gap-4 lg:gap-4 xl:gap-6'>
                             <Image src={datum.pic} alt='pic-img' className='w-[10%] md:w-[8%] lg:w-[10%] xl:w-[7%] h-auto' />
                             <p className='text-lite text-base md:text-3xl lg:text-xl xl:text-2xl font-300'>{datum.label}</p>
                             <p className='text-xs md:text-2xl lg:text-base font-light xl:w-[90%] '>{datum.text}</p>
@@ -94,7 +94,7 @@ const Compabout = () => {
                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 py-5 md:py-10'>
                     {
                         value.map((items) => (
-                            <div className='bg-gray px-5 py-8 md:p-16 lg:p-10 rounded-2xl flex flex-col items-center justify-center gap-4'>
+                            <div key={items.id} className='bg-gray px-5 py-8 md:p-16 lg:p-10 rounded-2xl flex flex-col items-center justify-center gap-4'>
                                 <p>{items.icon}</p>
                                 <p className='text-xs md:text-2xl lg:text-base font-light'>{items.textwo}</p>
                                 </div>

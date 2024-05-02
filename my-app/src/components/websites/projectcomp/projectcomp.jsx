@@ -143,7 +143,7 @@ const Projectcomp = () => {
                 <div className=' grid md:grid-cols-2 xl:grid-cols-3 gap-10'>
                     {
                         details.map((datum) => (
-                            <Link href={`/singleproperty/${datum.id}`}>
+                            <Link key={datum.id} href={`/singleproperty/${datum.id}`}>
                             <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4 bg-white'>
                                 <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
                                 <div className=' px-5 md:px-2 lg:px-5'>
