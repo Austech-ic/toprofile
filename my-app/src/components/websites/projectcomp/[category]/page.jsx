@@ -50,7 +50,7 @@ const Page = ({ id }) => {
 
           <div className='flex-1'>
             <div className=' px-0 md:px-2 lg:px-0'>
-              <p className='text-xs md:text-xl lg:text-base xl:text-base font-medium '>A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.</p>
+              <p className='text-xs md:text-xl lg:text-base xl:text-base font-medium '>3 Bedroom Fully Detached Bungalow + a Detached BQ,Ikoyi, lagos, Nigeria.</p>
 
             </div>
 
@@ -62,14 +62,7 @@ const Page = ({ id }) => {
                   <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>8000sq+</p>
                 </div>
 
-                <div className='flex items-center gap-1  md:gap-1 lg:gap-2'>
-                  <LuBedDouble className='text-orange  h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4  xl:h-5 xl:w-5' />
-                  <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>4 Baths</p>
-                </div>
-                <div className='flex items-center gap-1  md:gap-1 lg:gap-2'>
-                  <LuBath className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4  xl:h-5 xl:w-5' />
-                  <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>4 Beds</p>
-                </div>
+               
 
 
               </div>

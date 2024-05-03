@@ -1,3 +1,4 @@
+"use client"
 import Header from "@/components/websites/header/header";
 import Sectionthree from "@/components/websites/sectionthree/sectionthree";
 import Sectiontwo from "@/components/websites/sectiontwo/sectiontwo";
@@ -7,8 +8,13 @@ import Sectionfour from "@/components/websites/sectionfour/sectionfour";
 import Sectionfive from "@/components/websites/sectionfive/sectionfive";
 import Sectionsix from "@/components/websites/sectionsix/sectionsix";
 import Footer from "@/components/websites/Footer/footer";
+import Sectest from "@/components/websites/sectest/sectest";
+import { useEffect, useState } from 'react';
 
-export default function Home() {
+
+
+
+const Home = () => {
   return (
     <main className=" overflow-x-hidden">
        <Sectionone />
@@ -21,3 +27,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

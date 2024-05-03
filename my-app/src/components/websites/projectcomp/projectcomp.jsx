@@ -18,84 +18,52 @@ const Projectcomp = () => {
         {
             id: 1,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
             price: "₦1,200,000.00",
         },
         {
             id: 2,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
+            price: "₦1,200,000.00",
         },
         {
             id: 3,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
+            price: "₦1,200,000.00",
         },
         {
             id: 4,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
+            price: "₦1,200,000.00",
         },
         {
             id: 5,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
+            price: "₦1,200,000.00",
         },
         {
             id: 6,
             pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
+            label: " Ikoyi, lagos, Nigeria.",
+            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
             sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
-        },
-        {
-            id: 7,
-            pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
             price: "₦1,200,000.00",
-            sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
         },
-        {
-            id: 8,
-            pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
-            sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
-        },
-        {
-            id: 9,
-            pic: multi,
-            text: "A 3 Bedroom Apartment, Ikoyi, lagos, Nigeria.",
-            price: "₦1,200,000.00",
-            sqr: "8000sq+",
-            baths: "4 Baths",
-            bed: "4 Beds",
-        },
+
     ]
 
 
@@ -144,15 +112,24 @@ const Projectcomp = () => {
                     {
                         details.map((datum) => (
                             <Link key={datum.id} href={`/singleproperty/${datum.id}`}>
-                            <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4 bg-white'>
+                           <div key={datum.id} className='shadow-2xl flex flex-col gap-2 md:gap-4'>
                                 <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
                                 <div className=' px-5 md:px-2 lg:px-5'>
-                                    <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium '>{datum.text}</p>
-                                    <div className='border-gray border-b-2 mt-2 md:mt-5'></div>
+                                    <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium '>{datum.label}</p>
+                                    <div className='border-slate-300 mt-2 md:mt-5 border-b-[1px]'></div>
                                 </div>
 
+                                <div className='px-5 pt-1 md:px-2 lg:px-5 '>
 
-                                <div className='px-5 pt-2 md:pt-3 md:px-2 lg:px-5 '>
+                                <div className=' '>
+                                    <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.text}</p>
+                                   
+                                </div>
+                                    <div className='border-slate-300 mt-2 md:mt-5 border-b-[1px]'></div>
+
+                                </div>
+
+                                <div className='px-5 pt-1 md:px-2 lg:px-5 '>
 
                                     <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
                                         <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
@@ -160,18 +137,8 @@ const Projectcomp = () => {
                                             <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.sqr}</p>
                                         </div>
 
-                                        <div className='flex items-center gap-1  md:gap-1 lg:gap-2'>
-                                            <LuBedDouble className='text-orange  h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4  xl:h-5 xl:w-5' />
-                                            <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.bed}</p>
-                                        </div>
-                                        <div className='flex items-center gap-1  md:gap-1 lg:gap-2'>
-                                            <LuBath className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4  xl:h-5 xl:w-5' />
-                                            <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.baths}</p>
-                                        </div>
-
-
                                     </div>
-                                    <div className='border-gray border-b-2 mt-2 md:mt-5'></div>
+                                    <div className='border-slate-300 mt-2 md:mt-5 border-b-[1px]'></div>
 
                                 </div>
 
