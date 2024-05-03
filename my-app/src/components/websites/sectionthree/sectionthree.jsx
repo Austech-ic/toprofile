@@ -102,7 +102,7 @@ const Sectionthree = () => {
     </div>
 
    <div className='flex items-center justify-center py-2  md:py-4 lg:py-5'>
-   <p className='text-center w-[85%] md:w-[90%] lg:w-[60%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+   <p className='text-center w-[85%] md:w-[90%] lg:w-[60%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'> With a focus on excellence and a commitment to innovation, we're here to bring your vision to life.</p>
    </div>
 
 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 py-5 lg:px-20 xl:px-30'>

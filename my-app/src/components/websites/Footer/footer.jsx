@@ -17,7 +17,7 @@ import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
 
-    const [address] = useState("Suite 47, Vicbalkon Towers, Plot C44, Utako District.");
+    const [address] = useState("175A Slateford Road, Edinburgh, United Kingdom EH14 1PU");
 
     const handleAddressClick = () => {
         const encodedAddress = encodeURIComponent(address);
@@ -153,9 +153,9 @@ const Footer = () => {
                             <p className='text-white text-sm md:text-2xl lg:text-base font-normal' >CONTACT</p>
                             <div className='flex flex-col gap-2 md:gap-4 lg:gap-2 pt-3' >
 
-                                <Link href="mailto:topprofile@gmail.com" >
+                                <Link href="mailto:info@toprofile.com" >
                                     <div>
-                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>topprofile@gmail.com</p>
+                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>info@toprofile.com</p>
                                     </div>
                                 </Link>
 
