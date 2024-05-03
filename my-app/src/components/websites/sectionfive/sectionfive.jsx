@@ -88,7 +88,7 @@ const Sectionfive = () => {
 
 
     return (
-        <div className='pt-3 md:pt-8 xl:pt-12'  data-aos='flip-right'
+        <div className='pt-10 md:pt-20 xl:pt-16 '  data-aos='flip-right'
         data-aos-easing='ease-out-cubic'
      data-aos-duration='2000'
      ref={scrollTriggerRef}>
