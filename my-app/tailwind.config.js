@@ -22,6 +22,7 @@ module.exports = {
         bbl:"#494949",
         brw:"#8C8C8C",
         eee:"#EEEEEE",
+        dark:"#392A2A",
       },
       flex: {
         '1': '1 1 0%',

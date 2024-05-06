@@ -23,6 +23,7 @@ const Home = () => {
        <Sectionfour />
        <Sectionfive />
        <Sectionsix />
+       <Footer />
    
     </main>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from "next/head";
+import Footer from "@/components/websites/Footer/footer"
 
 const MainLayouts = ({ children }) => {
     const title = "Toprofile";
@@ -28,7 +29,9 @@ const MainLayouts = ({ children }) => {
         <link rel="icon" sizes="128x128" href="/brand/head.png" />
         <title>{title}</title>
       </Head>
-           {children}
+      <body className={inter.className}>
+        {children}
+        </body>
     </React.Fragment>
   </div>
   )
