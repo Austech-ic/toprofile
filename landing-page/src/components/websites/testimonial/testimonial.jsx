@@ -109,7 +109,7 @@ const Testimonial = () => {
                 <Slider {...settings} >
 
                     {details.map((datum) => (
-                        <div className='pb-5 md:pb-10 lg:px-6 lg:py-8'>
+                        <div key={datum.id} className='pb-5 md:pb-10 lg:px-6 lg:py-8'>
                             <div className='relative'>
                                 <div className='bg-white rounded-2xl  p-5 md:p-10 flex flex-col gap-4'>
                                     <div className='flex justify-center items-center'>
