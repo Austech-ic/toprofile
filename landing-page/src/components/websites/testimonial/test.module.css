@@ -1,0 +1,9 @@
+/* Active dot style */
+.slick-dots .active-dot {
+    background-color: #EB6C1F; /* Present color */
+}
+
+/* Inactive dot style */
+.slick-dots .inactive-dot {
+    background-color: red; /* Red color */
+}

@@ -14,6 +14,7 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { BsHouse } from "react-icons/bs"
 import Navbar from '../../navbar/navbar';
+import Link from 'next/link';
 
 
 
@@ -87,8 +88,10 @@ const Page = ({ id }) => {
               <p className='text-lite text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>₦1,200,000.00</p>
             </div>
             <div className='px-0 md:px-2 lg:px-3 flex items-center gap-6' >
-              <button className='bg-orange text-white px-4 py-2 text-xs md:text-xl lg:text-sm xl:text-base'>BOOK NOW</button>
-              <button className='bg-orange text-white px-4 py-2 text-xs md:text-xl lg:text-sm xl:text-base'>CONTACT US</button>
+             <Link  href="https://wa.me/message/R3XZ3HBLHXWMG1">
+             <button className='bg-orange text-white px-4 py-2 text-xs md:text-xl lg:text-sm xl:text-base'>BUY NOW</button>
+             </Link>
+              {/* <button className='bg-orange text-white px-4 py-2 text-xs md:text-xl lg:text-sm xl:text-base'>CONTACT US</button> */}
             </div>
           </div>
         </div>
