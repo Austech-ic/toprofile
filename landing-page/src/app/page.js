@@ -10,6 +10,7 @@ import Sectionsix from "@/components/websites/sectionsix/sectionsix";
 import Footer from "@/components/websites/Footer/footer";
 import Sectest from "@/components/websites/sectest/sectest";
 import { useEffect, useState } from 'react';
+import Testimonial from "@/components/websites/testimonial/testimonial";
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
        <Sectionthree />
        <Sectionfour />
        <Sectionfive />
+       <Testimonial />
        <Sectionsix />
    
     </main>
