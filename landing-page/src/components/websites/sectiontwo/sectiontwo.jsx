@@ -35,7 +35,7 @@ const Sectiontwo = () => {
 
 
   return (
-   <div className='bg-gray-100 px-10 py-10  md:py-20 lg:px-20 xl:px-30'  data-aos='flip-left'
+   <div className='bg-gray px-10 py-10  md:py-20 lg:px-20 xl:px-30'  data-aos='flip-left'
    data-aos-easing='ease-out-cubic'
 data-aos-duration='2000'
 ref={scrollTriggerRef}>

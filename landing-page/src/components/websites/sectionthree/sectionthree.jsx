@@ -88,7 +88,7 @@ const Sectionthree = () => {
 
 
   return (
-    <div className='bg-gray-100 ' data-aos='flip-down'
+    <div className='bg-gray ' data-aos='flip-down'
     data-aos-easing='ease-out-cubic'
  data-aos-duration='2000'
  ref={scrollTriggerRef}>
