@@ -6,7 +6,7 @@ const Terms = () => {
     <div className='bg-gray p-10 md:p-20 lg:px-32 lg:py-16 xl:px-40 xl:py-20'>
     <div className='bg-white rounded-2xl flex flex-col gap-4 md:gap-8 shadow-2xl px-5 py-10 md:p-20 lg:p-10 xl:py-20 xl:px-10'>
       <p className='text-sm md:text-3xl lg:text-lg xl:text-2xl font-medium '>TERMS OF SERVICES</p>
-      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>Toprofile REL maintains the position that once you are able to access the content on our website and the services contained therein (Services), you agree to comply with and be bound by the following terms and conditions (Terms of Use). If you have any objection to the terms and conditions stated on this page, you are advised to contact us using the link provided. All references within these Terms and Conditions to 'we/us/our' refers to Toprofile Real Estate Limited.</p>
+      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>Toprofile REL maintains the position that once you are able to access the content on our website and the services contained therein Services, you agree to comply with and be bound by the following terms and conditions.Terms of Use. If you have any objection to the terms and conditions stated on this page, you are advised to contact us using the link provided. All references within these Terms and Conditions to we/us/our refers to Toprofile Real Estate Limited.</p>
 
     
 
@@ -23,7 +23,7 @@ const Terms = () => {
 
         <li className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>You agree not to publish any material that may encourage a breach of any relevant laws or regulations.</li>
 
-        <li className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>You agree not to interfere with any other user's enjoyment of our website or the Services.</li>
+        <li className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>You agree not to interfere with any other user enjoyment of our website or the Services.</li>
 
         
       </ul>
@@ -52,7 +52,7 @@ const Terms = () => {
 
       <div className='text-sm md:text-3xl lg:text-lg xl:text-xl'>
       <p className='text-sm md:text-3xl lg:text-lg xl:text-xl'>Disclaimer</p>
-      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>The Services are provided on an 'as is' and 'as available' basis and we make no representations or warranties of any kind, either express or implied. You expressly agree that your use of our website and the Services is at your sole risk and we expressly disclaim any and all warranties, either express or implied, including without limitation warranties as to quality, suitability for any purpose, compatibility, reliability, accuracy, completeness, timeliness, access or use. We accept no responsibility and make no guarantee that the Services will be free from faults, errors and/or omissions. It is your sole responsibility to evaluate the quality, suitability, accuracy, completeness and reliability of the Services or any information provided.
+      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>The Services are provided on an as is and as available basis and we make no representations or warranties of any kind, either express or implied. You expressly agree that your use of our website and the Services is at your sole risk and we expressly disclaim any and all warranties, either express or implied, including without limitation warranties as to quality, suitability for any purpose, compatibility, reliability, accuracy, completeness, timeliness, access or use. We accept no responsibility and make no guarantee that the Services will be free from faults, errors and/or omissions. It is your sole responsibility to evaluate the quality, suitability, accuracy, completeness and reliability of the Services or any information provided.
 None of the Services are intended to be a substitute for independent professional advice and users are recommended to seek advice from suitably qualified professionals such as surveyors and solicitors if relevant to their particular circumstances. We shall not be liable for any losses suffered as a result of relying on our value estimates.
 Property descriptions and other information provided on our website are intended for information and marketing purposes and, whilst displayed in good faith, we will not in any circumstances accept responsibility for their accuracy. It is the responsibility of buyers to satisfy themselves as to the accuracy of any property descriptions.</p>
       </div>
