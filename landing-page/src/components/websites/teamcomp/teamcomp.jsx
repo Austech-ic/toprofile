@@ -124,12 +124,12 @@ const Teamcomp = () => {
                 <div className='border border-orange border-b-4 md:border-b-8 w-[10%] md:w-[6%] rounded-3xl'> </div>
                 <div className='border border-fad border-b-4 md:border-b-8 w-[6%] md:w-[3%] rounded-3xl'> </div>
                 <div>
-                    <p className='text-center text-xl md:text-4xl lg:text-2xl xl:text-3xl'>Jorem ipsumdolor </p>
+                    <p className='text-center text-xl md:text-4xl lg:text-2xl xl:text-3xl'>Meet Our Team</p>
 
                 </div>
             </div>
             <div className='flex items-center justify-center pt-2 pb-5 md:pt-4 md:pb-14 lg:pt-5 lg:pb-10'>
-                <p className='text-center w-[85%] md:w-[90%] lg:w-[50%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                <p className='text-center w-[85%] md:w-[90%] lg:w-[50%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>Our team is dedicated to delivering excellence in every aspect of our work, ensuring your vision becomes a reality.</p>
             </div>
 
             <div className='grid lg:grid-cols-3 gap-10 md:gap-16  px-10 py-8 md:py-10 lg:py-3 xl:py-10 lg:px-20 xl:px-30'>
