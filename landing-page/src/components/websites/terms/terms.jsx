@@ -42,7 +42,7 @@ const Terms = () => {
 
       <div className='text-sm md:text-3xl lg:text-lg xl:text-xl'>
       <p className='text-sm md:text-3xl lg:text-lg xl:text-xl'>Your Responsibilities</p>
-      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>Toprofile Real Estate Limited is a real estate property manager as well as developer. We provide a service whereby our realtors and other contracted agents may market and you may view property details ('Details') together with other content hosted and developed by us on our website. Details are hosted by us in good faith but the information are produced directly by the owners or verified realtors. However, you are responsible for making your own enquiries and our staff will provide you with as much information with accuracy or completeness on each advertised service.</p>
+      <p className='text-xs md:text-2xl lg:text-base xl:text-lg font-light leading-5  md:leading-9 lg:leading-6 xl:leading-8 pt-1 md:pt-3 lg:pt-1'>Toprofile Real Estate Limited is a real estate property manager as well as developer. We provide a service whereby our realtors and other contracted agents may market and you may view property details (Details) together with other content hosted and developed by us on our website. Details are hosted by us in good faith but the information are produced directly by the owners or verified realtors. However, you are responsible for making your own enquiries and our staff will provide you with as much information with accuracy or completeness on each advertised service.</p>
       </div>
 
       <div className='text-sm md:text-3xl lg:text-lg xl:text-xl'>
