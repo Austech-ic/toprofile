@@ -28,18 +28,7 @@ import { MdOutlineBrowserUpdated } from "react-icons/md";
 
 
 const Sidebar = ({  closeMenu, toggleSidebar  }) => {
-  const [isOpen7, setIsOpen7] = useState(false);
-  const [isOpen11, setIsOpen11] = useState(false);
 
-
-
-  const handleArrowClick7 = () => {
-    setIsOpen7(!isOpen7);
-  };
-
-  const handleArrowClick11 = () => {
-    setIsOpen11(!isOpen11);
-  };
   const handleMenuItemClick = () => {
     closeMenu(); // Close sidebar links
     toggleSidebar(); // Close sidebar
@@ -55,8 +44,8 @@ const Sidebar = ({  closeMenu, toggleSidebar  }) => {
       id: 1,
       icon: <BiSolidDashboard className={styles.icon} />,
       title: "Dashboard",
-      link: "/admin/dashboard",
-      path: "/admin/dashboard",
+      link: "/",
+      path: "/",
     
 
     },
