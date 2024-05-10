@@ -23,6 +23,7 @@ module.exports = {
         brw:"#8C8C8C",
         eee:"#EEEEEE",
         dark:"#392A2A",
+        pink:"#FFEBF0",
       },
       flex: {
         '1': '1 1 0%',
