@@ -186,7 +186,7 @@ const Dashboard = () => {
             </div>
             <div className="style={{ height: '300px' width:'100%' }} bg-white rounded-2xl p-10">
                <div className="flex items-center gap-10">
-               <p className="text-xs">Vistor's Summary</p>
+               <p className="text-xs">Vistors Summary</p>
                 <p className="text-xs">Jan 2023 - Dec 2023</p>
                </div>
                 <BarChart  />
