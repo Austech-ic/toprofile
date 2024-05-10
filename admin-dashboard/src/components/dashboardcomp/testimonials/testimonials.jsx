@@ -83,6 +83,16 @@ const Testimonials = () => {
 
     ]
 
+    function truncateDescription(description, maxLength) {
+        // Check if the description is defined and has a valid length
+        if (description && description.length > maxLength) {
+            // Truncate the description and add an ellipsis
+            return `${description.substring(0, maxLength)}...`;
+        } else {
+            // If the description is already shorter or undefined, return it as is
+            return description;
+        }
+    }
 
 
     return (
@@ -146,7 +156,7 @@ const Testimonials = () => {
                                     </div>
                                 </td>
                                 <td className='text-center w-[45%]'>
-                                    <p className='text-xs '>{datum.desc}</p>
+                                    <p className='text-xs '>{truncateDescription(datum.desc, 50)}</p>
                                 </td>
 
 

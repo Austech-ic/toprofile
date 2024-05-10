@@ -23,7 +23,7 @@ import { FaUser } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { GrGroup } from "react-icons/gr";
 import { MdOutlineBrowserUpdated } from "react-icons/md";
-
+import { MdRealEstateAgent } from "react-icons/md";
 
 
 
@@ -51,14 +51,14 @@ const Sidebar = ({  closeMenu, toggleSidebar  }) => {
     },
     {
       id: 2,
-      icon: <HiUsers className={styles.icon} />,
+      icon: <MdRealEstateAgent className={styles.icon} />,
       title: "Property",
       link: "/admin/property",
       path: "/admin/property",
     },
     {
       id: 3,
-      icon: <BiMessageAltDots className={styles.icon} />,
+      icon: <TbListDetails className={styles.icon} />,
       title: "Blog",
       link: "/admin/blog",
       path: "/admin/blog",
@@ -73,7 +73,7 @@ const Sidebar = ({  closeMenu, toggleSidebar  }) => {
     },
     {
       id: 5,
-      icon: <HiOutlineDocumentText className={styles.icon} />,
+      icon: <HiUsers className={styles.icon} />,
       title: "Team",
       link: "/admin/team",
       path: "/admin/team",
@@ -85,13 +85,13 @@ const Sidebar = ({  closeMenu, toggleSidebar  }) => {
       link: "/admin/account",
       path: "/admin/account",
     },
-    {
-      id: 7,
-      icon: <TbListDetails className={styles.icon} />,
-      title: "Notification Message",
-      link: "/admin/notificationmessage",
-      path: "/admin/notificationmessage",
-    },
+    // {
+    //   id: 7,
+    //   icon: <TbListDetails className={styles.icon} />,
+    //   title: "Notification Message",
+    //   link: "/admin/notificationmessage",
+    //   path: "/admin/notificationmessage",
+    // },
    
     {
       id: 8,

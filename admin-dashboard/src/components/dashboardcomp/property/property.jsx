@@ -245,7 +245,7 @@ const Property = () => {
                                     </td>
                                     <td className='w-[30%] '>
                                     <div className='text-center '>
-                                       <p className='text-xs'>{truncateDescription(datum.desc, 100)}</p>
+                                       <p className='text-xs'>{truncateDescription(datum.desc, 40)}</p>
                                        </div>
                                     </td>
                                 
