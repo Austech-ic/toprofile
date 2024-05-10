@@ -47,6 +47,10 @@ const Theme = () => {
                     </div>
                 </div>
             </div>
+
+            <div className='flex justify-end items-center pt-16'>
+        <button className='text-sm bg-lite text-white px-8 py-2'>Save</button>
+      </div>
         </div>
     )
 }
