@@ -12,11 +12,14 @@
 
 .subtwo{
     flex:1;
-    background-color: #BFAFAF;
-    width: 100%;
-    padding: 100px 0;
-    border-radius: 20px;
+   
 }
+.video {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover; /* Adjust this property as needed (e.g., contain, fill, etc.) */
+  }
 
 
 @media (min-width:768px) {
@@ -24,10 +27,16 @@
        
         padding: 20px 0;
     }
-    .subtwo{
+    .video {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        object-fit: cover; /* Adjust this property as needed (e.g., contain, fill, etc.) */
+      }
+    /* .subtwo{
         padding: 200px 0;
        
-    }
+    } */
 
 }
 
@@ -41,13 +50,16 @@
     .subone{
         flex: 1.5;
     }
+    .video {
+        width: 100%;
+        height: 60vh;
+        border-radius: 20px;
+        object-fit: cover; /* Adjust this property as needed (e.g., contain, fill, etc.) */
+      }
     
     .subtwo{
         flex:1;
-        background-color: #BFAFAF;
-        padding: 200px 0;
-        flex:1;
-        
+      
     }
     
 
@@ -55,7 +67,12 @@
 
 @media (min-width:1280px) {
 
-
+    .video {
+        width: 100%;
+        height: 50vh;
+        border-radius: 20px;
+        object-fit: cover; /* Adjust this property as needed (e.g., contain, fill, etc.) */
+      }
     
     .subtwo{
        

@@ -5,6 +5,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoRemoveOutline } from "react-icons/io5";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Link from 'next/link';
+
 
 
 
@@ -51,16 +53,21 @@ ref={scrollTriggerRef}>
      <p className=' text-xs md:text-2xl lg:text-lg xl:w-[90%] xl:leading-loose font-light'>Toprofile Real Estate Limited (RC: 6900425) is passionate about helping to empower families by providing them safe and prosperous communities to live or do businesses in. Our employees are characterized by excellence, respect, integrity, and the ability to consistently deliver superior professional service laced with innovation. 
 Every step of the way in our conversations, we keep the satisfaction of our clientele in the vanguard. We provide every necessary support to our clients, leaving them pleased and proud to recom...</p>
 <div className='pt-4'>
+<Link href={`/about`}>
 <button className='flex justify-between items-center gap-4 border bg-orange text-white text-xs md:text-xl  lg:text-base xl:text-lg p-2 md:p-4'>
          LEARN MORE
           <div className='bg-white h-5 w-5 md:h-8 md:w-8 lg:h-6 lg:w-6 xl:h-7 xl:w-7 flex items-center justify-center rounded-full'>
           <IoIosArrowForward className='text-orange h-4 w-4 md:h-6 md:w-6 lg:h-5 lg:w-5 xl:h-6 xl:w-6'/>
           </div>
           </button>
+</Link>
 </div>
       </div>
       <div className={styles.subtwo}>
-    <p className='hidden'>a</p>
+      <video controls className={styles.video}>
+            <source src="/img/brand.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
       </div>
     </div>
 

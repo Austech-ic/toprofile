@@ -140,7 +140,7 @@ const Header = () => {
            
             <Link href={`/projects`} className='hover:text-orange'>
               <div className="flex justify-center items-center  lg:hidden pt-1 ">
-                <button className=' bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base px-4 py-2'>VIEW OUR PROJECT</button>
+                <button className=' bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base px-4 py-2'>VIEW OUR PROJECTS</button>
               </div>
             </Link>
 
@@ -231,7 +231,7 @@ const Header = () => {
         </div>
         <Link href={`/projects`}>
         <div className="hidden lg:block ">
-          <button className='bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base p-2 lg:px-8 lg:py-4'>VIEW OUR PROJECT</button>
+          <button className='bg-orange text-white text-xs md:text-lg lg:text-sm xl:text-base p-2 lg:px-8 lg:py-4'>VIEW OUR PROJECTS</button>
         </div>
         </Link>
       </div>

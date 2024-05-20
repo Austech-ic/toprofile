@@ -107,7 +107,7 @@ const Sectionfive = () => {
                 {
                     details.map((datum) => (
                         <div key={datum.id} className='flex flex-col items-center gap-1 md:gap-2 '>
-                            <Image src={datum.pic} alt='pic-img' className='w-[50%] lg:w-[70%]' />
+                            <Image src={datum.pic} alt='pic-img' className='w-[50%] lg:w-[70%] rounded-full' />
                             <p className='text-sm md:text-2xl lg:text-sm xl:text-base font-medium'>{datum.label}</p>
                             <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light text-orange'>{datum.position}</p>
                             <div className='flex flex-row gap-4 '>
