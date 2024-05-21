@@ -11,33 +11,6 @@ import Link from 'next/link';
 
 
 const Sectiontwo = () => {
-
-    useEffect(() => {
-        const video = document.querySelector('video');
-    
-        const handleVideoReady = () => {
-          video.play().catch(error => {
-            console.error('Autoplay was prevented:', error);
-            // Fallback to user interaction
-            document.addEventListener('click', handleUserInteraction, { once: true });
-          });
-        };
-    
-        const handleUserInteraction = () => {
-          video.play().catch(error => {
-            console.error('Error trying to play the video after user interaction:', error);
-          });
-        };
-    
-        video.addEventListener('canplaythrough', handleVideoReady);
-    
-        return () => {
-          video.removeEventListener('canplaythrough', handleVideoReady);
-          document.removeEventListener('click', handleUserInteraction);
-        };
-      }, []);
-
-      
   const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
@@ -91,13 +64,11 @@ Every step of the way in our conversations, we keep the satisfaction of our clie
 </div>
       </div>
       <div className={styles.subtwo}>
-  <video controls autoPlay muted playsInline className={styles.video}>
-    <source src="/img/brand.mov" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-
+      <video controls  autoPlay muted className={styles.video}>
+            <source src="/img/brand.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+      </div>
     </div>
 
    </div>
