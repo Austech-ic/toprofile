@@ -15,19 +15,24 @@ const Sectiontwo = () => {
     useEffect(() => {
         const video = document.querySelector('video');
     
-        const handleUserInteraction = () => {
+        const handleVideoReady = () => {
           video.play().catch(error => {
-            console.error('Error trying to play the video:', error);
+            console.error('Autoplay was prevented:', error);
+            // Fallback to user interaction
+            document.addEventListener('click', handleUserInteraction, { once: true });
           });
         };
     
-        // Attempt to play the video initially
-        video.play().catch(() => {
-          // If autoplay fails, wait for user interaction to try playing the video again
-          document.addEventListener('click', handleUserInteraction, { once: true });
-        });
+        const handleUserInteraction = () => {
+          video.play().catch(error => {
+            console.error('Error trying to play the video after user interaction:', error);
+          });
+        };
+    
+        video.addEventListener('canplaythrough', handleVideoReady);
     
         return () => {
+          video.removeEventListener('canplaythrough', handleVideoReady);
           document.removeEventListener('click', handleUserInteraction);
         };
       }, []);
