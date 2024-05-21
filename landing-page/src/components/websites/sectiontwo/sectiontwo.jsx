@@ -11,6 +11,28 @@ import Link from 'next/link';
 
 
 const Sectiontwo = () => {
+
+    useEffect(() => {
+        const video = document.querySelector('video');
+    
+        const handleUserInteraction = () => {
+          video.play().catch(error => {
+            console.error('Error trying to play the video:', error);
+          });
+        };
+    
+        // Attempt to play the video initially
+        video.play().catch(() => {
+          // If autoplay fails, wait for user interaction to try playing the video again
+          document.addEventListener('click', handleUserInteraction, { once: true });
+        });
+    
+        return () => {
+          document.removeEventListener('click', handleUserInteraction);
+        };
+      }, []);
+
+      
   const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
