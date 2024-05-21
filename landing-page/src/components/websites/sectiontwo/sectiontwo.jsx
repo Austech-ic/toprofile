@@ -11,6 +11,23 @@ import Link from 'next/link';
 
 
 const Sectiontwo = () => {
+
+    useEffect(() => {
+        const video = document.querySelector('video');
+        const playVideo = () => {
+          if (video) {
+            video.play();
+          }
+          document.removeEventListener('click', playVideo);
+        };
+    
+        document.addEventListener('click', playVideo);
+    
+        return () => {
+          document.removeEventListener('click', playVideo);
+        };
+      }, []);
+
   const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
@@ -63,12 +80,12 @@ Every step of the way in our conversations, we keep the satisfaction of our clie
 </Link>
 </div>
       </div>
-      <div className={styles.subtwo}>
-   <video autoPlay muted playsInline className={styles.video}>
-    <source src="/img/brand.mov" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
+    <div className={styles.subtwo}>
+      <video autoPlay muted playsInline className={styles.video}>
+        <source src="/img/brand.mov" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     </div>
 
