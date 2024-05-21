@@ -66,7 +66,7 @@ const Index = () => {
         <div className='w-[90%] md:w-[80%] lg:w-[60%] xl:w-[70%] '>
           <div data-aos='fade-up' data-aos-delay='300' data-aos-duration='800'>
             <p className='font-semibold leading-10 text-2xl md:text-5xl xl:text-6xl md:leading-relaxed xl:leading-relaxed '>Welcome To Toprofile <br className='hidden lg:block' /> Real Estate Limited</p>
-            <p className='mt-2 text-xs md:text-2xl lg:text-xl xl:text-xl md:mt-6 font-light leading-relaxed md:leading-10 lg:leading-relaxed xl:leading-loose lg:mt-2 '>Unlock the Door to Your Perfect Home,<br className='block lg:hidden' />  Join us in the pursuit <br className='hidden xl:block' /> of exceptional living.</p>
+            <p className='mt-2 text-xs md:text-2xl lg:text-xl xl:text-xl md:mt-6 font-light leading-relaxed md:leading-10 lg:leading-relaxed xl:leading-loose lg:mt-2 '>Unlock the Door to Your Perfect Home,<br className='block lg:hidden' />  Join us in the pursuit <br className='hidden xl:block' /> of Realty For Royalty.</p>
             <div className="mt-4 ">
           </div>
           <Link href={`/projects`}>

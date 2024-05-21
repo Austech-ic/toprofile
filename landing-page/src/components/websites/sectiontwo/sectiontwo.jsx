@@ -64,11 +64,12 @@ Every step of the way in our conversations, we keep the satisfaction of our clie
 </div>
       </div>
       <div className={styles.subtwo}>
-      <video controls className={styles.video}>
-            <source src="/img/brand.mov" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-      </div>
+  <video controls autoPlay muted className={styles.video}>
+    <source src="/img/brand.mov" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
     </div>
 
    </div>

@@ -107,7 +107,7 @@ const Sectionfour = () => {
             </div>
 
             <div className='flex items-center justify-center pt-2 pb-5 md:pt-4 md:pb-14 lg:pt-5 lg:pb-10'>
-                <p className='text-center w-[85%] md:w-[90%] lg:w-[50%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>A platform to acquire your desired properties.We offer the best-selling locations.</p>
+                <p className='text-center w-[85%] md:w-[90%] lg:w-[50%] xl:w-[50%] text-xs md:text-2xl lg:text-lg xl:text-xl font-light'>A platform to acquire your desired properties. We offer the best-selling locations.</p>
             </div>
 
 
