@@ -159,9 +159,9 @@ const Footer = () => {
                                     </div>
                                 </Link>
 
-                                <Link href="tel:+2348123831687" >
+                                <Link href="tel:+2347060679005" >
                                     <div >
-                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>+2348123831687</p>
+                                        <p className='text-white text-xs md:text-2xl lg:text-sm font-light'>+2347060679005</p>
                                     </div>
                                 </Link>
 
@@ -181,7 +181,7 @@ const Footer = () => {
                 <hr  />
             </div>
             <div  className='py-5 flex justify-center items-center'>
-                <p className='text-white text-xs md:text-2xl lg:text-sm xl:text-base'>Copyright © 2024 Topprofit</p>
+                <p className='text-white text-xs md:text-2xl lg:text-sm xl:text-base'>Copyright © 2024 Toprofile</p>
             </div>
         </div>
     )

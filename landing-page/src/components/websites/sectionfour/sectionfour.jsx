@@ -1,6 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 import multi from '../../../../public/img/multi.png'
+import dem from '../../../../public/img/dem.jpg'
+import win from '../../../../public/img/win.jpeg'
+import wm from '../../../../public/img/wm.jpeg'
+import rck from '../../../../public/img/rck.jpeg'
+import bd from '../../../../public/img/bd.jpg'
+import eden from '../../../../public/img/eden.jpg'
+import dp from '../../../../public/img/dp.jpg'
 import { LuBedDouble, LuBath } from "react-icons/lu";
 import { FaLandmark } from 'react-icons/fa';
 import Slider from 'react-slick';
@@ -16,50 +23,58 @@ const Sectionfour = () => {
     const details = [
         {
             id: 1,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: win,
+            label: "WINGATE ESTATE KUJE, ABUJA",
+            text: "4 BEDROOMS TERRACE DUPLEX",
+            sqr: "250 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 2,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: wm,
+            label: "WEMBLEY CITY JIKWOYI, ABUJA",
+            text: "2 BEDROOMS TERRACE DUPLEX",
+            sqr: "180 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 3,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: eden,
+            label: "EDENLAND, ABUJA",
+            text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
+            sqr: "180 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 4,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: dem,
+            label: "DOUBLE KING VILLA GUZAPE 2, ABUJA",
+            text: "4 BEDROOMS SEMI-DETACHED PENTHOUSE",
+            sqr: "350 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 5,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: rck,
+            label: "ROYALHILLS ESTATE ASOKORO EXTENSION, ABUJA",
+            text: "2 BEDROOMS TERRACE DUPLEX WITH AN ATTACHED BQ",
+            sqr: "300 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 6,
-            pic: multi,
-            label: " Ikoyi, lagos, Nigeria.",
-            text: "3 Bedroom Fully Detached Bungalow + a Detached BQ",
-            sqr: "8000sq+",
+            pic: dp,
+            label: "TREASURELAND ESTATE JIKWOYI, ABUJA",
+            text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
+            sqr: "180 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 7,
+            pic: bd,
+            label: "NEFT COURT, IDU, ABUJA",
+            text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
+            sqr: "250 SQM",
             price: "₦1,200,000.00",
         },
 
@@ -115,22 +130,25 @@ const Sectionfour = () => {
             <Slider {...settings} >
                     {
                         details.map((datum) => (
-                            <div key={datum.id} className='flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 '>
+                            <div key={datum.id} className='flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 hover:shadow-2xl hover:shadow-slate-400'>
                                 
-                               <div className='bg-white '>
-                               <Image src={datum.pic} alt='pic-img' className='rounded-xl' />
-                                <div className=' px-5 pt-4 md:px-2 lg:px-5'>
-                                    <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium '>{datum.label}</p>
-                                    <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
+                               <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
+                                <div className='h-48 w-full'>
+                                <Image src={datum.pic} alt='pic-img' className='rounded-xl' style={{ width: '100%', height: '100%' }} />
+                                </div>
+                            
+                                <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
+                                    <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium  h-[5vh] md:h-[6vh] lg:h-[9vh] xl:h-[7vh]'>{datum.label}</p>
+                                    <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
                                 </div>
 
                                 <div className='px-5 pt-2 md:px-2 lg:px-5 '>
 
-                                <div className=' '>
+                                <div className=' h-[6vh]  '>
                                     <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.text}</p>
                                    
                                 </div>
-                                    <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
+                                    <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
 
                                 </div>
 
@@ -143,15 +161,15 @@ const Sectionfour = () => {
                                         </div>
 
                                     </div>
-                                    <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
+                                    {/* <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div> */}
 
                                 </div>
 
 
-                                <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
+                                {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
                                     <p className='text-slate-400 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>Price</p>
                                     <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.price}</p>
-                                </div>
+                                </div> */}
                                </div>
 
                             </div>

@@ -100,7 +100,7 @@ const Header = () => {
               )}
             </div> */}
             <Link href={`/teams`} className='hover:text-orange'>
-              <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">OUR TEAMS</li>
+              <li className="py-1 text-center  text-xs md:text-xl lg:text-sm xl:text-base">OUR TEAM</li>
             </Link>
             <div className='flex flex-col gap-1' onClick={handleDropdownToggle}>
                 <div className='flex items-center justify-center gap-1 hover:text-orange'>
@@ -186,7 +186,7 @@ const Header = () => {
                 </div>
               </div> */}
               <Link href={`/teams`} className='hover:text-orange'>
-                <li>OUR TEAMS</li>
+                <li>OUR TEAM</li>
               </Link>
               <div className='flex flex-col gap-1' style={{ position: 'relative', whiteSpace: 'nowrap' }} onClick={handleDropdownToggle}>
                 <div className='flex items-center gap-1 hover:text-orange cursor-pointer'>
