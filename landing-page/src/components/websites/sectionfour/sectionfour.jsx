@@ -24,7 +24,7 @@ const Sectionfour = () => {
         {
             id: 1,
             pic: win,
-            label: "WINGATE ESTATE KUJE, ABUJA",
+            label: "WINGATE ESTATE KUJE ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX",
             sqr: "250 SQM",
             price: "₦1,200,000.00",
@@ -32,7 +32,7 @@ const Sectionfour = () => {
         {
             id: 2,
             pic: wm,
-            label: "WEMBLEY CITY JIKWOYI, ABUJA",
+            label: "WEMBLEY CITY JIKWOYI ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -40,7 +40,7 @@ const Sectionfour = () => {
         {
             id: 3,
             pic: eden,
-            label: "EDENLAND, KURUDU, ABUJA",
+            label: "EDENLAND KURUDU ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -48,7 +48,7 @@ const Sectionfour = () => {
         {
             id: 4,
             pic: dem,
-            label: "DOUBLE KING VILLA GUZAPE 2, ABUJA",
+            label: "DOUBLE KING VILLA GUZAPE 2 ABUJA",
             text: "4 BEDROOMS SEMI-DETACHED PENTHOUSE",
             sqr: "350 SQM",
             price: "₦1,200,000.00",
@@ -56,7 +56,7 @@ const Sectionfour = () => {
         {
             id: 5,
             pic: rck,
-            label: "ROYALHILLS ESTATE ASOKORO EXTENSION, ABUJA",
+            label: "ROYALHILLS ESTATE ASOKORO EXTENSION ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH AN ATTACHED BQ",
             sqr: "300 SQM",
             price: "₦1,200,000.00",
@@ -64,7 +64,7 @@ const Sectionfour = () => {
         {
             id: 6,
             pic: dp,
-            label: "TREASURELAND ESTATE JIKWOYI, ABUJA",
+            label: "TREASURELAND ESTATE JIKWOYI ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -72,7 +72,7 @@ const Sectionfour = () => {
         {
             id: 7,
             pic: bd,
-            label: "NEFT COURT, IDU, ABUJA",
+            label: "NEFT COURT, IDU ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "250 SQM",
             price: "₦1,200,000.00",
@@ -167,7 +167,7 @@ const Sectionfour = () => {
                                     <div className='px-5 md:px-2 lg:px-5 '>
                                     <div className='border-gray border-b-[1px]  '></div>
                                     <div className=' py-3 md:py-6 lg:py-4 flex items-center '>
-                                        <Link href={`/projects`}>
+                                    <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`}>
                                             <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
                                                 VIEW MORE
 
