@@ -27,6 +27,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Header from '@/components/websites/header/header';
 
 const properties = [
     {
@@ -512,9 +513,12 @@ const EstatePage = () => {
     }, [currentPage]);
 
     return (
-        <div className='container mx-auto px-4 py-8'>
+      <div className='bg-gray'>
+        <Header  />
+          <div className='container mx-auto px-4 pb-8 '>
+            
             {loading ? (
-                <div className="flex justify-center items-center h-64">
+                <div className="flex justify-center items-center h-screen ">
                     <p>Loading...</p>
                 </div>
             ) : (
@@ -522,7 +526,7 @@ const EstatePage = () => {
                     <div className='mt-8'>
                         {currentItems.map((datum) => (
                             <div key={datum.id} className='flex flex-col gap-2 md:gap-4 px-2 py-4 md:py-6 lg:px-2 lg:py-8 xl:px-6'>
-                                <div className='shadow-2xl shadow-slate-400 rounded-xl flex flex-col lg:flex-row'>
+                                <div className='shadow-2xl  bg-white  rounded-xl flex flex-col lg:flex-row'>
                                     <div className="flex-1">
                                         <div className='flex items-center justify-center h-full md:h-[30vh] lg:h-[40vh] xl:h-[30vh]'>
                                             <div className="h-full w-full">
@@ -584,6 +588,7 @@ const EstatePage = () => {
                 </>
             )}
         </div>
+      </div>
     );
 }
 
