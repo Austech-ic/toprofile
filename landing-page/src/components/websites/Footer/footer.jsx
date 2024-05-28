@@ -29,11 +29,11 @@ const Footer = () => {
     const details = [
         {
             id: 1,
-            icon: <a href="https://instagram.com/theragist?igshid=NzZlODBkYWE4Ng==" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-white h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a>,
+            icon: <a href="https://www.instagram.com/toprofile_rel?igsh=YXZ0ZmM4a3dwenN1" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-white h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a>,
         },
         {
             id: 2,
-            icon: <a href="https://www.linkedin.com/in/eniola-oni-8ba018180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><IoMail className='text-white  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a>,
+            icon: <a href="mailto:info@toprofile.com" target="_blank" rel="noopener noreferrer"><IoMail className='text-white  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a>,
         },
         {
             id: 3,

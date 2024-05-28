@@ -40,7 +40,7 @@ const Sectionfour = () => {
         {
             id: 3,
             pic: eden,
-            label: "EDENLAND, ABUJA",
+            label: "EDENLAND, KURUDU, ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -80,7 +80,7 @@ const Sectionfour = () => {
 
     ];
 
-    
+
 
 
     const settings = {
@@ -126,67 +126,74 @@ const Sectionfour = () => {
             </div>
 
 
-            <div className=' px-10 py-5 md:py-5 lg:py-0 lg:px-20 xl:px-30 bg-transparent'>
-            <Slider {...settings} >
+            <div className=' px-10 pt-5 pb-10 md:pt-5 md:pb-10 lg:pb-10 lg:px-20 xl:px-30 bg-transparent'>
+                <Slider {...settings} >
                     {
                         details.map((datum) => (
-                            <div key={datum.id} className='flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 hover:shadow-2xl hover:shadow-slate-400'>
-                                
-                               <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
-                                <div className='h-48 w-full'>
-                                <Image src={datum.pic} alt='pic-img' className='rounded-xl' style={{ width: '100%', height: '100%' }} />
-                                </div>
-                            
-                                <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
-                                    <p className=' text-xs md:text-xl lg:text-base xl:text-base font-medium  h-[5vh] md:h-[6vh] lg:h-[9vh] xl:h-[7vh]'>{datum.label}</p>
-                                    <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
-                                </div>
+                            <div key={datum.id} className='flex flex-col gap-2 md:gap-4 px-2 py-4 md:py-6 lg:px-2 lg:py-8 xl:px-6 hover:shadow-2xl hover:shadow-slate-400'>
 
-                                <div className='px-5 pt-2 md:px-2 lg:px-5 '>
+                                <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
+                                    <div className='h-48 w-full'>
+                                        <Image src={datum.pic} alt='pic-img' className='rounded-xl' style={{ width: '100%', height: '100%' }} />
+                                    </div>
 
-                                <div className=' h-[6vh]  '>
-                                    <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.text}</p>
-                                   
-                                </div>
-                                    <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
+                                    <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
+                                        <p className='text-xs md:text-lg lg:text-sm font-medium  h-[5vh] md:h-[6vh] lg:h-[8vh] xl:h-[6vh]'>{datum.label}</p>
+                                        <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
+                                    </div>
 
-                                </div>
+                                    <div className='px-5 pt-2 md:px-2 lg:px-5 '>
 
-                                <div className='px-5 pt-2 md:px-2 lg:px-5 '>
+                                        <div className=' h-[6vh] lg:h-[6vh] xl:h-[5vh]  '>
+                                            <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.text}</p>
 
-                                    <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
-                                        <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
-                                            <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
-                                            <p className=' text-xs md:text-lg lg:text-sm xl:text-base leading-5 font-light'>{datum.sqr}</p>
                                         </div>
+                                        <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
 
                                     </div>
-                                    {/* <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div> */}
 
-                                </div>
+                                    <div className='px-5 py-2 md:py-4 md:px-2 lg:px-5 '>
+
+                                        <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
+                                            <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
+                                                <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
+                                                <p className=' text-xs md:text-lg lg:text-sm  leading-5 font-light'>{datum.sqr}</p>
+                                            </div>
+
+                                        </div>
+                                        {/* <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div> */}
+
+                                    </div>
+                                    <div className='px-5 md:px-2 lg:px-5 '>
+                                    <div className='border-gray border-b-[1px]  '></div>
+                                    <div className=' py-3 md:py-6 lg:py-4 flex items-center '>
+                                        <Link href={`/projects`}>
+                                            <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
+                                                VIEW MORE
+
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    </div>
+                                   
+                                    
+                               
 
 
-                                {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
+                                    {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
                                     <p className='text-slate-400 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>Price</p>
                                     <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.price}</p>
                                 </div> */}
-                               </div>
+                                </div>
 
                             </div>
                         ))
                     }
                 </Slider>
-                
+
             </div>
 
-            <div className='py-6 md:py-12 flex justify-center items-center'>
-                    <Link href={`/projects`}>
-                    <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-xl  lg:text-base xl:text-lg px-8 py-2 md:py-3' >
-                        VIEW MORE
 
-                    </button>
-                    </Link>
-                </div>
 
 
 

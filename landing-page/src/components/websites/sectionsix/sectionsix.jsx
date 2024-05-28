@@ -22,6 +22,14 @@ const Sectionsix = () => {
         window.open(googleMapsUrl, '_blank');
     };
 
+    const sendToWhatsApp = (values) => {
+        const phoneNumber = "+23437305635"; // Your WhatsApp phone number
+        const message = `Name: ${values.name}\nEmail: ${values.email}\nMessage: ${values.message}`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
 
     return (
         <div className='pt-8 md:pt-20 xl:pt-20' id='contact'>
@@ -83,8 +91,7 @@ const Sectionsix = () => {
                             message: Yup.string().required('Service needed is required'),
                         })}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
-                            // Handle form submission here
-                            console.log(values);
+                            sendToWhatsApp(values);
                             resetForm();
                             setSubmitting(false);
                         }}

@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { IoMail } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa6";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -56,10 +57,10 @@ const Sectionfive = () => {
             label: "Prosper T. Nwankwo (MBA)",
             position: "Managing Director",
             social: [
-                { icon: <a href="https://instagram.com/theragist?igshid=NzZlODBkYWE4Ng==" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://www.linkedin.com/in/eniola-oni-8ba018180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><IoMail className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://www.instagram.com/tcprosper?igsh=YmxzZ2o0YmkyenZj" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://www.linkedin.com/in/tochukwu-prosper-2018" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://x.com/prospertc?t=WARmYrPldbJe39gdelbTLw&s=09" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://www.facebook.com/prospertc.nwankwo" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
             ]
         },
         {
@@ -69,7 +70,7 @@ const Sectionfive = () => {
             position: "General Manager",
             social: [
                 { icon: <a href="https://instagram.com/theragist?igshid=NzZlODBkYWE4Ng==" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://www.linkedin.com/in/eniola-oni-8ba018180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><IoMail className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://www.linkedin.com/in/eniola-oni-8ba018180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
                 { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
                 { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
             ]
@@ -80,10 +81,10 @@ const Sectionfive = () => {
             label: "Mark Ekene Ogba",
             position: "HR Business Partner",
             social: [
-                { icon: <a href="https://instagram.com/theragist?igshid=NzZlODBkYWE4Ng==" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://www.linkedin.com/in/eniola-oni-8ba018180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><IoMail className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
-                { icon: <a href="https://youtube.com/@theragist?si=OClCj1dGveog7Ci7" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href=" https://www.instagram.com/markemma489" target="_blank" rel="noopener noreferrer"><BsInstagram className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href=" https://www.linkedin.com/in/ogba-ekene03" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className='text-black  h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href="https://x.com/ekene_ogba" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
+                { icon: <a href=" https://www.facebook.com/Ekenedirichukwu03" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-black h-3 w-3 md:h-6 md:w-6 lg:h-4 lg:w-4 xl:h-5 xl:w-5' /></a> },
             ]
         }
     ]
@@ -91,7 +92,7 @@ const Sectionfive = () => {
 
 
     return (
-        <div className='pt-10 md:pt-20 xl:pt-16 '  data-aos='flip-right'
+        <div className='py-10 md:py-20 xl:py-16 '  data-aos='flip-right'
         data-aos-easing='ease-out-cubic'
      data-aos-duration='2000'
      ref={scrollTriggerRef}>
