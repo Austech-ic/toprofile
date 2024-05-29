@@ -55,6 +55,14 @@ const Sectionfour = () => {
         },
         {
             id: 5,
+            pic: dem,
+            label: "DOUBLE KING LEISURE VIEW ESTATE ABUJA",
+            text: "4 BEDROOM TERRACE DUPLEX",
+            sqr: "250 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 6,
             pic: rck,
             label: "ROYALHILLS ESTATE ASOKORO EXTENSION ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH AN ATTACHED BQ",
@@ -62,7 +70,7 @@ const Sectionfour = () => {
             price: "₦1,200,000.00",
         },
         {
-            id: 6,
+            id: 7,
             pic: dp,
             label: "TREASURELAND ESTATE JIKWOYI ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
@@ -70,7 +78,7 @@ const Sectionfour = () => {
             price: "₦1,200,000.00",
         },
         {
-            id: 7,
+            id: 8,
             pic: bd,
             label: "NEFT COURT, IDU ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
