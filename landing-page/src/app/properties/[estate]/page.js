@@ -500,11 +500,8 @@ const slugify = (text) => {
 };
 
 const ITEMS_PER_PAGE = 4;
-const MAX_PAGES = 5;
 
 const EstatePage = () => {
-
-
     const { estate } = useParams();
     const formattedEstate = slugify(estate);
     const [currentPage, setCurrentPage] = useState(1);
@@ -512,14 +509,11 @@ const EstatePage = () => {
 
     const property = properties.find(p => slugify(p.label) === formattedEstate);
 
-    if (!property) {
-        return <div>Property not found</div>;
-    }
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
     const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
-    const currentItems = property.items.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = property ? property.items.slice(indexOfFirstItem, indexOfLastItem) : [];
 
-    const totalPages = Math.ceil(property.items.length / ITEMS_PER_PAGE);
+    const totalPages = property ? Math.ceil(property.items.length / ITEMS_PER_PAGE) : 1;
 
     const paginate = (pageNumber) => {
         setLoading(true);
@@ -532,6 +526,10 @@ const EstatePage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [currentPage]);
+
+    if (!property) {
+        return <div>Property not found</div>;
+    }
 
     return (
       <div className='bg-gray'>
