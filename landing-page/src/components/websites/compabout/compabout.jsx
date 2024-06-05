@@ -70,13 +70,13 @@ const Compabout = () => {
                 </div>
 
                 <div className='flex-1 flex flex-col gap-10 md:gap-16 lg:gap-10 lg:flex-col-reverse'>
-    <div className='w-full flex-1 lg:relative'>
-        <Image src={one} alt='tw-img' className='h-[50vh] lg:absolute top-0 left-0 w-full lg:h-full object-cover rounded-2xl' />
-    </div>
-    <div className='w-full  flex-1 relative'>
-        <Image src={two} alt='tw-img' className='h-[50vh] lg:absolute top-0 left-0 w-full lg:h-full object-cover rounded-2xl' />
-    </div>
-</div>
+                    <div className='w-full flex-1 lg:relative'>
+                        <Image src={one} alt='tw-img' className='h-[40vh] lg:absolute top-0 left-0 w-full lg:h-full object-cover rounded-2xl' />
+                    </div>
+                    <div className='w-full  flex-1 relative'>
+                        <Image src={two} alt='tw-img' className='h-[40vh] lg:absolute top-0 left-0 w-full lg:h-full object-cover rounded-2xl' />
+                    </div>
+                </div>
 
 
 
