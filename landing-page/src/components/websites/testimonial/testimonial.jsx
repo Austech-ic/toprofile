@@ -2,6 +2,9 @@ import Image from 'next/image';
 import React from 'react'
 import { FaQuoteLeft } from "react-icons/fa";
 import Man from '../../../../public/img/ma.png'
+import woman from '../../../../public/img/woman.jpeg'
+import sam from '../../../../public/img/sam.jpeg'
+import jude from '../../../../public/img/jude.jpeg'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -16,21 +19,21 @@ const Testimonial = () => {
     const details = [
         {
             id: 1,
-            text: "Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.",
-            user: "Mr Bambgboye",
-            frame: Man,
+            text: "Toprofile REL offers a fantastic experience and 'realty for royalty' indeed. Their website is user-friendly and their real estate service is topnotch. I highly recommend Toprofile Real Estate Limited.",
+            user: "Ms. Victoria",
+            frame: woman,
         },
         {
             id: 2,
-            text: "Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.",
-            user: "Mr Bambgboye",
-            frame: Man,
+            text: "Toprofile Real Estate Limited is my go-to place for all things REAL ESTATE. With them, you are sure that you are making an investment in the right property. And their talented team cannot disappoint your expectations. You will get your documents and allocation on time.",
+            user: "Mr. Samson",
+            frame: sam,
         },
         {
             id: 3,
-            text: "Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.",
-            user: "Mr Bambgboye",
-            frame: Man,
+            text: "As a first-time investor, I was nervous and pessimistic about the decision, but Toprofile REL made it seamless and stress-free. Their team was incredibly patient, answered all my questions, and found me the perfect property within my budget. I couldn't be happier!",
+            user: "Dr. Jude",
+            frame: jude,
         },
     ]
 
@@ -115,12 +118,12 @@ const Testimonial = () => {
                                     <div className='flex justify-center items-center'>
                                         <FaQuoteLeft className='h-4 w-4 md:h-8 md:w-8 text-lite' />
                                     </div>
-                                    <p className='text-xs font-light leading-5 md:text-2xl md:leading-9 lg:text-sm lg:leading-6 xl:text-base xl:leading-7'>{datum.text}</p>
+                                    <p className='text-xs font-light leading-5 md:text-2xl md:leading-9 lg:text-sm lg:leading-6 xl:text-base xl:leading-7  h-[25vh] md:h-[30vh] xl:h-[35vh]'>{datum.text}</p>
 
                                 </div>
-                                <div className='absolute inset-x-0 bottom-[-25px] md:bottom-[-40px] lg:bottom-[-32px] xl:bottom-[-20px] flex justify-center'>
-                                    <div className='w-[15%]'>
-                                        <Image src={datum.frame} alt='pic-img' className='rounded-full' />
+                                <div className='absolute inset-x-0 bottom-[-20px] md:bottom-[-35px] lg:bottom-[-25px] xl:bottom-[-20px] flex justify-center'>
+                                    <div className=''>
+                                        <Image src={datum.frame} alt='pic-img' className='h-[40px] w-[40px] md:h-[70px] md:w-[70px] lg:h-[50px] lg:w-[50px] rounded-full' />
                                     </div>
 
                                 </div>
