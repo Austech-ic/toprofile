@@ -3,6 +3,8 @@ import React from 'react'
 import tw from '../../../../public/img/tw.png'
 import fr from '../../../../public/img/fr.png'
 import cc from '../../../../public/img/cc.jpeg'
+import one from '../../../../public/img/one.jpeg'
+import two from '../../../../public/img/two.jpeg'
 import flag from '../../../../public/img/flag.jpeg'
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
@@ -53,7 +55,7 @@ const Compabout = () => {
         {
             id:6,
             icon:<IoIosCheckmarkCircleOutline className='text-orange w-6 h-6 md:h-10 md:w-10' />,
-            textwo:"LeadershiP hi",
+            textwo:"Leadership",
         },
 
     ]
@@ -69,10 +71,10 @@ const Compabout = () => {
 
                 <div className='flex-1 flex flex-col-reverse lg:flex-col gap-10 md:gap-16 lg:gap-10 '>
                 <div className='w-[100%] xl:w-[90%] xl:h-[40vh]'>
-                        <Image src={fr} alt='tw-img' className=' w-[100%] h-[100%]' />
+                        <Image src={one} alt='tw-img' className=' w-[100%] h-[100%] rounded-2xl' />
                     </div>
                     <div className='w-[100%] xl:w-[90%] xl:h-[40vh]'>
-                        <Image src={tw} alt='tw-img' className=' w-[100%] h-[100%]' />
+                        <Image src={two} alt='tw-img' className=' w-[100%] h-[100%] rounded-2xl' />
                     </div>
                 </div>
             </div>
