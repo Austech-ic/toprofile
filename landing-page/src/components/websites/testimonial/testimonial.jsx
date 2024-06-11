@@ -14,17 +14,18 @@ import jude from '../../../../public/img/jude.jpeg';
 const Testimonial = () => {
 
     const details = [
+        
         {
             id: 1,
-            text: "Toprofile REL offers a fantastic experience and 'realty for royalty' indeed. Their website is user-friendly and their real estate service is topnotch. I highly recommend Toprofile Real Estate Limited.",
-            user: "Ms. Victoria",
-            frame: woman,
-        },
-        {
-            id: 2,
             text: "Toprofile Real Estate Limited is my go-to place for all things REAL ESTATE. With them, you are sure that you are making an investment in the right property. And their talented team cannot disappoint your expectations. You will get your documents and allocation on time.",
             user: "Mr. Samson",
             frame: sam,
+        },
+        {
+            id: 2,
+            text: "Toprofile REL offers a fantastic experience and 'realty for royalty' indeed. Their website is user-friendly and their real estate service is topnotch. I highly recommend Toprofile Real Estate Limited.",
+            user: "Ms. Victoria",
+            frame: woman,
         },
         {
             id: 3,
@@ -111,7 +112,7 @@ const Testimonial = () => {
                     {details.map((datum) => (
                         <div key={datum.id} className='pb-5 md:pb-10 lg:px-6 lg:py-8'>
                             <div className='relative flex flex-col items-center'>
-                                <div className='bg-white rounded-2xl p-5 md:p-10 flex flex-col gap-4'>
+                                <div className='bg-white rounded-2xl p-5 md:p-10 flex flex-col gap-4 md:gap-6 lg:gap-6'>
                                     <div className='flex justify-center items-center'>
                                         <FaQuoteLeft className='h-4 w-4 md:h-8 md:w-8 text-lite' />
                                     </div>
