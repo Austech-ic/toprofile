@@ -7,3 +7,33 @@
 .slick-dots .inactive-dot {
     background-color: red; /* Red color */
 }
+
+.textContainer {
+    height: 200px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+
+@media (min-width:768px) {
+    .textContainer {
+        height: 300px; /* Adjust height as needed */
+      
+    }
+}
+
+@media (min-width:1024px) {
+    .textContainer {
+        height: 250px; /* Adjust height as needed */
+      
+    }
+}
+
+@media (min-width:1280px) {
+    .textContainer {
+        height: 300px; /* Adjust height as needed */
+      
+    }
+}
