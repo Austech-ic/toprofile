@@ -23,6 +23,12 @@
       
     }
 }
+@media (min-width: 820px) and (max-width: 1023px) {
+    .textContainer {
+        height: 250px; /* Adjust height as needed */
+       
+    }
+}
 
 @media (min-width:1024px) {
     .textContainer {

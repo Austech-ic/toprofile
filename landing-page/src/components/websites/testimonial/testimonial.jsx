@@ -58,6 +58,13 @@ const Testimonial = () => {
                 },
             },
             {
+                breakpoint: 1023,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+            {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
