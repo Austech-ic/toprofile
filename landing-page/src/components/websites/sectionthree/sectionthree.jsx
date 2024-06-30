@@ -63,7 +63,7 @@ const Sectionthree = () => {
             id:2,
             pic:white,
             text:"Estate Management",
-            textwo:"Estate Management: We oversee and handle various aspects of our clients' assets, properties, and investments, during their lifetime and even thereafter. We ensure the smooth transfer of assets to beneficiaries or heirs according to the Read more",
+            textwo:"We oversee and handle various aspects of our clients' assets, properties, and investments, during their lifetime and even thereafter. We ensure the smooth transfer of assets to beneficiaries or heirs according to the individual's wishes or legal requirements.",
         },
         {
             id:3,
