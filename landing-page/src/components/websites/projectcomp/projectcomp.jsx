@@ -202,14 +202,17 @@ const Projectcomp = () => {
                                             <Image src={datum.pic} alt='pic-img' className='rounded-t-xl' style={{ width: '100%', height: '100%' }} />
                                         </div>
 
-                                        <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
-                                            <p className='text-xs md:text-lg lg:text-sm font-medium  h-[3vh] md:h-[6vh] lg:h-[5vh] xl:h-[6vh]'>{datum.label}</p>
+                                        <div className='px-5 pt-4 md:px-2 lg:px-5 flex flex-col justify-between flex-grow'>
+                                            <p className='text-xs md:text-lg lg:text-sm font-medium min-h-[3vh] md:min-h-[6vh] lg:min-h-[5vh] xl:min-h-[6vh]'>
+                                                {datum.label}
+                                            </p>
                                             <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
                                         </div>
 
+
                                         <div className='px-5 pt-2 md:px-2 lg:px-5 '>
 
-                                            <div className=' h-[6vh] lg:h-[5vh] xl:h-[6vh]  '>
+                                            <div className=' h-[6vh] lg:h-[6vh] xl:h-[5vh]  '>
                                                 <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.text}</p>
 
                                             </div>
@@ -257,7 +260,7 @@ const Projectcomp = () => {
 
 
 
-               {/* Pagination Controls */}
+                {/* Pagination Controls */}
                 <div className='flex items-center justify-center gap-2 md:gap-4 pt-10 pb-5 md:pt-16 lg:pt-20 xl:pt-[24rem] cursor-pointer'>
                     <div
                         className='gap-2 p-2 flex justify-center items-center shadow-2xl bg-white text-black h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'

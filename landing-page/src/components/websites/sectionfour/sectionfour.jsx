@@ -163,11 +163,14 @@ const Sectionfour = () => {
                                         <Image src={datum.pic} alt='pic-img' className='rounded-xl' style={{ width: '100%', height: '100%' }} />
                                     </div>
 
-                                    <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
-                                        <p className='text-xs md:text-lg lg:text-sm font-medium  h-[5vh] md:h-[6vh] lg:h-[8vh] xl:h-[6vh]'>{datum.label}</p>
-                                        <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
-                                    </div>
+                                    <div className='px-5 pt-4 md:px-2 lg:px-5 flex flex-col justify-between flex-grow'>
+                                            <p className='text-xs md:text-lg lg:text-sm font-medium min-h-[3vh] md:min-h-[6vh] lg:min-h-[5vh] xl:min-h-[6vh]'>
+                                                {datum.label}
+                                            </p>
+                                            <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
+                                        </div>
 
+                                
                                     <div className='px-5 pt-2 md:px-2 lg:px-5 '>
 
                                         <div className=' h-[6vh] lg:h-[6vh] xl:h-[5vh]  '>
