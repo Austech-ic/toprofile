@@ -505,7 +505,7 @@ const properties = [
         id: 9,
         pic: nnfo,
         label: "DYNASTY CITY GUZAPE 2 ABUJA",
-        text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+        text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
         sqr: "600 SQM",
         items: [
             {
@@ -514,7 +514,7 @@ const properties = [
                 label: "DYNASTY CITY",
                 location: "GUZAPE 2",
                 city: 'ABUJA',
-                text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+                text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
                 sqr: "600 SQM",
             },
             {

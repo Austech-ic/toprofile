@@ -91,7 +91,7 @@ const Sectionfour = () => {
             id: 9,
             pic: nnfo,
             label: "DYNASTY CITY GUZAPE 2 ABUJA",
-            text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+            text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
             sqr: "600 SQM",
             price: "₦1,200,000.00",
         },
@@ -163,23 +163,23 @@ const Sectionfour = () => {
                                         <Image src={datum.pic} alt='pic-img' className='rounded-xl' style={{ width: '100%', height: '100%' }} />
                                     </div>
 
-                                    <div className='px-5 pt-4 md:px-2 lg:px-5 flex flex-col justify-between flex-grow'>
-                                            <p className='text-xs md:text-lg lg:text-sm font-medium min-h-[3vh] md:min-h-[6vh] lg:min-h-[5vh] xl:min-h-[6vh]'>
+                                   <div className='px-5 pt-4 md:px-2 lg:px-5 flex flex-col justify-between items-stretch md:min-h-[7vh] lg:h-[8vh] xl:min-h-[6vh]'>
+                                            <p className='text-xs md:text-lg lg:text-sm font-medium flex-grow'>
                                                 {datum.label}
                                             </p>
                                             <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
                                         </div>
 
-                                
-                                    <div className='px-5 pt-2 md:px-2 lg:px-5 '>
 
-                                        <div className=' h-[6vh] lg:h-[6vh] xl:h-[5vh]  '>
-                                            <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.text}</p>
+                                        <div className='px-5 pt-2 md:px-2 lg:px-5 '>
+
+                                            <div className='flex items-stretch md:min-h-[6vh] lg:min-h-[5vh] xl:min-h-[6vh] '>
+                                                <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light flex-grow'>{datum.text}</p>
+
+                                            </div>
+                                            <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
 
                                         </div>
-                                        <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
-
-                                    </div>
 
                                     <div className='px-5 py-2 md:py-4 md:px-2 lg:px-5 '>
 
@@ -194,19 +194,19 @@ const Sectionfour = () => {
 
                                     </div>
                                     <div className='px-5 md:px-2 lg:px-5 '>
-                                    <div className='border-gray border-b-[1px]  '></div>
-                                    <div className=' py-3 md:py-6 lg:py-4 flex items-center '>
-                                    <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`}>
-                                            <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
-                                                VIEW MORE
+                                        <div className='border-gray border-b-[1px]  '></div>
+                                        <div className=' py-3 md:py-6 lg:py-4 flex items-center '>
+                                            <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`}>
+                                                <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
+                                                    VIEW MORE
 
-                                            </button>
-                                        </Link>
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
-                                    </div>
-                                   
-                                    
-                               
+
+
+
 
 
                                     {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
