@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import multi from '../../../../public/img/multi.png'
@@ -21,8 +21,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useParams } from 'next/navigation';
+
 
 const Projectcomp = () => {
+
     const router = useRouter(); // No need to useState for router
 
     const details = [
@@ -115,6 +118,38 @@ const Projectcomp = () => {
         setSubmitting(false);
     };
 
+    const ITEMS_PER_PAGE = 6;
+    const property = { items: details }; // Assuming you want to paginate over `details`
+
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+
+
+
+    const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+    const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+    const currentItems = property ? property.items.slice(indexOfFirstItem, indexOfLastItem) : [];
+
+    const totalPages = property ? Math.ceil(property.items.length / ITEMS_PER_PAGE) : 1;
+
+    const paginate = (pageNumber) => {
+        setLoading(true);
+        setTimeout(() => {
+            setCurrentPage(Math.min(Math.max(pageNumber, 1), totalPages));
+            setLoading(false);
+        }, 1000);
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentPage]);
+
+    if (!property) {
+        return <div>Property not found</div>;
+    }
+
+
 
 
 
@@ -155,11 +190,12 @@ const Projectcomp = () => {
 
 
             <div className='bg-gray-200 pt-[11rem] pb-10  px-5 md:px-10 md:pt-[14rem] lg:pt-[14rem] xl:pt-[15rem] lg:px-10 xl:px-12 '>
-                <div className=' grid md:grid-cols-2 xl:grid-cols-3  gap-10 md:gap-8 lg:gap-5 '>
+
+                <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-8 lg:gap-5'>
                     {
-                        details.map((datum) => (
-                            <div className='hover:shadow-2xl shadow-slate-500 ' >
-                                <div key={datum.id} className=' hover:bg-fad flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 shadow-2xl shadow-slate-400'>
+                        currentItems.map((datum) => (
+                            <div className='hover:shadow-2xl shadow-slate-500 ' key={datum.id}>
+                                <div className=' hover:bg-fad flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 shadow-2xl shadow-slate-400'>
 
                                     <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
                                         <div className='h-48 w-full'>
@@ -190,26 +226,26 @@ const Projectcomp = () => {
                                                 </div>
 
                                             </div>
-                                             <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
-                                             <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`} className='hover:bg-lite' >
-                                             <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2 pt-3'>
-                                                <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
-                                                    VIEW PROPERTY
-                                                </button>
+                                            <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
+                                            <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`} className='hover:bg-lite' >
+                                                <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2 pt-3'>
+                                                    <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
+                                                        VIEW PROPERTY
+                                                    </button>
 
-                                            </div>
-                                             </Link>
-                                         
-                                           
+                                                </div>
+                                            </Link>
+
+
 
                                         </div>
 
 
 
                                         {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
-                                     <p className='text-slate-400 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>Price</p>
-                                     <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.price}</p>
-                                 </div> */}
+ <p className='text-slate-400 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>Price</p>
+ <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.price}</p>
+</div> */}
                                     </div>
 
                                 </div>
@@ -220,34 +256,32 @@ const Projectcomp = () => {
 
 
 
-                <div className='flex items-center justify-center gap-2 md:gap-4 pt-10 pb-5 md:pt-16 lg:pt-20 xl:pt-24'>
 
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
+               {/* Pagination Controls */}
+                <div className='flex items-center justify-center gap-2 md:gap-4 pt-10 pb-5 md:pt-16 lg:pt-20 xl:pt-[24rem] cursor-pointer'>
+                    <div
+                        className='gap-2 p-2 flex justify-center items-center shadow-2xl bg-white text-black h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'
+                        onClick={() => paginate(currentPage - 1)}
+                    >
                         <IoIosArrowBack className='h-5 w-5 md:w-7 md:h-7 lg:h-7 lg:w-7 xl:h-8 xl:w-8' />
-
-                    </div>
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
-                        <p className='text-xs md:text-xl lg:text-sm xl:text-base'>1</p>
-                    </div>
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
-                        <p className='text-xs md:text-xl lg:text-sm xl:text-base'>2</p>
-                    </div>
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
-                        <p className='text-xs md:text-xl lg:text-sm xl:text-base'>3</p>
-                    </div>
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
-                        <p className='text-xs md:text-xl lg:text-sm xl:text-base'>4</p>
                     </div>
 
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
-                        <p className='text-xs md:text-xl lg:text-sm xl:text-base'>5</p>
-                    </div>
+                    {[...Array(totalPages)].map((_, index) => (
+                        <div
+                            key={index + 1}
+                            className={`gap-2 p-2 flex justify-center items-center shadow-2xl h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100 ${currentPage === index + 1 ? 'bg-lite text-fad ' : 'bg-white text-black '}`}
+                            onClick={() => paginate(index + 1)}
+                        >
+                            <p className='text-xs md:text-xl lg:text-sm xl:text-base'>{index + 1}</p>
+                        </div>
+                    ))}
 
-                    <div className='gap-2  p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'>
+                    <div
+                        className='gap-2 p-2 flex justify-center items-center shadow-2xl bg-white text-black h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100'
+                        onClick={() => paginate(currentPage + 1)}
+                    >
                         <IoIosArrowForward className='h-5 w-5 md:w-7 md:h-7 lg:h-7 lg:w-7 xl:h-8 xl:w-8' />
-
                     </div>
-
                 </div>
             </div>
         </div>

@@ -682,7 +682,7 @@ const EstatePage = () => {
                         {Array.from({ length: totalPages }, (_, index) => index + 1).map(number => (
                             <button
                                 key={number}
-                                className={`gap-2 p-2 flex justify-center items-center shadow-2xl bg-white h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100 ${number === currentPage ? 'bg-white text-orange' : ''}`}
+                                className={`gap-2 p-2 flex justify-center items-center shadow-2xl  h-8 w-8 md:h-14 md:w-14 lg:h-9 lg:w-9 xl:h-10 xl:w-10 rounded-full border border-slate-100 ${number === currentPage ? 'bg-lite text-fad' : ''}`}
                                 style={{ height: loading ? '100vh' : 'auto' }}
                                 onClick={() => paginate(number)}
                             >
