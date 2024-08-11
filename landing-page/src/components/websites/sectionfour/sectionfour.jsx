@@ -8,6 +8,8 @@ import rck from '../../../../public/img/rck.jpeg'
 import bd from '../../../../public/img/bd.jpg'
 import eden from '../../../../public/img/eden.jpg'
 import dp from '../../../../public/img/dp.jpg'
+import nnfo from '../../../../public/img/nnw4.jpeg'
+import nnf from '../../../../public/img/nnw5.jpeg'
 import { LuBedDouble, LuBath } from "react-icons/lu";
 import { FaLandmark } from 'react-icons/fa';
 import Slider from 'react-slick';
@@ -80,8 +82,24 @@ const Sectionfour = () => {
         {
             id: 8,
             pic: bd,
-            label: "NEFT COURT, IDU ABUJA",
+            label: "NEFT COURT IDU ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
+            sqr: "250 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 9,
+            pic: nnfo,
+            label: "DYNASTY CITY GUZAPE 2 ABUJA",
+            text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+            sqr: "600 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 10,
+            pic: nnf,
+            label: "VELVET VILLA ASOKORO EXT ABUJA",
+            text: "5 BEDROOMS TERRACE DUPLEX",
             sqr: "250 SQM",
             price: "₦1,200,000.00",
         },

@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import multi from '../../../../public/img/multi.png';
@@ -22,6 +23,13 @@ import wemsix from '../../../../public/img/wemsix.jpg';
 import wemfive from '../../../../public/img/wemfive.jpg';
 import wemtwo from '../../../../public/img/wemtwo.jpg';
 import wemthree from '../../../../public/img/wemthree.jpg';
+import nw1 from '../../../../public/img/nw1.jpeg'
+import nw4 from '../../../../public/img/nw4.jpeg'
+import nw2 from '../../../../public/img/wn2.jpeg'
+import nww7 from '../../../../public/img/nnw7.jpeg'
+import nww2 from '../../../../public/img/nww2.jpeg'
+import nnfo from '../../../../public/img/nnw4.jpeg'
+import nnf from '../../../../public/img/nnw5.jpeg'
 import { FaLandmark } from 'react-icons/fa';
 import { IoLocationSharp } from "react-icons/io5";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
@@ -433,15 +441,15 @@ const properties = [
     {
         id: 8,
         pic: bd,
-        label: "NEFT COURT, IDU ABUJA",
+        label: "NEFT COURT IDU ABUJA",
         text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
         sqr: "250 SQM",
         items: [
             {
                 id: 1,
                 pic: win,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "4 BEDROOMS TERRACE DUPLEX",
                 sqr: "250 SQM",
@@ -449,8 +457,8 @@ const properties = [
             {
                 id: 2,
                 pic: winone,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "2-BEDROOM FULLY DETACHED BUNGALOW.",
                 sqr: "250 SQM",
@@ -458,8 +466,8 @@ const properties = [
             {
                 id: 3,
                 pic: winfour,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "3 BEDROOM SEMI DETACHED DUPLEX",
                 sqr: "350 SQM",
@@ -467,8 +475,8 @@ const properties = [
             {
                 id: 4,
                 pic: winthree,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "3 BEDROOM FULLY DETACHED BUNGALOW WITH A DETACHED BQ",
                 sqr: "450 SQM",
@@ -476,8 +484,8 @@ const properties = [
             {
                 id: 5,
                 pic: winsix,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "5 BEDROOM FULLY DETACHED BUNGALOW WITH A DETACHED BQ",
                 sqr: "550 SQM",
@@ -485,12 +493,95 @@ const properties = [
             {
                 id: 6,
                 pic: winseven,
-                label: "WINGATE ESTATE",
-                location: "KUJE",
+                label: "NEFT COURT",
+                location: "IDU",
                 city: 'ABUJA',
                 text: "6 UNIT OF 3 BEDROOM BLOCK OF FLAT",
                 sqr: "550 SQM",
             }
+        ]
+    },
+    {
+        id: 9,
+        pic: nnfo,
+        label: "DYNASTY CITY GUZAPE 2 ABUJA",
+        text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+        sqr: "600 SQM",
+        items: [
+            {
+                id: 1,
+                pic: nnfo,
+                label: "DYNASTY CITY",
+                location: "GUZAPE 2",
+                city: 'ABUJA',
+                text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+                sqr: "600 SQM",
+            },
+            {
+                id: 2,
+                pic: nw4,
+                label: "DYNASTY CITY",
+                location: "GUZAPE 2",
+                city: 'ABUJA',
+                text: "4 BEDROOMS SEMI DETACHED PENTHOUSE",
+                sqr: "350 SQM",
+            },
+            {
+                id: 3,
+                pic: nw1,
+                label: "DYNASTY CITY",
+                location: "GUZAPE 2",
+                city: 'ABUJA',
+                text: "4 BEDROOMS FULLY DETACHED PENTHOUSE WITH ATTACHED BQ",
+                sqr: "500 SQM",
+            },
+            {
+                id: 4,
+                pic: nww2,
+                label: "DYNASTY CITY",
+                location: "GUZAPE 2",
+                city: 'ABUJA',
+                text: "4 BEDROOMS TERRACE DUPLEX",
+                sqr: "250 SQM",
+            },
+            
+        ]
+    },
+    {
+        id: 10,
+        pic: nnf,
+            label: "VELVET VILLA, ASOKORO EXT ABUJA",
+            text: "5 BEDROOMS TERRACE DUPLEX",
+            sqr: "250 SQM",
+        items: [
+            {
+                id: 1,
+                pic: nw1,
+                label: "VELVET VILLA",
+                location: "ASOKORO EXT",
+                city: 'ABUJA',
+            text: "5 BEDROOMS TERRACE DUPLEX",
+            sqr: "250 SQM",
+            },
+            {
+                id: 2,
+                pic: nww7,
+                label: "VELVET VILLA",
+                location: "ASOKORO EXT",
+                city: 'ABUJA',
+            text: "5 BEDROOMS FULLY DETACHED PENTHOUSE",
+            sqr: "400 SQM",
+            },
+            {
+                id: 3,
+                pic: nw2,
+                label: "VELVET VILLA",
+                location: "ASOKORO EXT",
+                city: 'ABUJA',
+                text: "5/6 BEDROOMS FULLY DETACHED DUPLEX + DETACHED BQ",
+            sqr: "600 SQM",
+            },
+            
         ]
     },
 ];
@@ -566,11 +657,14 @@ const EstatePage = () => {
                                                 <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
                                                 <p className='text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.sqr}</p>
                                             </div>
+                                            <Link key={datum.id} href={`/singleproperty/${datum.id}`}>
                                             <div>
                                                 <button className='flex justify-center items-center px-8 py-2 gap-4 border bg-lite text-white text-xs md:text-lg lg:text-sm'>
                                                     Buy Now
                                                 </button>
                                             </div>
+                                            </Link>
+                                           
                                         </div>
                                     </div>
                                 </div>

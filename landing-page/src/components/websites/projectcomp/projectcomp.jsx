@@ -9,6 +9,8 @@ import wm from '../../../../public/img/wm.jpeg'
 import rck from '../../../../public/img/rck.jpeg'
 import bd from '../../../../public/img/bd.jpg'
 import eden from '../../../../public/img/eden.jpg'
+import nnfo from '../../../../public/img/nnw4.jpeg'
+import nnf from '../../../../public/img/nnw5.jpeg'
 import dp from '../../../../public/img/dp.jpg'
 import { LuBedDouble, LuBath } from "react-icons/lu";
 import { FaLandmark } from 'react-icons/fa';
@@ -16,7 +18,7 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { BsHouse } from "react-icons/bs";
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -27,7 +29,7 @@ const Projectcomp = () => {
         {
             id: 1,
             pic: win,
-            label: "WINGATE ESTATE KUJE, ABUJA",
+            label: "WINGATE ESTATE KUJE ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX",
             sqr: "250 SQM",
             price: "₦1,200,000.00",
@@ -35,7 +37,7 @@ const Projectcomp = () => {
         {
             id: 2,
             pic: wm,
-            label: "WEMBLEY CITY JIKWOYI, ABUJA",
+            label: "WEMBLEY CITY JIKWOYI ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -43,7 +45,7 @@ const Projectcomp = () => {
         {
             id: 3,
             pic: eden,
-            label: "EDENLAND, ABUJA",
+            label: "EDENLAND KURUDU ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
@@ -51,32 +53,56 @@ const Projectcomp = () => {
         {
             id: 4,
             pic: dem,
-            label: "DOUBLE KING VILLA GUZAPE 2, ABUJA",
+            label: "DOUBLE KING VILLA GUZAPE 2 ABUJA",
             text: "4 BEDROOMS SEMI-DETACHED PENTHOUSE",
             sqr: "350 SQM",
             price: "₦1,200,000.00",
         },
         {
             id: 5,
+            pic: dem,
+            label: "DOUBLE KING LEISURE VIEW ESTATE ABUJA",
+            text: "4 BEDROOM TERRACE DUPLEX",
+            sqr: "250 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 6,
             pic: rck,
-            label: "ROYALHILLS ESTATE ASOKORO EXTENSION, ABUJA",
+            label: "ROYALHILLS ESTATE ASOKORO EXTENSION ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH AN ATTACHED BQ",
             sqr: "300 SQM",
             price: "₦1,200,000.00",
         },
         {
-            id: 6,
+            id: 7,
             pic: dp,
-            label: "TREASURELAND ESTATE JIKWOYI, ABUJA",
+            label: "TREASURELAND ESTATE JIKWOYI ABUJA",
             text: "2 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
             sqr: "180 SQM",
             price: "₦1,200,000.00",
         },
         {
-            id: 7,
+            id: 8,
             pic: bd,
-            label: "NEFT COURT, IDU, ABUJA",
+            label: "NEFT COURT IDU ABUJA",
             text: "4 BEDROOMS TERRACE DUPLEX WITH ATTACHED BQ",
+            sqr: "250 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 9,
+            pic: nnfo,
+            label: "DYNASTY CITY GUZAPE 2 ABUJA",
+            text: "5 BEDROOMS TERRACE DUPLEX WITH DETACHED BQ",
+            sqr: "600 SQM",
+            price: "₦1,200,000.00",
+        },
+        {
+            id: 10,
+            pic: nnf,
+            label: "VELVET VILLA ASOKORO EXT ABUJA",
+            text: "5 BEDROOMS TERRACE DUPLEX",
             sqr: "250 SQM",
             price: "₦1,200,000.00",
         },
@@ -95,10 +121,10 @@ const Projectcomp = () => {
 
     return (
         <div className='bg-gray'>
-           <div className='flex items-center justify-center relative'>
-           <div className='bg-white w-[80%] lg:w-[50%]  rounded-2xl p-10 md:p-20 lg:p-10 xl:p-16 flex flex-col gap-4 absolute top-[-4rem] md:top-[-13rem] lg:top-[-5rem] xl:top-[-8rem]'>
+            <div className='flex items-center justify-center relative'>
+                <div className='bg-white w-[80%] lg:w-[50%]  rounded-2xl p-10 md:p-20 lg:p-10 xl:p-16 flex flex-col gap-4 absolute top-[-4rem] md:top-[-13rem] lg:top-[-5rem] xl:top-[-8rem]'>
 
-           <Formik
+                    <Formik
                         initialValues={{ searchTerm: '' }}
                         validationSchema={Yup.object({
                             searchTerm: Yup.string().required('Search term is required')
@@ -117,66 +143,77 @@ const Projectcomp = () => {
                                 />
                             </div>
                             <ErrorMessage name="searchTerm" component="div" className="text-red-600 text-xs md:text-xl lg:text-sm" />
-                            
+
                             <button type="submit" className='bg-orange text-white text-xs md:text-2xl lg:text-base xl:text-lg w-[40%] lg:w-[30%]  px-4 py-1 md:py-3 lg:py-2'>Search</button>
                         </Form>
                     </Formik>
-           </div>
-            
-           </div>
+                </div>
+
+            </div>
 
 
 
 
             <div className='bg-gray-200 pt-[11rem] pb-10  px-5 md:px-10 md:pt-[14rem] lg:pt-[14rem] xl:pt-[15rem] lg:px-10 xl:px-12 '>
-                <div className=' grid md:grid-cols-2 xl:grid-cols-3  gap-10 md:gap-8 lg:gap-5'>
+                <div className=' grid md:grid-cols-2 xl:grid-cols-3  gap-10 md:gap-8 lg:gap-5 '>
                     {
                         details.map((datum) => (
-                            <Link key={datum.id} href={`/singleproperty/${datum.id}`}>
-                           <div key={datum.id} className=' flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 shadow-2xl shadow-slate-400'>
-                                
-                                <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
-                                 <div className='h-48 w-full'>
-                                 <Image src={datum.pic} alt='pic-img' className='rounded-t-xl' style={{ width: '100%', height: '100%' }} />
-                                 </div>
-                             
-                                 <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
-                                     <p className='text-xs md:text-lg lg:text-sm font-medium  h-[3vh] md:h-[6vh] lg:h-[5vh] xl:h-[6vh]'>{datum.label}</p>
-                                     <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
-                                 </div>
- 
-                                 <div className='px-5 pt-2 md:px-2 lg:px-5 '>
- 
-                                 <div className=' h-[6vh] lg:h-[5vh] xl:h-[6vh]  '>
-                                     <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.text}</p>
-                                    
-                                 </div>
-                                     <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
- 
-                                 </div>
- 
-                                 <div className='px-5 pt-2 md:px-2 lg:px-5 '>
- 
-                                     <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
-                                         <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
-                                             <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
-                                             <p className=' text-xs md:text-lg lg:text-sm  leading-5 font-light'>{datum.sqr}</p>
-                                         </div>
- 
-                                     </div>
-                                     {/* <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div> */}
- 
-                                 </div>
- 
- 
-                                 {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
+                            <div className='hover:shadow-2xl shadow-slate-500 ' >
+                                <div key={datum.id} className=' hover:bg-fad flex flex-col gap-2 md:gap-4 px-4 py-4 md:py-6 lg:px-6 lg:py-8 shadow-2xl shadow-slate-400'>
+
+                                    <div className='bg-white pb-3 md:pb-6 lg:pb-4 rounded-t-xl'>
+                                        <div className='h-48 w-full'>
+                                            <Image src={datum.pic} alt='pic-img' className='rounded-t-xl' style={{ width: '100%', height: '100%' }} />
+                                        </div>
+
+                                        <div className=' px-5 pt-4 md:px-2 lg:px-5  '>
+                                            <p className='text-xs md:text-lg lg:text-sm font-medium  h-[3vh] md:h-[6vh] lg:h-[5vh] xl:h-[6vh]'>{datum.label}</p>
+                                            <div className='border-gray border-b-[1px] mt-2 md:mt-2 lg:mt-1'></div>
+                                        </div>
+
+                                        <div className='px-5 pt-2 md:px-2 lg:px-5 '>
+
+                                            <div className=' h-[6vh] lg:h-[5vh] xl:h-[6vh]  '>
+                                                <p className=' text-xs md:text-lg lg:text-sm leading-5 font-light'>{datum.text}</p>
+
+                                            </div>
+                                            <div className='border-gray border-b-[1px] mt-2 md:mt-5 lg:mt-2'></div>
+
+                                        </div>
+
+                                        <div className='px-5 pt-2 md:px-2 lg:px-5 '>
+
+                                            <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2'>
+                                                <div className='flex items-center gap-1 md:gap-1 lg:gap-2'>
+                                                    <FaLandmark className='text-orange h-3 w-3 md:h-5 md:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5' />
+                                                    <p className=' text-xs md:text-lg lg:text-sm  leading-5 font-light'>{datum.sqr}</p>
+                                                </div>
+
+                                            </div>
+                                             <div className='border-gray border-b-[1px] mt-2 md:mt-5'></div>
+                                             <Link href={`/properties/${datum.label.replace(/ /g, '-').toLowerCase()}`} className='hover:bg-lite' >
+                                             <div className=' flex items-center justify-between gap-2 md:gap-2 lg:gap-2 pt-3'>
+                                                <button className='flex justify-center items-center gap-4 border bg-orange text-white text-xs md:text-lg  lg:text-sm px-6 py-2 md:py-2 lg:py-2' >
+                                                    VIEW PROPERTY
+                                                </button>
+
+                                            </div>
+                                             </Link>
+                                         
+                                           
+
+                                        </div>
+
+
+
+                                        {/* <div className='pb-2 md:pb-5 px-5 flex flex-col gap-1 md:gap-2 '>
                                      <p className='text-slate-400 text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>Price</p>
                                      <p className=' text-xs md:text-xl lg:text-sm xl:text-base leading-5 font-light'>{datum.price}</p>
                                  </div> */}
+                                    </div>
+
                                 </div>
- 
-                             </div>
-                            </Link>
+                            </div>
                         ))
                     }
                 </div>
