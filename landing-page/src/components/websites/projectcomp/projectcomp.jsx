@@ -29,12 +29,20 @@ const Projectcomp = () => {
     const router = useRouter(); // No need to useState for router
 
     const details = [
+        // {
+        //     id: 1,
+        //     pic: win,
+        //     label: "WINGATE ESTATE KUJE ABUJA",
+        //     text: "4 BEDROOMS TERRACE DUPLEX",
+        //     sqr: "250 SQM",
+        //     price: "₦1,200,000.00",
+        // },
         {
             id: 1,
-            pic: win,
-            label: "WINGATE ESTATE KUJE ABUJA",
-            text: "4 BEDROOMS TERRACE DUPLEX",
-            sqr: "250 SQM",
+            pic: nnfo,
+            label: "DYNASTY CITY GUZAPE 2 ABUJA",
+            text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
+            sqr: "600 SQM",
             price: "₦1,200,000.00",
         },
         {
@@ -93,14 +101,14 @@ const Projectcomp = () => {
             sqr: "250 SQM",
             price: "₦1,200,000.00",
         },
-        {
-            id: 9,
-            pic: nnfo,
-            label: "DYNASTY CITY GUZAPE 2 ABUJA",
-            text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
-            sqr: "600 SQM",
-            price: "₦1,200,000.00",
-        },
+        // {
+        //     id: 9,
+        //     pic: nnfo,
+        //     label: "DYNASTY CITY GUZAPE 2 ABUJA",
+        //     text: "5 BEDROOMS FULLY DETACHED DUPLEX WITH DETACHED BQ",
+        //     sqr: "600 SQM",
+        //     price: "₦1,200,000.00",
+        // },
         {
             id: 10,
             pic: nnf,
