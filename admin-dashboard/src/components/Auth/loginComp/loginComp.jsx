@@ -142,8 +142,8 @@ const LoginComp = () => {
       </div>
       
      </div>
-     <div className='flex justify-center items-center gap-2 '>
-              <p className={styles.acc}>Already have an account?</p>
+     <div className='flex justify-center items-center gap-2'>
+              <p className={styles.acc}>Dont have an account?</p>
               <Link href={`/auth/signup`} className={styles.link}>
                 <p className={styles.sign}>Sign Up</p>
               </Link>
