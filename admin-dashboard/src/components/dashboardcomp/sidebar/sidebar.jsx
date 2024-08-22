@@ -44,8 +44,8 @@ const Sidebar = ({  closeMenu, toggleSidebar  }) => {
       id: 1,
       icon: <BiSolidDashboard className={styles.icon} />,
       title: "Dashboard",
-      link: "/",
-      path: "/",
+      link: "/admin/dashboard",
+      path: "/admin/dashboard",
     
 
     },
