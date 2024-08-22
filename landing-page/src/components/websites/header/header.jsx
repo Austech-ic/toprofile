@@ -57,9 +57,11 @@ const Header = () => {
    <div className={`${styles.header} ${isSticky ? styles.sticky : ''} ${isScrolling ? styles.scrolling : ''}`}>
     <div className=' flex flex-row items-center justify-between  lg:justify-center lg:gap-10 py-2 pr-10 md:py-4 md:pr-20 lg:py-2 lg:pr-10 xl:pr-28 2xl:pr-3 '>
       <div className='flex-1 lg:flex-[0.7] flex items-center justify-between'>
-        <div className=''>
+       <Link href={`/`}>
+       <div className=''>
           <Image src={Logo} alt='logo-img' className='w-[80%] lg:w-[70%] xl:w-[50%]' />
         </div>
+       </Link>
 
       </div>
       <div className='flex-1 lg:flex-none flex justify-end items-center '>
