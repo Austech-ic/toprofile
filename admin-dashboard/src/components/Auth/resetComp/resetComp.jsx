@@ -72,14 +72,14 @@ const ResetComp = () => {
   return (
   <section className='flex flex-col lg:flex-row  '>
     <div className='flex-1'>
-      <Image src={Bgg} className='h-[70vh] lg:h-screen w-full' />
+      <Image src={Bgg} className='h-[70vh] lg:h-screen w-full' alt='bgg-img' />
     </div>
 
 
     <div className='flex-1 bg-white flex items-center justify-center py-10'>
      <div className='flex flex-col justify-center gap-5 md:gap-10 lg:gap-5 '>
      <div className=' flex justify-center items-center'>
-     <Image src={bg} className='w-[30%] md:w-[50%] lg:w-[30%]' />
+     <Image src={bg} className='w-[30%] md:w-[50%] lg:w-[30%]' alt='bg-img' />
       </div>
       <div >
         <p className='text-base md:text-3xl lg:text-xl xl:text-2xl font-bold text-center '>Forgot Password?</p>
