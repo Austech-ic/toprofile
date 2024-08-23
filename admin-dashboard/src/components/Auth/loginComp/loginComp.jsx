@@ -69,88 +69,103 @@ const LoginComp = () => {
 
 
   return (
-  <section className='flex flex-col lg:flex-row  '>
-    <div className='flex-1'>
-      <Image src={Bgg} className='h-[70vh] lg:h-screen w-full' />
-    </div>
-
-
-    <div className='flex-1 bg-white flex items-center justify-center py-10'>
-     <div className='flex flex-col justify-center gap-5 md:gap-10 lg:gap-5 '>
-     <div className=' flex justify-center items-center'>
-     <Image src={bg} className='w-[30%] md:w-[50%] lg:w-[30%]' />
+    <section className='flex flex-col lg:flex-row  '>
+      <div className='flex-1'>
+        <Image src={Bgg} className='h-[70vh] lg:h-screen w-full' />
       </div>
-      <div >
-        <p className='text-base md:text-3xl lg:text-xl xl:text-2xl font-bold text-center '>Welcome Back</p>
-      </div>
-     <div className='flex justify-center px-5 py-3 md:px-20 md:py-10 '>
-     <div className='w-[80%]'>
-      <Formik
-              initialValues={{
-                email: '',
-                password: '',
-              }}
-              validationSchema={Yup.object({
-                email: Yup.string().email('Invalid email address').required('Field cannot be empty'),
-                password: Yup.string().min(6, 'Password should be at least 6 characters').required('Field cannot be empty'),
-              })}
-              onSubmit={handleSubmit}
-            >
-              {({ setFieldValue, values, isSubmitting }) => (
-                <Form className='flex flex-col gap-4' autoComplete='off'>
-                  
 
-                  <div className='flex flex-col gap-2 text-gray-500'>
-                   
-                    <Field
-                      className='w-[100%] outline-none bg-transparent text-slate-600 border border-slate-200 rounded-xl   px-2 py-2 md:py-3  lg:py-2   text-xs md:text-2xl lg:text-base  focus-visible:border-slate-400'
-                      placeholder='Email'
-                      type="text"
-                      name="email"
-                    />
-                    <ErrorMessage name="email" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                  </div>
 
-                  <div className='flex flex-col gap-2 text-gray-500'>
-                    <div  
-                     className='flex justify-between items-center w-[100%] outline-none bg-transparent text-slate-600 border border-slate-200 rounded-xl   px-2 py-2 md:py-3  lg:py-2   text-xs md:text-2xl lg:text-base  focus-visible:border-slate-400'>
+      <div className='flex-1 bg-white flex items-center justify-center py-10'>
+        <div className='flex flex-col justify-center gap-5 md:gap-10 lg:gap-5 '>
+          <div className=' flex justify-center items-center'>
+            <Image src={bg} className='w-[30%] md:w-[50%] lg:w-[30%]' />
+          </div>
+          <div >
+            <p className='text-base md:text-3xl lg:text-xl xl:text-2xl font-bold text-center '>Welcome Back</p>
+          </div>
+          <div className='flex justify-center px-5 py-3 md:px-20 md:py-10 '>
+            <div className='w-[80%]'>
+              <Formik
+                initialValues={{
+                  email: '',
+                  password: '',
+                }}
+                validationSchema={Yup.object({
+                  email: Yup.string().email('Invalid email address').required('Field cannot be empty'),
+                  password: Yup.string().min(6, 'Password should be at least 6 characters').required('Field cannot be empty'),
+                })}
+                onSubmit={handleSubmit}
+              >
+                {({ setFieldValue, values, isSubmitting }) => (
+                  <Form className='flex flex-col gap-4' autoComplete='off'>
+
+
+                    <div className='flex flex-col gap-2 text-gray-500'>
+
                       <Field
-                        className='outline-none bg-transparent'
-                        placeholder="Password"
-                        type={showPassword ? "text" : "password"}
-                        name="password"
+                        className='w-[100%] outline-none bg-transparent text-slate-600 border border-slate-200 rounded-xl   px-2 py-2 md:py-3  lg:py-2   text-xs md:text-2xl lg:text-base  focus-visible:border-slate-400'
+                        placeholder='Email'
+                        type="text"
+                        name="email"
                       />
-                      <div className='text-lite' onClick={togglePasswordVisibility}>
-                        {showPassword ? <BsFillEyeFill className={styles.icon} /> : <BsFillEyeSlashFill className={styles.icon} />}
-                      </div>
+                      <ErrorMessage name="email" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
                     </div>
-                    <ErrorMessage name="password" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                  </div>
 
-                  <div className=''>
-                    <button
-                      type="submit"
-                      className='bg-lite text-white px-8 py-2 lg:py-3 w-full text-xs md:text-2xl lg:text-base rounded-2xl'
-                      disabled={isSubmitting}
-                    >
-                    Login
-                    </button>
-                  </div>
-                </Form>
-              )}
-            </Formik>
-      </div>
-      
-     </div>
-     <div className='flex justify-center items-center gap-2'>
-              <p className={styles.acc}>Dont have an account?</p>
-              <Link href={`/auth/signup`} className={styles.link}>
-                <p className={styles.sign}>Sign Up</p>
-              </Link>
+                    <div className='flex flex-col gap-2 text-gray-500'>
+                      <div
+                        className='flex justify-between items-center w-[100%] outline-none bg-transparent text-slate-600 border border-slate-200 rounded-xl   px-2 py-2 md:py-3  lg:py-2   text-xs md:text-2xl lg:text-base  focus-visible:border-slate-400'>
+                        <Field
+                          className='outline-none bg-transparent'
+                          placeholder="Password"
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                        />
+                        <div className='text-lite' onClick={togglePasswordVisibility}>
+                          {showPassword ? <BsFillEyeFill className={styles.icon} /> : <BsFillEyeSlashFill className={styles.icon} />}
+                        </div>
+                      </div>
+                      <ErrorMessage name="password" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
+                    </div>
+
+                    <div className='flex justify-between items-center'>
+
+                      <div className={styles.subrem}>
+                        <input type='checkbox' className={styles.check} />
+                        <p className={styles.acc}>Remember me</p>
+                      </div>
+
+                      <div className={styles.subrem}>
+                        <Link href={`/auth/reset`} className={styles.link}>
+                          <p className={styles.sign}>Forgot Password</p>
+                        </Link>
+                      </div>
+
+                    </div>
+
+                    <div className=''>
+                      <button
+                        type="submit"
+                        className='bg-lite text-white px-8 py-2 lg:py-3 w-full text-xs md:text-2xl lg:text-base rounded-2xl'
+                        disabled={isSubmitting}
+                      >
+                        Login
+                      </button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
-     </div>
-    </div>
-  </section>
+
+          </div>
+          <div className='flex justify-center items-center gap-2'>
+            <p className={styles.acc}>Dont have an account?</p>
+            <Link href={`/auth/signup`} className={styles.link}>
+              <p className={styles.sign}>Sign Up</p>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
