@@ -1,134 +1,234 @@
-"use client"
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const CreateProperty = ({ handleCloseModal }) => {
-    const [showForm, setShowForm] = useState(true); // State to control form visibility
+// Function to convert files to FormData
+const createFormData = (values) => {
+  const formData = new FormData();
+  formData.append("title", values.title);
+  formData.append("body", values.body);
+  formData.append("address", values.address);
+  formData.append("land_space", values.land_space);
+  formData.append("amount", values.amount);
 
+  if (values.files) {
+    Array.from(values.files).forEach((file, index) => {
+      formData.append(`propertyImages[${index}]`, file);
+    });
+  }
 
-    const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-        // Handle form submission here
-        console.log(values);
-        // Reset the form
+  return formData;
+};
+
+const CreateProperty = ({
+  handleCloseModal,
+  propertyId = null,
+  existingPropertyData = {},
+  fetchProperties,
+}) => {
+  const [showForm, setShowForm] = useState(true);
+
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.error("No token found, please log in");
+      return;
+    }
+
+    try {
+      // Create the form data payload
+      const formData = createFormData(values);
+
+      // Make the POST request using form data
+      const response = await fetch(
+        "http://backend.toprofile.com/api/v1/property/",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            // No need for 'Content-Type' header when using FormData
+          },
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        fetchProperties();
         resetForm();
-        // Hide the form and show the Newcounselor component
         setShowForm(false);
-    };
-
-
+        handleCloseModal();
+        console.log("Property submitted successfully!");
+      } else {
+        const errorResponse = await response.json();
+        console.error("Failed to submit property:", errorResponse);
+      }
+    } catch (error) {
+      console.error("Error submitting property:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div>
-    <div className='flex items-center justify-between px-20 pt-10 pb-5 '>
-    <p className='text-xl'>Create Property</p>
-        <MdOutlineCancelPresentation className='h-6 w-6' onClick={handleCloseModal} />
-    </div>
+      <div className="flex items-center justify-end px-20 pt-10 pb-5">
+        <MdOutlineCancelPresentation
+          className="h-6 w-6"
+          onClick={handleCloseModal}
+        />
+      </div>
 
-    <div className='px-20 py-10  '>
-        <div>
+      <div className="px-20 py-10">
+        {showForm && (
+          <Formik
+            initialValues={{
+              title: existingPropertyData.title || "",
+              body: existingPropertyData.body || "",
+              address: existingPropertyData.address || "",
+              land_space: existingPropertyData.land_space || "",
+              amount: existingPropertyData.amount || "",
+              files: null,
+            }}
+            validationSchema={Yup.object({
+              title: Yup.string().required("Title is required"),
+              body: Yup.string().required("Description is required"),
+              address: Yup.string().required("Address is required"),
+              land_space: Yup.number().required("Land space is required"),
+              amount: Yup.number().required("Amount is required"),
+              files: Yup.mixed().required("At least one image is required"),
+            })}
+            onSubmit={handleSubmit}
+          >
+            {({ setFieldValue }) => (
+              <Form className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="title" className="text-sm">
+                    Title
+                  </label>
+                  <Field
+                    type="text"
+                    name="title"
+                    placeholder="Enter property title"
+                    className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
+                  />
+                  <ErrorMessage
+                    name="title"
+                    component="div"
+                    className="text-red-500 text-xs"
+                  />
+                </div>
 
-            <div className=''>
-                <Formik
-                    initialValues={{
-                        title:"",
-                        squaremeter:'',
-                        amount:'',
-                        location:'',
-                        text: '',
+                {/* Address */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="address" className="text-sm">
+                    Address
+                  </label>
+                  <Field
+                    type="text"
+                    name="address"
+                    placeholder="Enter property address"
+                    className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
+                  />
+                  <ErrorMessage
+                    name="address"
+                    component="div"
+                    className="text-red-500 text-xs"
+                  />
+                </div>
+
+                {/* Land Space and Amount */}
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-2 w-[45%]">
+                    <label htmlFor="land_space" className="text-sm">
+                      Land Space (sqft)
+                    </label>
+                    <Field
+                      type="number"
+                      name="land_space"
+                      placeholder="Enter land space"
+                      className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
+                    />
+                    <ErrorMessage
+                      name="land_space"
+                      component="div"
+                      className="text-red-500 text-xs"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2 w-[45%]">
+                    <label htmlFor="amount" className="text-sm">
+                      Amount ($)
+                    </label>
+                    <Field
+                      type="number"
+                      name="amount"
+                      placeholder="Enter property amount"
+                      className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
+                    />
+                    <ErrorMessage
+                      name="amount"
+                      component="div"
+                      className="text-red-500 text-xs"
+                    />
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="body" className="text-sm">
+                    Description
+                  </label>
+                  <Field
+                    as="textarea"
+                    rows={6}
+                    name="body"
+                    placeholder="Enter property description"
+                    className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
+                  />
+                  <ErrorMessage
+                    name="body"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
+                </div>
+
+                {/* Image Upload */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="files" className="text-sm">
+                    Images
+                  </label>
+                  <input
+                    type="file"
+                    name="files"
+                    onChange={(event) => {
+                      setFieldValue("files", event.currentTarget.files); // Allow multiple files
                     }}
-                    validationSchema={Yup.object({
-                        // Validation schema
-                        title: Yup.string().required('Field cannot be empty'),
-                        squaremeter: Yup.string().required('Field cannot be empty'),
-                        amount: Yup.string().required('Field cannot be empty'),
-                        location: Yup.string().required('Field cannot be empty'),
-                        text: Yup.string().required('Field cannot be empty'),
-                        
-                    })}
-                    onSubmit={handleSubmit}
-                >
-                    <Form className='flex flex-col gap-4 '>
-                    <div className='flex flex-col gap-2 '>
-                                <label htmlFor="title" className='text-sm '>Title</label>
-                                <Field
-                                    type="text"
-                                    name="title"
-                                    placeholder="Title"
-                                    className='outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm  focus-visible:bg-white focus-visible:text-blu focus-visible:border-slate-400'
-                                />
-                                <ErrorMessage name="title" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                            </div>
+                    multiple
+                  />
+                  <ErrorMessage
+                    name="files"
+                    component="div"
+                    className="text-red-500 text-xs"
+                  />
+                </div>
 
-                        <div className='flex items-center justify-between'>
-                            <div className='flex flex-col gap-2 w-[40%] xl:w-[45%]'>
-                                <label htmlFor="squaremeter" className='text-sm '>Square kilometer</label>
-                                <Field
-                                    type="text"
-                                    name="squaremeter"
-                                    placeholder="8000 sqm"
-                                    className='outline-none border text-black border-slate-200  bg-transparent rounded px-4 py-2 text-sm  focus-visible:bg-white focus-visible:text-blu focus-visible:border-slate-400'
-                                />
-                                <ErrorMessage name="squaremeter" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                            </div>
-                            <div className='flex flex-col gap-2 w-[40%] xl:w-[45%]'>
-                                <label htmlFor="amount" className='text-sm '>Amount</label>
-                                <Field
-                                    type="text"
-                                    name="amount"
-                                    placeholder="Amount"
-                                    className='outline-none border text-black border-slate-200  bg-transparent rounded px-4 py-2 text-sm  focus-visible:bg-white focus-visible:text-blu focus-visible:border-slate-400'
-                                />
-                                <ErrorMessage name="amount" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                            </div>
-                        </div>
-
-                        <div className='flex flex-col gap-2 w-[40%] xl:w-[45%]'>
-                                <label htmlFor="location" className='text-sm '>Location</label>
-                                <Field
-                                    type="text"
-                                    name="name"
-                                    placeholder="Location"
-                                    className='outline-none border text-black border-slate-200  bg-transparent rounded px-4 py-2 text-sm  focus-visible:bg-white focus-visible:text-blu focus-visible:border-slate-400'
-                                />
-                                <ErrorMessage name="location" component="div" className="text-red-500 text-xs md:text-xl lg:text-sm" />
-                            </div>
-
-
-                        <div className='flex flex-col gap-2'>
-                            <label htmlFor="text" className='xl:text-sm'>Body Text</label>
-                            <Field
-                                as="textarea"
-                                rows={10}
-                                name="text"
-                                placeholder="Write a message"
-                                className='outline-none border text-black border-slate-200  bg-transparent rounded px-4 py-2 text-sm focus-visible:bg-white focus-visible:text-blu focus-visible:border-slate-400'
-                            />
-                            <ErrorMessage name="text" component="div" className="text-red-500 text-sm" />
-                        </div>
-
-
-
-
-
-
-                        <div className='flex items-center justify-center pt-16' >
-                            <button
-                                type="submit"
-                                className='bg-lite text-sm  text-white px-4 py-2  w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base  hover:bg-blue hover:text-white'
-                            >
-                               Create
-                            </button>
-                        </div>
-                    </Form>
-                </Formik>
-            </div>
-        </div>
-
+                {/* Submit button */}
+                <div className="flex items-center justify-center gap-4 pt-16">
+                  <button
+                    type="submit"
+                    className="bg-lite text-sm text-white px-4 py-2 w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base hover:bg-blue"
+                  >
+                    Post Property
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        )}
+      </div>
     </div>
-</div>
-  )
-}
+  );
+};
 
-export default CreateProperty
+export default CreateProperty;

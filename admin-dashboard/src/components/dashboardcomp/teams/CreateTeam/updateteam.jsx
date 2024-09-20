@@ -15,7 +15,7 @@ const convertToBase64 = (file) => {
   });
 };
 
-const CreateTeam = ({ handleCloseModal }) => {
+const UpdateTeam = ({ handleCloseModal }) => {
   const [showForm, setShowForm] = useState(true); // State to control form visibility
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -288,4 +288,4 @@ const CreateTeam = ({ handleCloseModal }) => {
   );
 };
 
-export default CreateTeam;
+export default UpdateTeam;

@@ -11,11 +11,11 @@ import { GoDotFill } from "react-icons/go";
 import { IoMdEye } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-import CreateProperty from "./CreateProperty/createproperty";
+// import CreateProperty from "./CreateProperty/createproperty";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import axios from "axios";
 
-const Property = () => {
+const About = () => {
   const [showModal, setShowModal] = useState(false);
 
   function truncateDescription(description, maxLength) {
@@ -214,17 +214,17 @@ const Property = () => {
         </div>
       </div>
 
-      {showModal && (
+      {/* {showModal && (
         <div className="fixed z-10 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
           <div className="relative w-[70%] top-6 left-[8rem] xl:left-[9rem] xl:top-[1.5rem] h-[80vh] bg-white  shadow-2xl rounded-lg overflow-y-auto">
-            {/* Your modal content goes here */}
+            
             <CreateProperty handleCloseModal={handleCloseModal} />{" "}
-            {/* This assumes your modal content is in the Notifications component */}
+           
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
 
-export default Property;
+export default About;

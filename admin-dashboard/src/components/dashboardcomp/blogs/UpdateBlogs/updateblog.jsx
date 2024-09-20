@@ -3,16 +3,44 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const Createblogs = ({
-  handleCloseModal,
-  blogId = null,
-  existingBlogData = {},
-  fetchBlogs,
-}) => {
+const UpdateBlog = ({ handleCloseModal, blogId, fetchBlogs }) => {
+  const [initialData, setInitialData] = useState(null);
   const [showForm, setShowForm] = useState(true);
 
-  // Load existing blog data if updating
-  const isUpdating = blogId !== null;
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("No token found, please log in");
+          return;
+        }
+
+        const response = await fetch(
+          `http://backend.toprofile.com/api/v1/blog/${blogId}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setInitialData(data.data); // Update to data.data to access actual blog data
+        } else {
+          console.error("Failed to fetch blog:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      }
+    };
+
+    if (blogId) {
+      fetchBlogData();
+    }
+  }, [blogId]);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const token = localStorage.getItem("token");
@@ -23,7 +51,6 @@ const Createblogs = ({
     }
 
     try {
-      // Prepare FormData
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("body", values.text);
@@ -33,63 +60,30 @@ const Createblogs = ({
         formData.append("image", values.image);
       }
 
-      const requestMethod = isUpdating ? "PUT" : "POST";
-      const endpoint = isUpdating
-        ? `http://backend.toprofile.com/api/v1/blog/${blogId}/`
-        : "http://backend.toprofile.com/api/v1/blog/";
-
-      // Make a POST/PUT request to the API
-      const response = await fetch(endpoint, {
-        method: requestMethod,
-        headers: {
-          Authorization: `Bearer ${token}`, // Use the token
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        `http://backend.toprofile.com/api/v1/blog/${blogId}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         fetchBlogs();
         resetForm();
         setShowForm(false);
-        handleCloseModal(); // Optionally hide the form
-        console.log("Blog submitted successfully!");
+        handleCloseModal();
+        console.log("Blog updated successfully!");
       } else {
-        console.error("Failed to submit blog:", response.statusText);
+        console.error("Failed to update blog:", response.statusText);
       }
     } catch (error) {
-      console.error("Error submitting blog:", error);
+      console.error("Error updating blog:", error);
     } finally {
       setSubmitting(false);
-    }
-  };
-
-  const handleDelete = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      console.error("No token found, please log in");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `http://backend.toprofile.com/api/v1/blog/${blogId}/`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`, // Use the token
-          },
-        }
-      );
-
-      if (response.ok) {
-        handleCloseModal();
-        console.log("Blog deleted successfully!");
-      } else {
-        console.error("Failed to delete blog:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error deleting blog:", error);
     }
   };
 
@@ -103,14 +97,15 @@ const Createblogs = ({
       </div>
 
       <div className="px-20 py-10">
-        {showForm && (
+        {showForm && initialData && (
           <Formik
+            enableReinitialize={true}
             initialValues={{
-              title: existingBlogData.title || "",
-              name: existingBlogData.name || "",
-              readingtime: existingBlogData.readingtime || "",
-              text: existingBlogData.text || "",
-              image: null, // File input is always null initially
+              title: initialData?.title || "",
+              name: initialData?.author_name || "",
+              readingtime: initialData?.reading_time || "",
+              text: initialData?.body || "",
+              image: null,
             }}
             validationSchema={Yup.object({
               title: Yup.string().required("Field cannot be empty"),
@@ -139,7 +134,6 @@ const Createblogs = ({
                   <Field
                     type="text"
                     name="title"
-                    placeholder="Enter blog title"
                     className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
                   />
                   <ErrorMessage
@@ -149,7 +143,6 @@ const Createblogs = ({
                   />
                 </div>
 
-                {/* Author Name and Reading Time */}
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col gap-2 w-[40%]">
                     <label htmlFor="name" className="text-sm">
@@ -158,7 +151,6 @@ const Createblogs = ({
                     <Field
                       type="text"
                       name="name"
-                      placeholder="Author name"
                       className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
                     />
                     <ErrorMessage
@@ -174,7 +166,6 @@ const Createblogs = ({
                     <Field
                       type="text"
                       name="readingtime"
-                      placeholder="E.g., 5 mins"
                       className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
                     />
                     <ErrorMessage
@@ -185,7 +176,6 @@ const Createblogs = ({
                   </div>
                 </div>
 
-                {/* Blog Content */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="text" className="text-sm">
                     Content
@@ -194,7 +184,6 @@ const Createblogs = ({
                     as="textarea"
                     rows={10}
                     name="text"
-                    placeholder="Write the blog content"
                     className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
                   />
                   <ErrorMessage
@@ -204,7 +193,6 @@ const Createblogs = ({
                   />
                 </div>
 
-                {/* Image Upload */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="image" className="text-sm">
                     Image
@@ -225,32 +213,13 @@ const Createblogs = ({
                   />
                 </div>
 
-                {/* Submit, Update and Delete buttons */}
-                <div className="flex items-center justify-center gap-4 pt-16">
-                  {!isUpdating ? (
-                    <button
-                      type="submit"
-                      className="bg-lite text-sm text-white px-4 py-2 w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base hover:bg-blue"
-                    >
-                      Post
-                    </button>
-                  ) : (
-                    <>
-                      <button
-                        type="submit"
-                        className="bg-lite text-sm text-white px-4 py-2 w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base hover:bg-blue"
-                      >
-                        Update
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handleDelete}
-                        className="bg-red-500 text-sm text-white px-4 py-2 w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base hover:bg-red-700"
-                      >
-                        Delete
-                      </button>
-                    </>
-                  )}
+                <div className="flex items-center justify-center pt-16">
+                  <button
+                    type="submit"
+                    className="bg-lite text-sm text-white px-4 py-2 w-full lg:w-[50%] xl:w-[20%] rounded xl:text-base hover:bg-blue hover:text-white"
+                  >
+                    Update
+                  </button>
                 </div>
               </Form>
             )}
@@ -261,4 +230,4 @@ const Createblogs = ({
   );
 };
 
-export default Createblogs;
+export default UpdateBlog;
