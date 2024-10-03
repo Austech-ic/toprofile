@@ -11,17 +11,15 @@ import { GoDotFill } from "react-icons/go";
 import { IoMdEye } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-import CreateProperty from "./CreateProperty/createproperty";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import axios from "axios";
-import UpdateProperty from "./updateProperty/updateproperty";
-import CreatePropertyCategory from "./Category/createPropertyCategory";
+import CreateService from "./createService/createservice";
+import UpdateService from "./updateService/updateservice";
 
-const Property = () => {
+const Service = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showCategoryModal, setShowCategoryModal] = useState(false);
-  const [showPropertyModal, setShowPropertyModal] = useState(false);
-  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [showServiceModal, setShowServiceModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
   const token = localStorage.getItem("token");
   function truncateDescription(description, maxLength) {
     // Check if the description is defined and has a valid length
@@ -33,51 +31,42 @@ const Property = () => {
       return description;
     }
   }
-  const handleCreatePropertyClick = () => {
+  const handleCreateServiceClick = () => {
     setShowModal((prevState) => !prevState); // Toggle modal visibility
   };
   const handleCloseModal = () => {
     setShowModal(false); // Close modal
   };
 
-  const [properties, setProperties] = useState([]);
+  const [service, setService] = useState([]);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [totalEntries, setTotalEntries] = useState(0);
   const itemsPerPage = 10;
 
-  const fetchProperties = async () => {
+  const fetchService = async () => {
     try {
       const response = await axios.get(
-        `http://backend.toprofile.com/api/v1/property/`,
-        {
-          params: {
-            page: currentPage,
-            per_page: itemsPerPage,
-          },
-        }
+        `http://backend.toprofile.com/api/v1/our_service/`
       );
-      setProperties(response.data.data);
-      setTotalPages(response.data.meta_data.total_page);
-      setTotalEntries(response.data.meta_data.total);
+      setService(response.data.data);
     } catch (err) {
-      setError("Failed to fetch properties");
+      setError("Failed to fetch service");
       console.error(err);
     }
   };
   useEffect(() => {
-    fetchProperties();
+    fetchService();
   }, [currentPage]);
-
-  const handleDeleteProperty = async (propertySlug) => {
+  const handleDeleteService = async (id) => {
     if (!token) {
       console.error("No token found, please log in");
       return;
     }
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/property/${propertySlug}/`,
+        `http://backend.toprofile.com/api/v1/our_service/${id}/`,
         {
           method: "DELETE",
           headers: {
@@ -91,34 +80,25 @@ const Property = () => {
         throw new Error("Failed to delete the blog");
       }
 
-      fetchProperties();
+      fetchService();
     } catch (error) {
       console.error("Error deleting blog:", error);
       setError(error.message);
     }
   };
-  const handleEditClick = (property) => {
-    setShowPropertyModal(true);
-    setSelectedProperty(property);
+  const handleEditClick = (service) => {
+    setShowServiceModal(true);
+    setSelectedService(service);
   };
-
-  console.log(properties);
   return (
     <div className="bg-white ">
-      <div className="flex justify-end items-center gap-10 px-10 lg:py-10 xl:px-16 xl:py-10 ">
+      <div className="flex justify-end items-center px-10 lg:py-10 xl:px-16 xl:py-10 ">
         <button
           className="bg-lite px-4 py-2 text-white flex justify-center items-center gap-2"
-          onClick={handleCreatePropertyClick}
+          onClick={handleCreateServiceClick}
         >
           <MdAdd color="white" className="text-white h-4 w-4 xl:h-6 xl:w-6" />
-          Create Property
-        </button>
-        <button
-          className="bg-lite px-4 py-2 text-white flex justify-center items-center gap-2"
-          onClick={() => setShowCategoryModal(true)}
-        >
-          <MdAdd color="white" className="text-white h-4 w-4 xl:h-6 xl:w-6" />
-          Category
+          Create Service
         </button>
       </div>
 
@@ -144,7 +124,7 @@ const Property = () => {
                 <p className="text-center text-sm font-medium">Title</p>
               </th>
               <th className="w-[30%]">
-                <p className="text-center text-sm font-medium">Description</p>
+                <p className="text-center text-sm font-medium">Content</p>
               </th>
 
               <th className="w-[15%]">
@@ -152,8 +132,8 @@ const Property = () => {
               </th>
             </tr>
           </thead>
-          {properties.length > 0 ? (
-            properties.map((datum, index) => (
+          {service.length > 0 ? (
+            service.map((datum, index) => (
               <tbody>
                 <tr
                   key={datum.id}
@@ -170,10 +150,10 @@ const Property = () => {
                   <td className="w-[15%] ">
                     <div className="flex items-center justify-center gap-2">
                       <Image
-                        src={datum.propertyImages[0].image}
+                        src={datum.image}
+                        width={"50"}
+                        height={"50"}
                         alt="pic-img"
-                        width={20}
-                        height={20}
                         className="w-[20%] xl:w-[15%]"
                       />
                     </div>
@@ -188,7 +168,7 @@ const Property = () => {
                   <td className="w-[30%] ">
                     <div className="text-center ">
                       <p className="text-xs">
-                        {truncateDescription(datum.body, 40)}
+                        {truncateDescription(datum.content, 40)}
                       </p>
                     </div>
                   </td>
@@ -197,10 +177,10 @@ const Property = () => {
                     <div className="flex justify-center items-center gap-2">
                       <FiEdit
                         className="cursor-pointer"
-                        onClick={() => handleEditClick(datum.slug)}
+                        onClick={() => handleEditClick(datum.id)}
                       />
                       <MdDeleteOutline
-                        onClick={() => handleDeleteProperty(datum.slug)}
+                        onClick={() => handleDeleteService(datum.id)}
                         className="cursor-pointer"
                       />
                     </div>
@@ -210,7 +190,7 @@ const Property = () => {
             ))
           ) : (
             <p className="w-full bg-primary text-center">
-              No property available
+              No Service available
             </p>
           )}
         </table>
@@ -270,33 +250,21 @@ const Property = () => {
         <div className="fixed z-10 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
           <div className="relative w-[70%] top-6 left-[8rem] xl:left-[9rem] xl:top-[1.5rem] h-[80vh] bg-white  shadow-2xl rounded-lg overflow-y-auto">
             {/* Your modal content goes here */}
-            <CreateProperty
-              fetchProperties={fetchProperties}
+            <CreateService
+              fetchService={fetchService}
               handleCloseModal={handleCloseModal}
             />{" "}
             {/* This assumes your modal content is in the Notifications component */}
           </div>
         </div>
       )}
-      {showCategoryModal && (
-        <div className="fixed z-10 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
-          <div className="relative w-[70%] top-6 left-[8rem] xl:left-[9rem] xl:top-[1.5rem] h-[80vh] bg-white  shadow-2xl rounded-lg overflow-y-auto">
-            {/* Your modal content goes here */}
-            <CreatePropertyCategory
-              fetchProperties={fetchProperties}
-              handleCloseModal={setShowCategoryModal(false)}
-            />{" "}
-            {/* This assumes your modal content is in the Notifications component */}
-          </div>
-        </div>
-      )}
-      {showPropertyModal && (
+      {showServiceModal && (
         <div className="fixed z-10 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
           <div className="relative w-[70%] bg-white shadow-2xl rounded-lg overflow-y-auto">
-            <UpdateProperty
-              propertySlug={selectedProperty}
-              handleCloseModal={() => setShowPropertyModal(false)}
-              fetchProperties={fetchProperties}
+            <UpdateService
+              serviceId={selectedService}
+              handleCloseModal={() => setShowServiceModal(false)}
+              fetchService={fetchService}
             />
           </div>
         </div>
@@ -305,4 +273,4 @@ const Property = () => {
   );
 };
 
-export default Property;
+export default Service;

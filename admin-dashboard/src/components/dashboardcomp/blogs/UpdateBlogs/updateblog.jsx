@@ -105,7 +105,7 @@ const UpdateBlog = ({ handleCloseModal, blogId, fetchBlogs }) => {
               name: initialData?.author_name || "",
               readingtime: initialData?.reading_time || "",
               text: initialData?.body || "",
-              image: null,
+              image: initialData?.image || null,
             }}
             validationSchema={Yup.object({
               title: Yup.string().required("Field cannot be empty"),

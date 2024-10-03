@@ -84,13 +84,13 @@ const Sidebar = ({ closeMenu, toggleSidebar }) => {
       link: "/admin/account",
       path: "/admin/account",
     },
-    // {
-    //   id: 7,
-    //   icon: <TbListDetails className={styles.icon} />,
-    //   title: "About",
-    //   link: "/admin/about",
-    //   path: "/admin/about",
-    // },
+    {
+      id: 7,
+      icon: <TbListDetails className={styles.icon} />,
+      title: "Service",
+      link: "/admin/service",
+      path: "/admin/service",
+    },
 
     {
       id: 8,

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { TbUsers } from "react-icons/tb";
 import { PiUsersThreeThin } from "react-icons/pi";
 import red from "../../../../public/img/red.jpeg";
@@ -14,100 +15,62 @@ import kam from "../../../../public/img/nine.png";
 import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
-import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import BarChart from "./barchart/barchart";
 
 const Dashboard = () => {
+  const [dashboardData, setDashboardData] = useState(null);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const response = await fetch(
+          "http://backend.toprofile.com/api/v1/dashboard/"
+        );
+        const data = await response.json();
+        setDashboardData(data.data);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+  console.log("dashboardData", dashboardData);
   const details = [
     {
       id: 1,
       pic: red,
       icon: <TbUsers className="h-6 w-6 xl:w-6 xl:h-6 text-lite" />,
-      text: "2056",
+      text: dashboardData?.visitor || 0,
       textwo: "Visitor",
     },
     {
       id: 2,
       pic: blue,
       icon: <PiUsersThreeThin className="h-6 w-6 xl:w-6 xl:h-6 text-lite" />,
-      text: "20",
+      text: dashboardData?.blogPost || 0,
       textwo: "Blog Post",
     },
     {
       id: 3,
       pic: green,
       icon: <PiUsersThreeThin className="h-6 w-6 xl:w-6 xl:h-6 text-lite" />,
-      text: "5",
+      text: dashboardData?.agent || 0,
       textwo: "Agents",
     },
     {
       id: 4,
       pic: house,
       icon: <PiUsersThreeThin className="h-6 w-6 xl:w-6 xl:h-6 text-lite" />,
-      text: "30",
+      text: dashboardData?.property || 0,
       textwo: "Properties",
     },
   ];
 
-  const cat = [
-    {
-      id: 1,
-      pic: kam,
-      title: "Real estate, the next level power house",
-      date: "20 May 2024",
-      comment: "20 comments",
-      view: "50",
-      action: (
-        <button className="flex items-center justify-center bg-red h-5 w-5 rounded-lg">
-          <MdDeleteOutline className=" text-black h-4 w-4 " />
-        </button>
-      ),
-      actiontwo: (
-        <button className="flex items-center justify-center h-5 w-5 rounded-lg">
-          <FiEdit className="  text-black h-4 w-4 " />
-        </button>
-      ),
-    },
-    {
-      id: 2,
-      pic: kam,
-      title: "Real estate, the next level power house",
-      date: "20 May 2024",
-      comment: "20 comments",
-      view: "50",
-      action: (
-        <button className="flex items-center justify-center bg-red h-5 w-5 rounded-lg">
-          <MdDeleteOutline className=" text-black h-4 w-4 " />
-        </button>
-      ),
-      actiontwo: (
-        <button className="flex items-center justify-center h-5 w-5 rounded-lg">
-          <FiEdit className="  text-black h-4 w-4 " />
-        </button>
-      ),
-    },
-    {
-      id: 3,
-      pic: kam,
-      title: "Real estate, the next level power house",
-      date: "20 May 2024",
-      comment: "20 comments",
-      view: "50",
-      action: (
-        <button className="flex items-center justify-center bg-red h-5 w-5 rounded-lg">
-          <MdDeleteOutline className=" text-black h-4 w-4 " />
-        </button>
-      ),
-      actiontwo: (
-        <button className="flex items-center justify-center h-5 w-5 rounded-lg">
-          <FiEdit className="  text-black h-4 w-4 " />
-        </button>
-      ),
-    },
-  ];
+  const cat = dashboardData?.article || [];
 
   const calculateDeviceUsage = () => {
-    const webUsers = 80;
+    const webUsers = 80; // Example data, replace with real data if available
     const mobileUsers = 20;
 
     return {
@@ -116,7 +79,7 @@ const Dashboard = () => {
         {
           data: [webUsers, mobileUsers],
           backgroundColor: ["#EB6C1F", "#FFEBF0"],
-          borderWidth: 0, // Remove the lines inside the pie chart
+          borderWidth: 0,
         },
       ],
     };
@@ -141,36 +104,27 @@ const Dashboard = () => {
     },
     elements: {
       arc: {
-        borderWidth: 0, // Remove the lines between slices
+        borderWidth: 0,
       },
     },
-    cutout: "70%", // Adjust the size of the circular calculation
+    cutout: "70%",
   };
 
   function truncateTitle(title, maxLength) {
-    // Check if the description is defined and has a valid length
-    if (title && title.length > maxLength) {
-      // Truncate the description and add an ellipsis
-      return `${title.substring(0, maxLength)}...`;
-    } else {
-      // If the description is already shorter or undefined, return it as is
-      return title;
-    }
+    return title && title.length > maxLength
+      ? `${title.substring(0, maxLength)}...`
+      : title;
   }
+
   function truncateComment(comment, maxLength) {
-    // Check if the description is defined and has a valid length
-    if (comment && comment.length > maxLength) {
-      // Truncate the description and add an ellipsis
-      return `${comment.substring(0, maxLength)}...`;
-    } else {
-      // If the description is already shorter or undefined, return it as is
-      return comment;
-    }
+    return comment && comment.length > maxLength
+      ? `${comment.substring(0, maxLength)}...`
+      : comment;
   }
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="grid grid-cols-4  gap-6">
+      <div className="grid grid-cols-4 gap-6">
         {details.map((datum) => (
           <div
             key={datum.id}
@@ -179,31 +133,32 @@ const Dashboard = () => {
             <Image
               src={datum.pic}
               alt="pic-img"
-              className=" w-[25%] xl:w-[20%]"
+              className="w-[25%] xl:w-[20%]"
+              width={"20"}
+              height={"20"}
             />
-
             <div className="flex flex-col justify-center items-center">
               <p className="text-lite text-2xl font-semibold">{datum.text}</p>
-              <p className="text-sm  font-light">{datum.textwo}</p>
+              <p className="text-sm font-light">{datum.textwo}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="style={{ height: '300px' width:'100%' }} bg-white rounded-2xl p-10">
+      <div className="bg-white rounded-2xl p-10">
         <div className="flex items-center gap-10">
-          <p className="text-xs">Vistors Summary</p>
+          <p className="text-xs">Visitors Summary</p>
           <p className="text-xs">Jan 2023 - Dec 2023</p>
         </div>
         <BarChart />
       </div>
       <div className="flex gap-6">
         <div className="flex-2 bg-white p-10 rounded-2xl">
-          <table className="table-auto w-full text-sm ">
-            <thead className=" h-[7vh]">
-              <tr className="">
+          <table className="table-auto w-full text-sm">
+            <thead className="h-[7vh]">
+              <tr>
                 <th className="w-[40%]">
                   <div className="flex items-center gap-2 justify-start">
-                    <p className="text-center text-sm  font-medium">
+                    <p className="text-center text-sm font-medium">
                       Popular Article
                     </p>
                   </div>
@@ -215,7 +170,7 @@ const Dashboard = () => {
                   <p className="text-center text-sm font-medium">Views</p>
                 </th>
                 <th className="w-[20%]">
-                  <p className="text-center text-sm font-medium ">Comment</p>
+                  <p className="text-center text-sm font-medium">Comment</p>
                 </th>
               </tr>
             </thead>
@@ -223,14 +178,16 @@ const Dashboard = () => {
               {cat.map((datum) => (
                 <tr
                   key={datum.id}
-                  className="h-[6vh]  border-b border-slate-300 text-black "
+                  className="h-[6vh] border-b border-slate-300 text-black"
                 >
                   <td className="w-[40%] ">
                     <div className="flex items-center justify-start gap-4">
                       <Image
-                        src={datum.pic}
+                        src={datum.image}
                         alt="pic-img"
                         className="w-[20%] xl:w-[20%]"
+                        width={"20"}
+                        height={"20"}
                       />
                       <div>
                         <p className="text-xs xl:text-sm text-black">
@@ -239,9 +196,8 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </td>
-
-                  <td className=" w-[20%]">
-                    <div className="text-center ">
+                  <td className="w-[20%]">
+                    <div className="text-center">
                       <p className="text-xs xl:text-sm">{datum.date}</p>
                     </div>
                   </td>
@@ -264,23 +220,12 @@ const Dashboard = () => {
         <div className="flex-1 bg-white p-5 xl:p-10 rounded-2xl">
           <p className="text-sm text-center font-semibold">USED DEVICE</p>
           <div className="flex justify-center items-center">
-            <div className="w-[80%] xl:w-[70%]  pt-5">
+            <div className="w-[80%] xl:w-[70%] pt-5">
               <Pie
                 data={calculateDeviceUsage()}
                 options={pieOptions}
                 className="w-[100%]"
               />
-
-              {/* <div className="flex justify-center items-center gap-10 pt-5">
-        <div  className="flex justify-center items-center gap-2">
-            <div className="bg-orange h-3 w-3  rounded-full"></div>
-       <p className="text-xs">Web</p>
-       </div>
-       <div  className="flex justify-center items-center gap-2">
-       <div className="bg-pink h-3 w-3  rounded-full"></div>
-       <p className="text-xs">Mobile</p>
-       </div>
-        </div> */}
             </div>
           </div>
         </div>
