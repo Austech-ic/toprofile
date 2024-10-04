@@ -85,7 +85,7 @@ const About = () => {
       <div className="px-10 xl:px-16 ">
         {properties.length > 0 ? (
           properties.map((datum) => (
-            <table className="table-auto w-full text-sm xl:text-base ">
+            <table key={datum.id} className="table-auto w-full text-sm xl:text-base ">
               <thead className=" h-[7vh]">
                 <tr className="">
                   <th className="w-[10%]">

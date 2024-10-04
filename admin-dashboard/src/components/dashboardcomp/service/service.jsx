@@ -134,7 +134,7 @@ const Service = () => {
           </thead>
           {service.length > 0 ? (
             service.map((datum, index) => (
-              <tbody>
+              <tbody key={datum.id}>
                 <tr
                   key={datum.id}
                   className="h-[6vh] bg-white border-b border-slate-300 text-black "

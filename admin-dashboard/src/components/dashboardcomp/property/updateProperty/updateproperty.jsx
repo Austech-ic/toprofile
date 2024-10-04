@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Image from "next/image";
 
 // Function to convert a file to base64
 const convertToBase64 = (file) => {
@@ -411,7 +412,7 @@ const UpdateProperty = ({
                         className="outline-none border text-black border-slate-200 bg-transparent rounded px-4 py-2 text-sm"
                       />
                       {existingPropertyData.propertyImages[index] && (
-                        <img
+                        <Image
                           src={existingPropertyData.propertyImages[index].image}
                           alt={`Property Image ${index + 1}`}
                           className="w-32 h-32 object-cover"

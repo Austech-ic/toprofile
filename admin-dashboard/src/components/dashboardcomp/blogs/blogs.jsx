@@ -7,6 +7,7 @@ import { IoMdEye } from "react-icons/io";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import Createblogs from "./CreateBlogs/createblogs";
 import UpdateBlog from "./UpdateBlogs/updateblog";
+import Image from "next/image";
 
 const Blogs = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,8 +15,9 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const token = localStorage.getItem("token");
   const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const token = localStorage.getItem("token");
 
   const formatDate = (dateString) => {
     try {
@@ -26,11 +28,6 @@ const Blogs = () => {
     }
   };
 
-  if (!token) {
-    console.error("No token found, please log in");
-    return;
-  }
-
   const handleEditClick = (blog) => {
     setShowBlogModal(true);
     setSelectedBlog(blog);
@@ -38,16 +35,13 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch(
-        "http://backend.toprofile.com/api/v1/blog/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch("http://backend.toprofile.com/api/v1/blog/", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -61,8 +55,14 @@ const Blogs = () => {
   };
 
   useEffect(() => {
+    if (!token) {
+      console.error("No token found, please log in");
+      setError("No token found, please log in");
+      setLoading(false);
+      return;
+    }
     fetchBlogs();
-  }, [showModal]);
+  }, [showModal, token]); // Always include 'token' as a dependency
 
   const handleDeleteBlog = async (slug) => {
     try {
@@ -94,9 +94,10 @@ const Blogs = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  console.log("reponse>>>", blogs);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
 
   return (
     <div className="bg-white">
@@ -134,7 +135,7 @@ const Blogs = () => {
               >
                 <td className="text-center">{index + 1}</td>
                 <td className="text-center">
-                  <img
+                  <Image
                     src={datum.image || "placeholder.jpg"} // Replace with actual URL or a placeholder
                     alt={datum.title}
                     className="h-12 w-12 object-cover mx-auto"
