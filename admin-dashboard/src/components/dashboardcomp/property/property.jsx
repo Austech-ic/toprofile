@@ -17,6 +17,8 @@ import axios from "axios";
 import UpdateProperty from "./updateProperty/updateproperty";
 import CreatePropertyCategory from "./Category/createPropertyCategory";
 
+
+
 const Property = () => {
   const [showModal, setShowModal] = useState(false);
   const [showCategoryModal, setShowCategoryModal] = useState(false);

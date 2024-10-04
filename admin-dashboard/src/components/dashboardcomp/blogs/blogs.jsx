@@ -17,7 +17,7 @@ const Blogs = () => {
   const [error, setError] = useState(null);
   const [selectedBlog, setSelectedBlog] = useState(null);
 
-  const token = localStorage.getItem("token");
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   const formatDate = (dateString) => {
     try {
@@ -33,7 +33,7 @@ const Blogs = () => {
     setSelectedBlog(blog);
   };
 
-  const fetchBlogs = async () => {
+  const fetchBlogs = useCallback(async () => {
     try {
       const response = await fetch("http://backend.toprofile.com/api/v1/blog/", {
         method: "GET",
@@ -52,7 +52,7 @@ const Blogs = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
 
   useEffect(() => {
     if (!token) {
@@ -62,7 +62,7 @@ const Blogs = () => {
       return;
     }
     fetchBlogs();
-  }, [showModal, token]); // Always include 'token' as a dependency
+  }, [showModal, token, fetchBlogs]);
 
   const handleDeleteBlog = async (slug) => {
     try {
@@ -97,7 +97,6 @@ const Blogs = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-
 
   return (
     <div className="bg-white">
