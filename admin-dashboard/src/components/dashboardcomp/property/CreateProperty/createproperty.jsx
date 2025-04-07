@@ -3,6 +3,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Select } from "@chakra-ui/react";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 // Function to convert a file to base64
 const convertToBase64 = (file) => {
@@ -27,12 +28,12 @@ const CreateProperty = ({
   const [selectedCategoryId, setSelectedCategoryId] = useState(null); // State for selected category ID
 
   const getCategories = async () => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage()
     if (!token) return;
 
     try {
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/property/listing/category/",
+        "https://toprofile-backend.onrender.com/api/v1/property/listing/category/",
         {
           method: "GET",
           headers: {
@@ -41,6 +42,7 @@ const CreateProperty = ({
           },
         }
       );
+      console.log(response)
       if (response.ok) {
         const data = await response.json();
         setCategories(data.data); // Set the categories in state
@@ -58,7 +60,7 @@ const CreateProperty = ({
   }, [loading]);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -96,7 +98,7 @@ const CreateProperty = ({
 
       // Make the POST request
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/property/",
+        "https://toprofile-backend.onrender.com/api/v1/property/",
         {
           method: "POST",
           headers: {

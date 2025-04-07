@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const Createblogs = ({
   handleCloseModal,
@@ -15,7 +16,7 @@ const Createblogs = ({
   const isUpdating = blogId !== null;
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -35,8 +36,8 @@ const Createblogs = ({
 
       const requestMethod = isUpdating ? "PUT" : "POST";
       const endpoint = isUpdating
-        ? `http://backend.toprofile.com/api/v1/blog/${blogId}/`
-        : "http://backend.toprofile.com/api/v1/blog/";
+        ? `https://toprofile-backend.onrender.com/api/v1/blog/${blogId}/`
+        : "https://toprofile-backend.onrender.com/api/v1/blog/";
 
       // Make a POST/PUT request to the API
       const response = await fetch(endpoint, {
@@ -64,7 +65,7 @@ const Createblogs = ({
   };
 
   const handleDelete = async () => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -73,7 +74,7 @@ const Createblogs = ({
 
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/blog/${blogId}/`,
+        `https://toprofile-backend.onrender.com/api/v1/blog/${blogId}/`,
         {
           method: "DELETE",
           headers: {

@@ -16,6 +16,7 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import axios from "axios";
 import UpdateProperty from "./updateProperty/updateproperty";
 import CreatePropertyCategory from "./Category/createPropertyCategory";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 
 
@@ -24,7 +25,7 @@ const Property = () => {
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [showPropertyModal, setShowPropertyModal] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = getTokenTOLocalStorage();
   function truncateDescription(description, maxLength) {
     // Check if the description is defined and has a valid length
     if (description && description.length > maxLength) {
@@ -52,7 +53,7 @@ const Property = () => {
   const fetchProperties = async () => {
     try {
       const response = await axios.get(
-        `http://backend.toprofile.com/api/v1/property/`,
+        `https://toprofile-backend.onrender.com/api/v1/property/`,
         {
           params: {
             page: currentPage,
@@ -79,7 +80,7 @@ const Property = () => {
     }
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/property/${propertySlug}/`,
+        `https://toprofile-backend.onrender.com/api/v1/property/${propertySlug}/`,
         {
           method: "DELETE",
           headers: {
@@ -104,7 +105,6 @@ const Property = () => {
     setSelectedProperty(property);
   };
 
-  console.log(properties);
   return (
     <div className="bg-white ">
       <div className="flex justify-end items-center gap-10 px-10 lg:py-10 xl:px-16 xl:py-10 ">

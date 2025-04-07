@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const UpdateTestimonial = ({
   handleCloseModal,
@@ -19,7 +20,7 @@ const UpdateTestimonial = ({
   // Fetch existing testimonial data when component mounts
   useEffect(() => {
     const fetchTestimonialData = async () => {
-      const token = localStorage.getItem("token");
+      const token = getTokenTOLocalStorage();
 
       if (!token) {
         console.error("No token found, please log in");
@@ -29,7 +30,7 @@ const UpdateTestimonial = ({
       try {
         setLoading(true);
         const response = await fetch(
-          `http://backend.toprofile.com/api/v1/testimony/${testimonialId}/`,
+          `https://toprofile-backend.onrender.com/api/v1/testimony/${testimonialId}/`,
           {
             method: "GET",
             headers: {
@@ -60,7 +61,7 @@ const UpdateTestimonial = ({
   }, [testimonialId]);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -81,7 +82,7 @@ const UpdateTestimonial = ({
 
       // Make a PUT request to the API to update the testimonial by ID
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/testimony/${testimonialId}/`,
+        `https://toprofile-backend.onrender.com/api/v1/testimony/${testimonialId}/`,
         {
           method: "PUT",
           headers: {

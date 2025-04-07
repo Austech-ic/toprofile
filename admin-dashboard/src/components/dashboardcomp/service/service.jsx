@@ -15,12 +15,13 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import axios from "axios";
 import CreateService from "./createService/createservice";
 import UpdateService from "./updateService/updateservice";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const Service = () => {
   const [showModal, setShowModal] = useState(false);
   const [showServiceModal, setShowServiceModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = getTokenTOLocalStorage();
   function truncateDescription(description, maxLength) {
     // Check if the description is defined and has a valid length
     if (description && description.length > maxLength) {
@@ -48,7 +49,7 @@ const Service = () => {
   const fetchService = async () => {
     try {
       const response = await axios.get(
-        `http://backend.toprofile.com/api/v1/our_service/`
+        `https://toprofile-backend.onrender.com/api/v1/our_service/`
       );
       setService(response.data.data);
     } catch (err) {
@@ -66,7 +67,7 @@ const Service = () => {
     }
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/our_service/${id}/`,
+        `https://toprofile-backend.onrender.com/api/v1/our_service/${id}/`,
         {
           method: "DELETE",
           headers: {

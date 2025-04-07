@@ -6,6 +6,7 @@ import {
 } from "react-icons/md"; // Importing the delete icon
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const CreatePropertyCategory = ({ handleCloseModal }) => {
   const [loading, setLoading] = useState(false);
@@ -14,12 +15,12 @@ const CreatePropertyCategory = ({ handleCloseModal }) => {
 
   // Function to fetch all categories
   const getCategories = async () => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
     if (!token) return;
 
     try {
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/property/listing/category/",
+        "https://toprofile-backend.onrender.com/api/v1/property/listing/category/",
         {
           method: "GET",
           headers: {
@@ -45,7 +46,7 @@ const CreatePropertyCategory = ({ handleCloseModal }) => {
   }, [loading]);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
     if (!token) {
       setMessage("No token found. Please log in.");
       return;
@@ -58,7 +59,7 @@ const CreatePropertyCategory = ({ handleCloseModal }) => {
       };
 
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/property/listing/category/",
+        "https://toprofile-backend.onrender.com/api/v1/property/listing/category/",
         {
           method: "POST",
           headers: {
@@ -86,7 +87,7 @@ const CreatePropertyCategory = ({ handleCloseModal }) => {
 
   // Function to delete a category
   const handleDelete = async (categoryId) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
     if (!token) {
       setMessage("No token found. Please log in.");
       return;
@@ -95,7 +96,7 @@ const CreatePropertyCategory = ({ handleCloseModal }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/property/listing/category/${categoryId}/`, // Adjust the URL according to your API
+        `https://toprofile-backend.onrender.com/api/v1/property/listing/category/${categoryId}/`, // Adjust the URL according to your API
         {
           method: "DELETE",
           headers: {

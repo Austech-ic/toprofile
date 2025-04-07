@@ -1,4 +1,3 @@
-import React from "react";
 import AdminLayout from "../../../components/layouts/AdminLayouts/Adminlayouts";
 import Dashboard from "@/components/dashboardcomp/dashboard/dashboard";
 

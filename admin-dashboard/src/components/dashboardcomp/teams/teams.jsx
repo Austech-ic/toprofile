@@ -9,6 +9,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import CreateTeam from "./CreateTeam/createteam";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const Teams = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ const Teams = () => {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = getTokenTOLocalStorage();
   const [selectedTeam, setSelectedTeam] = useState(null);
   const formatDate = (dateString) => {
     try {
@@ -38,7 +39,7 @@ const Teams = () => {
     }
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/our_team/${id}/`,
+        `https://toprofile-backend.onrender.com/api/v1/our_team/${id}/`,
         {
           method: "DELETE",
           headers: {
@@ -66,7 +67,7 @@ const Teams = () => {
   const fetchTeam = async () => {
     try {
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/our_team/",
+        "https://toprofile-backend.onrender.com/api/v1/our_team/",
         {
           method: "GET",
           headers: {

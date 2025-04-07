@@ -26,7 +26,7 @@ const SignupComp = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        `https://backend.toprofile.com/api/v1/auth/sign-up`,
+        `https://toprofile-backend.onrender.com/api/v1/auth/sign-up/`,
         {
           username: values.username,
           email: values.email,
@@ -34,8 +34,8 @@ const SignupComp = () => {
           password: values.password,
         }
       );
-
-      if (response.status === 200) {
+      console.log(response)
+      if (response.status === 201) {
         toast({
           title: "Registration Successful",
           description: "You have successfully registered.",
@@ -44,7 +44,7 @@ const SignupComp = () => {
           duration: 5000,
           isClosable: true,
         });
-        router.push("/login"); // Redirect after successful registration
+        router.push("/auth/login"); // Redirect after successful registration
       } else {
         toast({
           title: "Authentication Failed",

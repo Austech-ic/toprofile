@@ -21,7 +21,7 @@ const UpdateTeam = ({ handleCloseModal }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     console.log("Form Submitted:", values);
 
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
     console.log("Token:", token);
 
     if (!token) {
@@ -51,7 +51,7 @@ const UpdateTeam = ({ handleCloseModal }) => {
       console.log("Payload:", payload);
 
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/our_team/",
+        "https://toprofile-backend.onrender.com/api/v1/our_team/",
         {
           method: "POST",
           headers: {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 // Function to convert image files to base64
 const fileToBase64 = (file) => {
@@ -20,14 +21,14 @@ const UpdateService = ({ handleCloseModal, serviceId, fetchService }) => {
   useEffect(() => {
     const fetchServiceData = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token = getTokenTOLocalStorage();
         if (!token) {
           console.error("No token found, please log in");
           return;
         }
 
         const response = await fetch(
-          `http://backend.toprofile.com/api/v1/our_service/${serviceId}`,
+          `https://toprofile-backend.onrender.com/api/v1/our_service/${serviceId}`,
           {
             method: "GET",
             headers: {
@@ -53,7 +54,7 @@ const UpdateService = ({ handleCloseModal, serviceId, fetchService }) => {
   }, [serviceId]);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -81,7 +82,7 @@ const UpdateService = ({ handleCloseModal, serviceId, fetchService }) => {
       console.log("Payload:", payload);
 
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/our_service/${serviceId}`,
+        `https://toprofile-backend.onrender.com/api/v1/our_service/${serviceId}`,
         {
           method: "PUT",
           headers: {

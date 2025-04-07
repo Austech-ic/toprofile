@@ -4,6 +4,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 // Define the image conversion function
 const convertToBase64 = (file) => {
@@ -21,7 +22,7 @@ const CreateTeam = ({ handleCloseModal }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     console.log("Form Submitted:", values);
 
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
     console.log("Token:", token);
 
     if (!token) {
@@ -51,7 +52,7 @@ const CreateTeam = ({ handleCloseModal }) => {
       console.log("Payload:", payload);
 
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/our_team/",
+        "https://toprofile-backend.onrender.com/api/v1/our_team/",
         {
           method: "POST",
           headers: {

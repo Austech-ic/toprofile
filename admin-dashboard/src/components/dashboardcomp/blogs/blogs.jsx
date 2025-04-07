@@ -8,6 +8,7 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import Createblogs from "./CreateBlogs/createblogs";
 import UpdateBlog from "./UpdateBlogs/updateblog";
 import Image from "next/image";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const Blogs = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ const Blogs = () => {
   const [error, setError] = useState(null);
   const [selectedBlog, setSelectedBlog] = useState(null);
 
-  const token = localStorage.getItem("token");
+  const token = getTokenTOLocalStorage();
 
   const formatDate = (dateString) => {
     try {
@@ -35,7 +36,7 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch("http://backend.toprofile.com/api/v1/blog/", {
+      const response = await fetch("https://toprofile-backend.onrender.com/api/v1/blog/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -67,7 +68,7 @@ const Blogs = () => {
   const handleDeleteBlog = async (slug) => {
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/blog/${slug}/`,
+        `https://toprofile-backend.onrender.com/api/v1/blog/${slug}/`,
         {
           method: "DELETE",
           headers: {

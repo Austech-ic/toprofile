@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const convertToBase64 = (file) => {
   return new Promise((resolve, reject) => {
@@ -17,7 +18,7 @@ const CreateTestimonial = ({ handleCloseModal, fetchTestimonials }) => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -39,7 +40,7 @@ const CreateTestimonial = ({ handleCloseModal, fetchTestimonials }) => {
       console.log("payload>>>", payload);
       // Make a POST request to the API
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/testimony/",
+        "https://toprofile-backend.onrender.com/api/v1/testimony/",
         {
           method: "POST",
           headers: {

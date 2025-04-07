@@ -3,6 +3,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Image from "next/image";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 // Function to convert a file to base64
 const convertToBase64 = (file) => {
@@ -26,10 +27,10 @@ const UpdateProperty = ({
   // Fetch the existing property data to populate the form
   useEffect(() => {
     const fetchPropertyData = async () => {
-      const token = localStorage.getItem("token");
+      const token = getTokenTOLocalStorage();
       try {
         const response = await fetch(
-          `http://backend.toprofile.com/api/v1/property/${propertySlug}`,
+          `https://toprofile-backend.onrender.com/api/v1/property/${propertySlug}`,
           {
             method: "GET",
             headers: {
@@ -47,10 +48,10 @@ const UpdateProperty = ({
     };
 
     const fetchCategories = async () => {
-      const token = localStorage.getItem("token");
+      const token = getTokenTOLocalStorage();
       try {
         const response = await fetch(
-          `http://backend.toprofile.com/api/v1/property/listing/category/`,
+          `https://toprofile-backend.onrender.com/api/v1/property/listing/category/`,
           {
             method: "GET",
             headers: {
@@ -70,7 +71,7 @@ const UpdateProperty = ({
   }, [propertySlug]);
 
   // const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-  //   const token = localStorage.getItem("token");
+  //   const token = getTokenTOLocalStorage();
 
   //   if (!token) {
   //     console.error("No token found, please log in");
@@ -103,7 +104,7 @@ const UpdateProperty = ({
   //     };
 
   //     const response = await fetch(
-  //       `http://backend.toprofile.com/api/v1/property/${propertySlug}`,
+  //       `https://toprofile-backend.onrender.com/api/v1/property/${propertySlug}`,
   //       {
   //         method: "PUT",
   //         headers: {
@@ -131,7 +132,7 @@ const UpdateProperty = ({
   // };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -174,7 +175,7 @@ const UpdateProperty = ({
       };
 
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/property/${propertySlug}`,
+        `https://toprofile-backend.onrender.com/api/v1/property/${propertySlug}`,
         {
           method: "PUT",
           headers: {
@@ -189,7 +190,6 @@ const UpdateProperty = ({
         fetchProperties();
         resetForm();
         handleCloseModal();
-        console.log("Property updated successfully!");
       } else {
         const errorResponse = await response.json();
         console.error("Failed to update property:", errorResponse);

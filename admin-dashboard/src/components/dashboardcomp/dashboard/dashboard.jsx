@@ -16,26 +16,31 @@ import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
 import BarChart from "./barchart/barchart";
+import client from "@/components/utils/client";
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
+  const [fetchStatus, setFetchStatus] = useState({
+    isLoading: true,
+    isError: false,
+    error: null,
+  });
 
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch(
-          "http://backend.toprofile.com/api/v1/dashboard/"
-        );
-        const data = await response.json();
-        setDashboardData(data.data);
+        setFetchStatus((prev) => ({ ...prev, isLoading: true }));
+        const response = await client("/dashboard/");
+        setDashboardData(response.data.data);
+        setFetchStatus({ isLoading: false, isError: false, error: null });
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
+        setFetchStatus({ isLoading: false, isError: true, error });
       }
     };
 
     fetchDashboardData();
   }, []);
-  console.log("dashboardData", dashboardData);
   const details = [
     {
       id: 1,
@@ -122,7 +127,7 @@ const Dashboard = () => {
       : comment;
   }
 
-  return (
+  return ( fetchStatus.isLoading ? <h1>Loading...</h1>:
     <div className="flex flex-col gap-10">
       <div className="grid grid-cols-4 gap-6">
         {details.map((datum) => (

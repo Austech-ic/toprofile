@@ -10,6 +10,7 @@ import Bgg from "../../../../public/img/bgg.jpeg";
 import bg from "../../../../public/img/to.png";
 import styles from "./logincomp.module.css";
 import Image from "next/image";
+import { addTokenTOLocalStorage } from "@/components/utils/storage";
 
 const LoginComp = () => {
   const toast = useToast();
@@ -21,10 +22,10 @@ const LoginComp = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values) => {
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/auth/login/`,
+        `https://toprofile-backend.onrender.com/api/v1/auth/login/`,
         {
           method: "POST",
           headers: {
@@ -39,6 +40,7 @@ const LoginComp = () => {
 
       if (response.ok) {
         const data = await response.json(); // Parse the JSON response
+        addTokenTOLocalStorage(data.data.access)
         toast({
           title: "Login Successful",
           description: "You have successfully logged in.",
@@ -71,7 +73,6 @@ const LoginComp = () => {
         isClosable: true,
       });
     }
-    setSubmitting(false);
   };
 
   return (
@@ -175,6 +176,7 @@ const LoginComp = () => {
                         type="submit"
                         className="bg-lite text-white px-8 py-2 lg:py-3 w-full text-xs md:text-2xl lg:text-base rounded-2xl"
                         disabled={isSubmitting}
+                        onClick={() => handleSubmit()}
                       >
                         Login
                       </button>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 // Function to convert image files to base64
 const fileToBase64 = (file) => {
@@ -20,7 +21,7 @@ const CreateService = ({
   const [showForm, setShowForm] = useState(true);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const token = localStorage.getItem("token");
+    const token = getTokenTOLocalStorage();
 
     if (!token) {
       console.error("No token found, please log in");
@@ -40,7 +41,7 @@ const CreateService = ({
       };
 
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/our_service/",
+        "https://toprofile-backend.onrender.com/api/v1/our_service/",
         {
           method: "POST",
           headers: {

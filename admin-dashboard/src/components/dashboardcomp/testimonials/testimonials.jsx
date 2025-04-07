@@ -14,12 +14,13 @@ import { FiEdit } from "react-icons/fi";
 import CreateTestimonial from "./CreateTestimonial/createTestimonial";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import UpdateTestimonial from "./UpdateTestimonial/updateTestimonial";
+import { getTokenTOLocalStorage } from "@/components/utils/storage";
 
 const Testimonials = () => {
   const [testimonial, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = getTokenTOLocalStorage();
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
 
@@ -43,7 +44,7 @@ const Testimonials = () => {
   const fetchTestimonials = async () => {
     try {
       const response = await fetch(
-        "http://backend.toprofile.com/api/v1/testimony/",
+        "https://toprofile-backend.onrender.com/api/v1/testimony/",
         {
           method: "GET",
           headers: {
@@ -87,7 +88,7 @@ const Testimonials = () => {
     }
     try {
       const response = await fetch(
-        `http://backend.toprofile.com/api/v1/testimony/${id}/`,
+        `https://toprofile-backend.onrender.com/api/v1/testimony/${id}/`,
         {
           method: "DELETE",
           headers: {
